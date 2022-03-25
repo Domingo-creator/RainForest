@@ -1,0 +1,1 @@
+json.partial! '/api/reviewss/review', review: @review

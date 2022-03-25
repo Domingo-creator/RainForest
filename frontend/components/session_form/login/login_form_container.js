@@ -6,14 +6,13 @@ import LogInForm from "./login_form"
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        errors: Object.values(state.errors),
-        formType: 'login'
+        errors: Object.values(state.errors.session),
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        processForm: (user) =>  dispatch(login(user))
+        login: (user) =>  dispatch(login(user))
     }
 }
 

@@ -24,19 +24,61 @@
     border-radius:5px;
     cursor:pointer;
     box-shadow: 1px 2px 2px black;
-
 }
 
-:visited {
+.continue-button {
+    margin-top: 20px;
+    // margin-bottom: 30px;
+    text-align: center;
+    max-height: 30px;
+    min-width: 350px;
+    max-width: 350px;
+    background-color: rgba(224, 191, 101, 0.938);
+    padding: 8px 20px;
+    text-decoration:none;
+    border-radius:5px;
+    cursor:pointer;
+    border-color: rgba(255, 123, 0, 0.226);
+    box-shadow: .1px .1px .1px rgba(235, 144, 92, 0.089);
+}
+
+.account-button {
+    text-align: center;
+    max-height: 30px;
+    min-width: 350px;
+    max-width: 350px;
+    background-color: rgb(245, 243, 243);
+    padding: 8px 20px;
+    margin-top: 30px;
+    text-decoration:none;
+    border-radius:5px;
+    cursor:pointer;
+    border: .5px black solid;
+    box-shadow: .5px .5px .5px black;
+}
+
+// :visited {
+//     text-decoration: none;
+//     color: inherit;
+// }
+
+.logo {
+    font-size: 30px;
     text-decoration: none;
-    color: inherit;
+} 
+
+.logo:visited{
+    color: inherit
 }
 
-.signup-link {
+
+.link, .link:visited{
     color: blue;
+    text-decoration: none;
 }
 
-.signup-link:hover {
+
+.link:hover {
     color: orange;
     text-decoration: underline;
 }
@@ -48,6 +90,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: baseline;
 }
 
 .dropdown-menu {
@@ -98,8 +141,16 @@
     align-items: center;
 }
 
+.session-form-container label {
+    font-weight: bold;
+}
+
 .session-form-container label, input{
     display: block;
+}
+
+.session-form-container input {
+    width: 350px;
 }
 
 .session-form {
@@ -121,4 +172,37 @@ main {
     justify-content: center;
 }
 
+.session-form-container input:focus {
+    box-shadow: 0px 1px 1px 0px rgb(255, 217, 0);
+    border-color: orange;
+}
+
+
+.input-error-highlight, .session-form-container .input-error-highlight:focus {
+    box-shadow: 0px 1px 1px 0px red;
+    border-color: red;
+}
+
+
+.error-message {
+    color: red;
+    font-style: italic;
+    min-height: 20px;
+    margin-top: 0px;
+}
+.login-footer, .login-footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-footer p {
+    margin-bottom: -20px;
+    margin-top: 30px;
+}
+
+
+input:focus, input {
+    outline: none !important;
+}
 

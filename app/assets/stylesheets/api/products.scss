@@ -1,0 +1,34 @@
+// Place all the styles related to the api/products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.product-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+.product-list li {
+    width: 20vw;
+    border: .1px solid lightgrey;
+    height: 60vh;
+}
+
+.product-show-section-1 {
+    display: flex;
+    flex-direction: row;
+
+}
+.product-image {
+    width: 400px;
+    height: 400px;;
+}
+
+.main-product-section {
+    width: 400px;
+}
+
+
+

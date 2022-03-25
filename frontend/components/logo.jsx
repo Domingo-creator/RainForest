@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Logo = () => {
     return (
-        <h1 className="logo">RainForest</h1>
+        <Link to="/" className="logo">RainForest</Link>
     )
 }
 

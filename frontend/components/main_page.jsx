@@ -4,6 +4,7 @@ import NavBelt from './navigation_bar/navigation_bar';
 import ProductIndexContainer from "./products/product_index/product_index_container"
 import ProductShowContainer from './products/product_show/product_show_container';
 import CartItemIndexContainer from './cart_items/cart_item_index_container'
+import CreateReviewFormContainer from './reviews/review_form/create_review_form_container';
 
 const MainPage = () => {
     return (

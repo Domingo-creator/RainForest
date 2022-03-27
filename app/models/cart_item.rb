@@ -8,4 +8,6 @@ class CartItem < ApplicationRecord
     belongs_to :products,
         foreign_key: :productId,
         class_name: :Product
+
+    
 end

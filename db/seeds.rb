@@ -199,8 +199,7 @@ products = Product.create([
     Item model number  :  PT4001
     Date First Available  :  February 8, 2020
     Manufacturer  :  Petech
-    ASIN  :  B082WQRPDH'}
-}
+    ASIN  :  B082WQRPDH'},
 
     {name: 'RainForest Basics Dog and Puppy Pads, Leak-proof 5-Layer Pee Pads with Quick-dry Surface for Potty Training' ,
     price: 29.74 ,category: 'Pet Supplies',
@@ -214,8 +213,7 @@ products = Product.create([
     Item model number  :  TRP100R
     Date First Available  :  April 1, 2015
     Manufacturer  :  Amazon Basics
-    ASIN  :  B00MW8G62E'}
-}
+    ASIN  :  B00MW8G62E'},
 
     {name: 'Voyager Step-in Air Dog Harness - All Weather Mesh Step in Vest Harness for Small and Medium Dogs by Best Pet Supplies',
     price: 12.99,category: 'Pet Supplies',
@@ -229,8 +227,7 @@ products = Product.create([
     Item model number  :  207-BU-XL
     Date First Available  :  April 23, 2013
     Manufacturer  :  Best Pet Supplies, Inc.
-    ASIN  :  B00CHSVYWG' }
-}
+    ASIN  :  B00CHSVYWG' },
 
     {name: 'Best Pet Supplies Dog Poop Bags for Waste Refuse Cleanup, Doggy Roll Replacements for Outdoor Puppy Walking and Travel, Leak Proof and Tear Resistant, Thick Plastic - Mixed Colors, 240 Bags',
     price: 9.99,category: 'Pet Supplies',
@@ -250,8 +247,7 @@ products = Product.create([
     Size	:   240 Bags
     Color	:   Assorted Colors
     Material	:   Plastic
-    Item Package Quantity	:   1'}
-}
+    Item Package Quantity	:   1'},
 
     {name: 'Best Pet Supplies 2-in-1 Fun Skin Stuffless Dog Squeaky Toy and Plush toys',
     price: 5.99,category: 'Pet Supplies',
@@ -265,8 +261,7 @@ products = Product.create([
     Item model number  :  PT08-S
     Date First Available  :  October 23, 2013
     Manufacturer  :  Best Pet Supplies
-    ASIN  :  B00G5M75UK'}
-}
+    ASIN  :  B00G5M75UK'},
 
     {name: 'AESROSON Pet Stain and Odor Eliminator Spray - 3-in-1 Formula Natural Pet Odor Spray- All-Purpose Carpet Deodorizer for Pet Urine, Floor Cleaner, and Fabric Stain Remover Enzyme Cleaner - 32 fl oz' ,
     price: 29.99 ,category: 'Pet Supplies',
@@ -279,8 +274,7 @@ products = Product.create([
     product_detail: 'Package Dimensions :  10.5 x 4 x 3 inches; 2.2 Pounds
     Date First Available :  August 31, 2021
     Manufacturer :  AESROSON
-    ASIN :  B09F1RL18S'}
-}
+    ASIN :  B09F1RL18S'},
 
     {name:'Petcube Bites 2 Lite Interactive WiFi Pet Monitoring Camera with Phone App and Treat Dispenser, 1080p HD Video, Night Vision, Two-Way Audio, Sound and Motion Alerts, Cat and Dog Monitor',
     price: 99.95 ,category: 'Pet Supplies',
@@ -295,8 +289,7 @@ products = Product.create([
     Package Dimensions  :	13.74 x 6.81 x 3.78 inches
     Item Weight  :	2.75 pounds
     ASIN   :  B08XXKJGKH
-    Item model number   :   BL10US'}
-}
+    Item model number   :   BL10US'},
 
     {name: 'Fresh Step Advanced Clumping Cat Litter',
     price: 26.99  ,category: 'Pet Supplies' ,
@@ -311,8 +304,7 @@ products = Product.create([
     Item model number  :  32401
     Date First Available  :  October 24, 2019
     Manufacturer  :  Fresh Step
-    ASIN  :  B07ZK3DZB3'}
-}
+    ASIN  :  B07ZK3DZB3'},
 
 #     {name: , price: ,category: ,
 #     body: ,
@@ -325,4 +317,8 @@ products = Product.create([
 #     description:  ,
 #     product_detail: }
 # }
+])
+
+Review.create([
+    {user_id: 1, product_id: 7, rating: 5, headline: 'A great snack for tiktok start', body: 'Who needs food when you can just eat tide pods!'}
 ])

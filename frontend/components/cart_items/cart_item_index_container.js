@@ -3,7 +3,7 @@ import { fetchCartItems, removeCartItem } from "../../actions/cart_item_actions"
 import CartItemIndex from "./cart_item_index"
 
 const mapStateToProps = state => {
-    debugger
+    // debugger
     return {
         userId: state.entities.users[1].id,
         cartItems: state.entities.cart_items ? Object.values(state.entities.cart_items) : []

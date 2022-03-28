@@ -11,6 +11,7 @@ const ReviewIndex = ({reviews, fetchReviews, match}) => {
     return (
         <div>
             <h1>Reviews</h1>
+            
             {/* <CreateReviewFormContainer /> */}
             {/* <Link to={`/review/create-review/${match.params.productId}`}>Write a customer review</Link> */}
             <ul>

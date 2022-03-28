@@ -13,7 +13,7 @@ users = User.create([
     {username: 'Sir_Demo_of_Demoville', email:'Demo_User@email.com', password: 'password'}
 ])
 
-products = Product.create([
+gengarPlush = Product.create(
     {name: 'Pokémon Gengar Plush Stuffed Animal Toy - Large 12" - Ages 2+' , price: 34.99 ,category: 'Toys & Games',
     body: 'Cute and cuddly 12" Pokémon Gengar Plush Stuffed Animal is a must have for all Pokemon fans!
     This super soft plush figure is great to take wherever you go!
@@ -26,9 +26,12 @@ products = Product.create([
     ASIN   :   B07NXVHHN2
     Manufacturer recommended age  :  24 months and up
     Manufacturer   :	Wicked Cool Toys'
-    },
+    }
+)
 
-    {name: 'Rubies Adult The Original Inflatable Dinosaur Costume, T-Rex, Standard' , price: 49.99 ,category: 'fashion',
+trexCostume = Product.create(
+    {name: 'Rubies Adult The Original Inflatable Dinosaur Costume, T-Rex, Standard',
+    price: 49.99 ,category: 'fashion',
     body: '100% Nylon
     Imported
     Zipper closure
@@ -49,8 +52,10 @@ products = Product.create([
     Manufacturer  :  Rubie\'s
     ASIN  :  B00TO6E0T8
     Country of Origin  :  China'
-    },
+    }
+)
 
+threeWolvesShirt = Product.create(
     {name: 'The Mountain Men\'s Three Wolf Moon Short Sleeve Tee' , price: 29.99 ,category: 'fashion',
     body: '100% Cotton
     Machine wash & dry, do not bleach
@@ -64,8 +69,10 @@ products = Product.create([
     Department  :  Mens
     Date First Available  :  March 5, 2007
     Manufacturer  :  The Mountain Boys 8-20
-    ASIN  :  B002HJ377A'},
-
+    ASIN  :  B002HJ377A'}
+)
+ 
+echoDot = Product.create(
     {name: 'Echo Dot (4th Gen, 2020 release) | Smart speaker with Alexa | Charcoal' , price: 49.99 ,category: 'Smart Home',
     body: 'Meet the Echo Dot - Our most popular smart speaker with Alexa. The sleek, compact design delivers crisp vocals and balanced bass for full sound.
     Voice control your entertainment - Stream songs from Amazon Music, Apple Music, Spotify, SiriusXM, and others. Play music, audiobooks, and podcasts throughout your home with multi-room music.
@@ -77,8 +84,10 @@ products = Product.create([
     description: 'Round out any room with Alexa. Our most popular smart speaker has a sleek, compact design that fits perfectly into small spaces. It delivers crisp vocals and balanced bass for full sound you can enjoy anywhere in your home.',
     product_detail: 'Size  :  3.9” x 3.9” x 3.5” (100 x 100 x 89 mm)
     Weight   :   12 oz (341.3 g) Actual size and weight may vary by manufacturing process
-    Wi-Fi connectivity   :   Dual-band Wi-Fi supports 802.11a/b/g/n/ac (2.4 and 5 GHz) networks. Does not support connecting to ad-hoc (or peer-to-peer) Wi-Fi networks.'},
+    Wi-Fi connectivity   :   Dual-band Wi-Fi supports 802.11a/b/g/n/ac (2.4 and 5 GHz) networks. Does not support connecting to ad-hoc (or peer-to-peer) Wi-Fi networks.'}
+)
 
+frontline = Product.create(
     {name: 'FRONTLINE Plus Flea and Tick Treatment for Cats' , price: 71.99 ,category: 'Pet Supplies',
     body: 'The #1 name in flea & tick protection trusted by pet owners for over 20 years, this waterproof, fast-acting flea and tick treatment kills fleas, flea eggs, lice, and ticks, including those that may transmit Lyme disease.
     Designed for use only with cats and kittens, this long-lasting treatment is made for cats eight weeks or older, weighing 1.5 pounds or more.
@@ -93,8 +102,10 @@ products = Product.create([
     Date First Available  :  October 2, 2001
     Manufacturer  :  Boehringer Ingelheim Animal Health
     ASIN  :  B0002J1F7G
-    Country of Origin  :  China'},
+    Country of Origin  :  China'}
+)
 
+purian = Product.create(
     {name: 'Purina ONE Tender Selects Blend Adult Dry Cat Food' , price: 27.98 ,category: 'Pet Supplies',
     body: '16 Lb. Bag - Purina One Tender Selects Blend With Real Salmon Adult Dry Cat Food
     Real Salmon Is The no.1 Ingredient
@@ -107,8 +118,10 @@ products = Product.create([
     Date First Available  :  February 3, 2006
     Manufacturer  :  Nestle Purina Pet
     ASIN  :  B0000AH3RR
-    Country of Origin  :  USA'},
+    Country of Origin  :  USA'}
+)
 
+tidePods = Product.create(
     {name: "Tide PODS 4 in 1 with Downy, Laundry Detergent Soap PODS, April Fresh Scent, 73 Count, Packaging May Vary", 
     price: 24.99 ,category: "Health & Household",
     body: "Only Tide PODS Plus Downy cleans and conditions in 1 step, helping protect clothes from stretching and fading in the wash. 
@@ -124,8 +137,10 @@ products = Product.create([
     Date First Available   :   March 20, 2019
     Manufacturer Procter & Gamble   :   Pampers
     ASIN   :   B07NW4Q8MLU
-    Country of Origin   :   USA"},
+    Country of Origin   :   USA"}
+)
 
+lego =  Product.create(
     {name: 'LEGO Classic Large Creative Brick Box 10698 Build Your Own Creative Toys, Kids Building Kit (790 Pieces), Multicolor', 
     price: 43.00 ,category: 'Toys & Games' ,
     body: 'Engage your kids in pretend play by letting them build their own play toys, such as creating a toy house or toy scooter. This classic creative kit of LEGO bricks comes with 33 different colored bricks
@@ -139,8 +154,10 @@ products = Product.create([
     Manufacturer   :	LEGO
     ASIN   :	B00NHQF6MG
     Country of Origin   :	Mexico
-    Item model number   :	6102215'},
+    Item model number   :	6102215'}
+)
 
+uno = Product.create(
     {name:'UNO Family Card Game, with 112 Cards in a Sturdy Storage Tin, Travel-Friendly, Makes a Great Gift for 7 Year Olds and Up',
     price: 9.99,category: 'Toys and Games',
     body: 'UNO is the classic family card game that\'s easy to learn and so much fun to play!
@@ -156,7 +173,10 @@ products = Product.create([
     Country of Origin   :   China
     ASIN   :   B07P6MZPK3
     Item model number   :   GDJ85
-    Manufacturer recommended age   :   7 - 11 years'},
+    Manufacturer recommended age   :   7 - 11 years'}
+)
+
+pokemonCards = Product.create(
     {name: 'Pokemon TCG: Sword & Shield Brilliant Stars 36 Count Booster Box', 
     price:137.45 ,category: 'Toys & Games',
     body: 'the Pokémon TCG: Sword & Shield—Brilliant Stars Booster Display Box contains 36 Sword & Shield—Brilliant Stars Booster Packs.
@@ -168,8 +188,10 @@ products = Product.create([
     Item Weight	 :  1.81 pounds
     ASIN   :   B09LHBX493
     Item model number   :   POK81996
-    Manufacturer recommended age   :   6 years and up'},
+    Manufacturer recommended age   :   6 years and up'}
+)
 
+slinky = Product.create(
     {name:'The Original Slinky Walking Spring Toy, Metal Slinky, Fidget Toys, Party Favors and Gifts, Toys for 5 Year Old Girls and Boys, by Just Play',
     price: 3.99,category: 'Toys & Games',
     body: 'There’s only one Original Slinky Brand Celebrate 75 years of wiggly-jiggly fun with Slinky Generations of children and adults have loved playing with Slinky.
@@ -185,8 +207,10 @@ products = Product.create([
     Domestic Shipping   :   Item can be shipped within U.S.
     International Shipping   :   This item can be shipped to select countries outside of the U.S. Learn More
     Country of Origin   :   USA
-    ASIN   :   B00000IZKX' },
+    ASIN   :   B00000IZKX' }
+)
 
+dogCarSeat = Product.create(
     {name: 'PETICON Car Seat Cover for Dogs, 100% Waterproof Dog Seat Cover for Back Seat with Mesh Window, Scratchproof Dog Car Hammock for Cars, Trucks, SUVs, Jeep, Nonslip Dog Back Seat Protection, Black',
     price: 30.59  ,category: 'Pet Supplies',
     body: '100% Waterproof - We clearly know the importance of the waterproof for dog back seat cover. This dog car seat was made of the upgraded grid pattern with a water-resistant coating, it also used hot pressing technology instead of quilting, without needle hole avoid leaking water. No more worried cheap dog back seat cover ruins your seats.
@@ -199,8 +223,10 @@ products = Product.create([
     Item model number  :  PT4001
     Date First Available  :  February 8, 2020
     Manufacturer  :  Petech
-    ASIN  :  B082WQRPDH'},
+    ASIN  :  B082WQRPDH'}
+)
 
+puppyPad = Product.create(
     {name: 'RainForest Basics Dog and Puppy Pads, Leak-proof 5-Layer Pee Pads with Quick-dry Surface for Potty Training' ,
     price: 29.74 ,category: 'Pet Supplies',
     body: 'Includes 100 regular size, standard absorbency pee pads for dogs
@@ -213,8 +239,10 @@ products = Product.create([
     Item model number  :  TRP100R
     Date First Available  :  April 1, 2015
     Manufacturer  :  Amazon Basics
-    ASIN  :  B00MW8G62E'},
+    ASIN  :  B00MW8G62E'}
+)
 
+dogHarness = Product.create(
     {name: 'Voyager Step-in Air Dog Harness - All Weather Mesh Step in Vest Harness for Small and Medium Dogs by Best Pet Supplies',
     price: 12.99,category: 'Pet Supplies',
     body: 'ATTENTION: Sizing does NOT directly correspond to your pet\'s breed or weight. Please MEASURE your pet by printing out our Size Guide which has a measuring tape and refer to our sizing chart for the best fit before ordering.
@@ -227,8 +255,10 @@ products = Product.create([
     Item model number  :  207-BU-XL
     Date First Available  :  April 23, 2013
     Manufacturer  :  Best Pet Supplies, Inc.
-    ASIN  :  B00CHSVYWG' },
+    ASIN  :  B00CHSVYWG' }
+)
 
+dogPoopBags = Product.create(
     {name: 'Best Pet Supplies Dog Poop Bags for Waste Refuse Cleanup, Doggy Roll Replacements for Outdoor Puppy Walking and Travel, Leak Proof and Tear Resistant, Thick Plastic - Mixed Colors, 240 Bags',
     price: 9.99,category: 'Pet Supplies',
     body: 'LEAK-PROOF POO BAGS:Never have to worry about your dog waste BAGS ripping. Our heavy-duty doggy BAGS for poop are crafted from extra-thick plastic with tear-resistant seams.
@@ -247,8 +277,10 @@ products = Product.create([
     Size	:   240 Bags
     Color	:   Assorted Colors
     Material	:   Plastic
-    Item Package Quantity	:   1'},
+    Item Package Quantity	:   1'}
+)
 
+dogSqueakToy = Product.create(
     {name: 'Best Pet Supplies 2-in-1 Fun Skin Stuffless Dog Squeaky Toy and Plush toys',
     price: 5.99,category: 'Pet Supplies',
     body: 'STUFFING FREE: These stuffing free dog toys won’t make a mess while your pup pulls, tugs and chews away.
@@ -261,8 +293,10 @@ products = Product.create([
     Item model number  :  PT08-S
     Date First Available  :  October 23, 2013
     Manufacturer  :  Best Pet Supplies
-    ASIN  :  B00G5M75UK'},
+    ASIN  :  B00G5M75UK'}
+)
 
+petStainSpray = Product.create(
     {name: 'AESROSON Pet Stain and Odor Eliminator Spray - 3-in-1 Formula Natural Pet Odor Spray- All-Purpose Carpet Deodorizer for Pet Urine, Floor Cleaner, and Fabric Stain Remover Enzyme Cleaner - 32 fl oz' ,
     price: 29.99 ,category: 'Pet Supplies',
     body: 'NATURAL FORMULATION - Aesroson Pet Stain and Odor Remover is formulated from naturally derived ingredients, including plant-based surfactant and beneficial bacteria cultures. It provides a gentle yet tough solution for eliminating household stains and odors.
@@ -274,8 +308,11 @@ products = Product.create([
     product_detail: 'Package Dimensions :  10.5 x 4 x 3 inches; 2.2 Pounds
     Date First Available :  August 31, 2021
     Manufacturer :  AESROSON
-    ASIN :  B09F1RL18S'},
+    ASIN :  B09F1RL18S'}
+)
 
+
+smartPetFeeder = Product.create(
     {name:'Petcube Bites 2 Lite Interactive WiFi Pet Monitoring Camera with Phone App and Treat Dispenser, 1080p HD Video, Night Vision, Two-Way Audio, Sound and Motion Alerts, Cat and Dog Monitor',
     price: 99.95 ,category: 'Pet Supplies',
     body:'Your All-In-One Pet Monitor: Check on your pet and home anytime anywhere with full HD 1080p live streaming video, 160° wide-angle view, clear 30-feet night vision, and 8x digital zoom. Enjoy high-quality 2-way audio to talk to your pets and hear them bark or meow back. Get an instant push notification if your camera detects any sound or motion at home.
@@ -289,8 +326,10 @@ products = Product.create([
     Package Dimensions  :	13.74 x 6.81 x 3.78 inches
     Item Weight  :	2.75 pounds
     ASIN   :  B08XXKJGKH
-    Item model number   :   BL10US'},
+    Item model number   :   BL10US'}
+)
 
+catLitter = Product.create(
     {name: 'Fresh Step Advanced Clumping Cat Litter',
     price: 26.99  ,category: 'Pet Supplies' ,
     body: 'Fights odors longer: Fight litter box odors with Fresh Step advanced clean paws cat litter that starts fighting odors on contact to control odor longer vs. Fresh Step clean paws multi-cat
@@ -304,7 +343,8 @@ products = Product.create([
     Item model number  :  32401
     Date First Available  :  October 24, 2019
     Manufacturer  :  Fresh Step
-    ASIN  :  B07ZK3DZB3'},
+    ASIN  :  B07ZK3DZB3'}
+)
 
 #     {name: , price: ,category: ,
 #     body: ,
@@ -320,5 +360,5 @@ products = Product.create([
 ])
 
 Review.create([
-    {user_id: 1, product_id: 7, rating: 5, headline: 'A great snack for tiktok start', body: 'Who needs food when you can just eat tide pods!'}
+    {user_id: 1, product_id: 7, rating: 5, headline: 'Eating them on camera makes you really cool!', body: 'Who needs food when you can just eat tide pods!'}
 ])

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const ProductPurchaseWindow = ({userId, product, createCartItem}) => {
+const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) => {
 
     const [quantity, setQuantity] = useState('1')
 
@@ -18,10 +18,9 @@ const ProductPurchaseWindow = ({userId, product, createCartItem}) => {
     }
 
     return (
-        <div>
-            <p className="product-price">{product.price}</p>
-            <div className="product-purchase-window-delivery-info">
-            </div>
+        <div className="product-purchase-window">
+            {formatPrice()}
+            <div className="product-purchase-window-delivery-info"></div>
             <h2 className="product-purchase-window-stock-status">In Stock</h2>
             
             <select 

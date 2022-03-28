@@ -3,6 +3,92 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+/////// NAV BAR  MOVE THIS////
+
+.logo {
+    font-size: 30px;
+    text-decoration: none;
+} 
+
+.logo:visited{
+    color: inherit
+}
+
+
+.nav-belt {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-belt-bar-1 {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    background-color: #131921;
+}
+
+.nav-belt-bar-2 {
+    height: 39px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    background-color: #232f3e;
+}
+
+.dropdown-menu {
+    display: flex;
+    align-items: center;
+ 
+    background-color: beige;
+    list-style: none;
+    min-width: 200px;
+    color: black;
+}
+
+.account-list-header {
+    position:relative;
+    display: inline-block;
+}
+
+.nav-line-1 {
+    font-size: small;
+    margin-bottom: 2px;
+}
+
+.nav-line-2 {
+    margin-top: 2px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.account-list-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: beige;
+    min-height: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+.account-list-container:hover .account-list-dropdown-content {
+    display: block;
+
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+////////////
+
 .login-signup {
     margin: 0;
     display: flex;
@@ -62,14 +148,6 @@
 //     color: inherit;
 // }
 
-.logo {
-    font-size: 30px;
-    text-decoration: none;
-} 
-
-.logo:visited{
-    color: inherit
-}
 
 
 .link, .link:visited{
@@ -83,58 +161,6 @@
     text-decoration: underline;
 }
 
-.nav-belt {
-    background-color: #020229;
-    color: white;
-    height: 75px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: baseline;
-}
-
-.dropdown-menu {
-    display: flex;
-    align-items: center;
- 
-    background-color: beige;
-    list-style: none;
-    min-width: 200px;
-    color: black;
-}
-
-.account-list-header {
-    position:relative;
-    display: inline-block;
-}
-
-.nav-line-1 {
-    font-size: small;
-    margin-bottom: 2px;
-}
-
-.nav-line-2 {
-    margin-top: 2px;
-    font-size: medium;
-    font-weight: bold;
-}
-
-.account-list-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: beige;
-    min-height: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-    cursor: pointer;
-}
-
-
-.account-list-container:hover .account-list-dropdown-content {
-    display: block;
-
-}
 .session-form-container {
     display: flex;
     flex-direction: column;

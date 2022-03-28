@@ -17,7 +17,7 @@ const MainPage = () => {
                     <Route path="/products/:productId" component={ProductShowContainer}/>
                     <Route path="/products" component={ProductIndexContainer} />
                     <Route path="/cart" component={CartItemIndexContainer} />
-                    <Route path="/" component={ProductIndexContainer} /> 
+                    <Route path="/" component={HomePage} /> 
                 </Switch>
             </main>
 

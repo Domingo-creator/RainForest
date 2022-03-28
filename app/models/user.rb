@@ -8,12 +8,12 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
 
-  has_many :carts,
+  has_many :cart_items,
     foreign_key: :userId,
     class_name: :CartItem
 
-  has_many :cart_items,
-    through: :carts,
+  has_many :products_in_cart,
+    through: :cart_items,
     source: :products
 
   def self.find_by_credentials(email, password)

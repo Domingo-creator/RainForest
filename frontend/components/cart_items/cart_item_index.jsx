@@ -13,7 +13,7 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, userId}) => {
             <li>Something</li>
             {cartItems.map( cartItem => {
                 // return <CartItemIndexItem key={cartItem.id} cartItem={cartItem} removeCartItem={removeCartItem}/>
-                return <CartItemIndexItemContainer key={cartItem.id} cartItem={cartItem}/>
+                // return <CartItemIndexItemContainer key={cartItem.id} cartItem={cartItem}/>
             })}
         </ul>
     )

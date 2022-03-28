@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.category-bar {
+    border-bottom: lightgrey solid thin;
+    size: 10px;
+    font-weight: bold;
+}
+
+.category-bar p{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 15px;
+} 
+
 .product-list {
     display: flex;
     flex-direction: row;
@@ -19,15 +31,54 @@
 .product-show-section-1 {
     display: flex;
     flex-direction: row;
-
+    border-bottom: thin solid grey
 }
+
+.main-product-subsection {
+    border-bottom: thin solid lightgrey;
+}
+
+
 .product-image {
-    width: 400px;
-    height: 400px;;
+    margin-left: 20px;
+    width: 300px;
+    height: 300px;
 }
 
 .main-product-section {
-    width: 400px;
+    width: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.product-purchase-window {
+    display: flex;
+    flex-direction: column;
+    border: lightgrey thin solid;
+    min-width: 200px;
+}
+
+.product-purcase-window button {
+    min-width: 200px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.product-price {
+    display: flex;
+    font-size: 13px;
+    flex-direction: row;
+    align-items:flex-start;
+}
+
+.product-price-dollars {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.main-product-section ul {
+    padding-left: 0;
 }
 
 

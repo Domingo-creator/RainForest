@@ -1,0 +1,10 @@
+
+.homepage-list {
+    background-color: grey;
+}
+
+.homepage-list li {
+    background-color: white;
+    min-width: 200px;
+    min-height: 200px;
+}

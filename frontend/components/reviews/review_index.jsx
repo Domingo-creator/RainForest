@@ -5,7 +5,6 @@ import CreateReviewFormContainer from './review_form/create_review_form_containe
 const ReviewIndex = ({reviews, fetchReviews, match}) => {
     useEffect(() => {
         fetchReviews(match.params.productId)
-        debugger
     },[])
 
     return (

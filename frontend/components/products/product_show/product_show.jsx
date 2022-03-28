@@ -19,6 +19,18 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
         return fieldString.split('\n')
     }
 
+    const formatPrice = () => {
+        let priceArray = product.price.toString().split('.')
+        if(priceArray.length === 1) priceArray.push('00');
+        return (
+            <div className="product-price">
+                <p className="product-price-money-symbol">$</p>
+                <p className="product-price-dollars">{priceArray[0]}</p>
+                <p className="product-price-cents">{priceArray[1]}</p>
+            </div>
+        )
+    }
+
     if (!product) {
         return <></>
     }
@@ -37,7 +49,8 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                         <h1>{product.name}</h1>
                     </div>
                     <div className="main-product-subsection">
-                        <p className="product-price">{product.price}</p>
+                        {formatPrice()}
+                        {/* <p className="product-price">{product.price}</p> */}
                         <label> About this item:
                             <ul>
                                 {parseString(product.body).map( (bodyElement, index) =>
@@ -48,16 +61,16 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                     </div>
                 </div>
                 {/* <ProductPurchaseWindowContainer /> */}
-                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem}/>
+                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice}/>
             </section>
-            <div className="product-description">
+            <div className="product-description main-product-subsection">
                 <ul>
                     {parseString(product.description).map( (descriptionElement, index) => 
                         <li key={index}>{descriptionElement}</li>
                     )}
                 </ul>
             </div>
-            <div className="product-detail">
+            <div className="product-detail main-product-subsection">
                 <ul>
                     {parseString(product.product_detail).map( (detail, index) => 
                     <li key={index}>{detail}</li>

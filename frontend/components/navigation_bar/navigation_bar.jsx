@@ -14,7 +14,12 @@ const NavBelt = () => {
                 <Link to='/cart'>[CART IMAGE]</Link>
             </div>
             <div className="nav-belt-bar-2">
-
+                <Link to='/products' className='nav-link'>All Products</Link>
+                <p className='nav-link'>Toys & Games</p> 
+                <p className='nav-link'>Fashion</p>
+                <p className='nav-link'>Smart Home</p>
+                <p className='nav-link'>Pet Supplies</p>
+                <p className='nav-link'>Sporting Goods</p> 
             </div>
         </nav>
     )

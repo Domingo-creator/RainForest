@@ -1,10 +1,25 @@
 
+.homepage {
+    height: 100vh;
+    background-color: lightgrey;
+}
+
+.homepage-banner {
+    height: 300px;
+    background-color: skyblue;
+}
+
 .homepage-list {
-    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
 }
 
 .homepage-list li {
     background-color: white;
-    min-width: 200px;
-    min-height: 200px;
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    border-color: red;
 }

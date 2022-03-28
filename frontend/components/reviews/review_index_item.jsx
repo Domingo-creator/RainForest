@@ -5,7 +5,6 @@ const ReviewIndexItem = ({review}) => {
     const starRating = ()  => {
         
     }
-
     return (
         <li>
             <label>Rating   

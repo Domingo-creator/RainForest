@@ -4,7 +4,6 @@ import { fetchReviews } from "../../actions/review_actions"
 import ReviewIndex from "./review_index"
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         reviews: state.entities.reviews ? Object.values(state.entities.reviews): []
         

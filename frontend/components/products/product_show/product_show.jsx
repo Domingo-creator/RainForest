@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import ReviewIndexContainer from '../../reviews/review_index_container'
 import ProductPurchaseWindow from './product_purchase_container/product_purchase_window'
 import ProductPurchaseWindowContainer from './product_purchase_container/product_purcase_window_container'
+import { Link } from 'react-router-dom'
 
 const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
     useEffect( () => {
@@ -50,7 +51,6 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                     </div>
                     <div className="main-product-subsection">
                         {formatPrice()}
-                        {/* <p className="product-price">{product.price}</p> */}
                         <label> About this item:
                             <ul>
                                 {parseString(product.body).map( (bodyElement, index) =>
@@ -77,6 +77,7 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                     )}
                 </ul>
             </div>
+            <Link to={`/products/${product.id}/reviews/new`}>Write a customer review</Link>
             <ReviewIndexContainer />
         </div>
     )

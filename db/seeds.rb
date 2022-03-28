@@ -346,19 +346,92 @@ catLitter = Product.create(
     ASIN  :  B07ZK3DZB3'}
 )
 
-#     {name: , price: ,category: ,
-#     body: ,
-#     description:  ,
-#     product_detail: }
-# }
+basketball = Product.create(
+    {name: 'WILSON Evolution Game Basketball',
+    price: 69.95 ,category:'Sporting Goods' ,
+    body: 'When you focus on getting better, and not just on getting results, success takes care of itself. That is why the Wilson Evolution Game Ball is the preferred basketball in high schools across the country.
+    Signature EVO feel: the soft feel that the evolution basketball is famous for is due it’s cushion core carcass, making the ball softer to the touch and easier to grip around the rim
+    Grip & durability: the premium Evo microfiber composite cover provides a grip that players love and durability to last all-season and beyond
+    Ultimate control: laid-in composite channels create a consistent feel and texture over the entire surface of the basketball to provide unparalleled control
+    NFHS approved: approved for play by the national federation of state high school associations (NFHS)
+    Official size basketball: 29.5"
+    Proper inflation level: 7-9 psi',
+    description: 'When you focus on getting better, and not just on getting results, success takes care of itself. That is why the Wilson Evolution Game Ball is the preferred basketball in high schools across the country. Every part from the moisture-wicking composite cover to the laid-in channels provides exceptional performance for those who aren\'t satisfied with being satisfied. Suited for indoor use, the Evolution is approved for play by the National Federation of State High School Associations (NFHS).' ,
+    product_detail: 'Item Package Dimensions L x W x H	:  10 x 10 x 10 inches
+    Package Weight	:  0.79 Kilograms
+    Item Dimensions LxWxH	:  29 x 29 x 29 inches
+    Item Weight	:  1.5 Pounds
+    Brand Name	:  WILSON
+    Country of Origin	:  China
+    Warranty Description	:  1 Year Limited
+    Model Name	:  WILSON Evolution Game Basketball - Game Ball, Size 7 - 29.5"
+    Color	:  Game Ball
+    Material	:  Evo Microfiber'}
+)
+ 
+campingChair = Product.create(
+    {name: 'ALPHA CAMP Oversized Camping Folding Chair Heavy Duty Support 450 LBS Oversized Steel Frame Collapsible Padded Arm Chair with Cup Holder Quad Lumbar Back Chair Portable for Outdoor',
+    price: 75.99 , category: 'Sporting Goods',
+    body: '❤ 【Large Size】 Oversized Camping Folding Chair Size is 25.20" L x 36.61" W x 39.37"H, Weight is 13.2lbs, Large seat area with 600x 300D padded oxford fabric and padded armrest ensure comfort of this chair
+    ❤【Maximum Loading Capacity】With hammer tone powder coating prevent corrosion and fading. four heavy duty steel frame were added to the bottom of the chair .sturdy steel frame construction make it can support up to 450 lbs and you\'re guaranteed a long lasting chair to enjoy outdoors all year
+    ❤【Extra Storage Spaces】 Durable mesh cup holder and armrest at the perfect height allows you to relax in comfort.side storage pocket holds cell phone, notebook and maps,side cooler bag will keep you cool on a hot summer day!
+    ❤ 【Portable And Easy Storage】Folding camping chair is easy to set up and fold in seconds. It collapses down to just 9.05″ x 38.58″ and Weights only 13.2 lbs that can be stored almost anywhere
+    ❤【Supreme Comfort】 Whether you’re in your garden, at the beach, camping or hiking, this quad chair is super comfy. Even use it in the home!',
+    description: 'Folding camping chair is easy to set up and fold in seconds.  It collapses down to just 9.05" x 38.58" and weights only 13.2 lbs that can be easy for hand carry and stored almost anywhere' ,
+    product_detail: 'Product Dimensions	:  25.2 x 39.37 x 39.37 inches
+    Item Weight	:  13.07 pounds
+    Manufacturer  : 	ALPHA CAMP
+    ASIN  : 	B07MD8HQL6'}
+)
 
-#     {name: , price: ,category: ,
-#     body: ,
-#     description:  ,
-#     product_detail: }
-# }
-])
+binoculars = Product.create(
+    {name: 'Athlon Optics Midas Binoculars for Adults and Kids, Waterproof, Durable Binoculars for Bird Watching',
+    price: 304.65 ,category: 'Sporting Goods' ,
+    body: 'ED Glass - ED glass gives you an image with little or no chromatic fringe so the final result brings a clearer and sharper image to your eyes
+    ESP Dielectric Coating is a multi layer prism coating that reflects over 99% of the light to your eyes bringing you a clear, bright image that displays accurate color reproduction.
+    Advanced FMC - Advanced Fully Multi-Coated lenses gives you better light transmission to bring optimum brightness and true color across the entire light spectrum.
+    Argon Purged - Argon purging gives you better waterproofing and thermal stability and Field of view Angular -8.1 degree
+    Long eye relief can be particularly important for eyeglass wearers because longer eye relief allows them to still see the entire field of view.Field Of View M @1000 METERS:144 m',
+    description: 'Midas was known to have a golden touch. He must have laid his hands on these binoculars since they set the gold standard for this class of binoculars. The rugged benchmark for all-weather brightness and clarity, these Midas roof-prism binoculars are light and slim thanks to the magnesium designed chassis.
+    Together with UHD Glass lenses, Advanced Fully Multi-coated optics, high quality BaK4 prisms with our ESP Dielectric Coating plus Phase Coating, these Midas binoculars gather maximum light and produce brilliant color fidelity.' ,
+    product_detail: '
+    Item Package Dimensions L x W x H	:  8.78 x 6.54 x 3.54 inches
+    Package Weight	:  1 Kilograms
+    Item Dimensions LxWxH	:  5.2 x 3.3 x 5.7 inches
+    Item Weight	:  1.56 Pounds
+    Brand Name	:  Athlon Optics
+    Warranty Description	:  Lifetime Transferable Warranty
+    Model Name	:  Midas'}
+)
 
-Review.create([
-    {user_id: 1, product_id: 7, rating: 5, headline: 'Eating them on camera makes you really cool!', body: 'Who needs food when you can just eat tide pods!'}
-])
+paracordBracelet = Product.create(
+    {name: 'Atomic Bear Paracord Bracelet (2 Pack) - Adjustable - Fire Starter - Loud Whistle - Perfect for Hiking, Camping, Fishing and Hunting - Black & Black+Orange',
+    price: 12.99 ,category:'Sporting Goods',
+    body: 'Be Ready To Survive Without Stuffing Your Backpack - Find the 5 survival gear essentials in just one bracelet : fire starter, reliable compass, loud emergency whistle, ferro rod striker and 12 feet of military-grade paracord.
+    Don\'t Stress About Getting The Size Right - Unlike other options, the Cobra bracelet is adjustable to fit small and big wrists. Bracelet adjusts from 8\"-10.5\". Perfect outdoor enthusiast\'s gift and gadget.
+    Did You Know That Cold Is The #1 Cause Of Death? Beat the statistics. In an emergency, use the flint steel to start a fire and secure a shelter using the paracord to fight hypothermia.
+    Be Ready When SHTF - Add the Cobra to your tactical gear or wear it when hunting, fishing, hiking, camping, etc.
+    Limited Time Offer - Currently comes in a pack of 2 bracelets: one black and one orange+black (see pictures). Includes a lifetime warranty and instructions on how to make a fire. Buy Now.',
+    description: 'The Atomic Bear Cobra bracelet is ideal for outdoor adventures. Take it along when you\'re hiking, camping, hunting or fishing. The six built-in tools will ensure you\'re always prepared! Paracord, compass, ferro rod & striker, paracord, and an emergency whistle.',
+    product_detail: '
+    Item Package Dimensions L x W x H	:  10.8 x 3 x 0.4 inches
+    Package Weight	:  0.07 Kilograms
+    Brand Name	:  The Atomic Bear
+    Warranty Description	:  1
+    Model Name	:  ATOMIC BEAR Paracord Bracelet (2 pack) – Adjustable Size – Fire Starter – Loud Whistle – Perfect for Hiking, Camping, Fishing and Hunting – Black & Black+Orange
+    Color	:  Black, Orange and black
+    Material	:  Cellulose
+    Manufacturer	:  The Atomic Bear' }
+)
+
+
+    #{name: , price: ,category: ,
+    #body: ,
+    #description:  ,
+    #product_detail: }
+
+
+
+ #Review.create([
+  #   { userId: 1, productId: 7, rating: 5, headline: 'Eating them on camera makes you really cool!', body: 'Who needs food when you can just eat tide pods!'}
+ #])

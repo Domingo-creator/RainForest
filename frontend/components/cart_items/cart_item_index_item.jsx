@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
-const CartItemIndexItem = ({cartItem, removeCartItem, fetchProduct}) => {
+const CartItemIndexItem = ({cartItem, product, removeCartItem, fetchProduct}) => {
 
-    debugger
     useEffect( () => {
         fetchProduct(cartItem.productId)
     },[])
 
-    debugger
+    if(!product) {
+        return <></>
+    }
     return (
         <li>
-            {}
+            {product.name}
         </li>
     )
 }

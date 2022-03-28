@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import ReviewIndexItem from './review_index_item';
 import CreateReviewFormContainer from './review_form/create_review_form_container';
 const ReviewIndex = ({reviews, fetchReviews, match}) => {
+
     useEffect(() => {
         fetchReviews(match.params.productId)
     },[])
 
     return (
         <div>
+            <h1>Reviews</h1>
             {/* <CreateReviewFormContainer /> */}
             {/* <Link to={`/review/create-review/${match.params.productId}`}>Write a customer review</Link> */}
             <ul>

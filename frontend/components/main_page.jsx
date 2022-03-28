@@ -5,6 +5,7 @@ import ProductIndexContainer from "./products/product_index/product_index_contai
 import ProductShowContainer from './products/product_show/product_show_container';
 import CartItemIndexContainer from './cart_items/cart_item_index_container'
 import CreateReviewFormContainer from './reviews/review_form/create_review_form_container';
+import homepage from './home_page/homepage';
 
 const MainPage = () => {
     return (
@@ -14,10 +15,12 @@ const MainPage = () => {
             </header>
             <main>
                 <Switch>
+                    <Route path="/products/:productId/reviews/new" component={CreateReviewFormContainer} />
+                    <Route path="/products/:productId/reviews/:reviewId/edit" component={CreateReviewFormContainer} />
                     <Route path="/products/:productId" component={ProductShowContainer}/>
                     <Route path="/products" component={ProductIndexContainer} />
                     <Route path="/cart" component={CartItemIndexContainer} />
-                    <Route path="/" component={HomePage} /> 
+                    <Route path="/" component={homepage} /> 
                 </Switch>
             </main>
 

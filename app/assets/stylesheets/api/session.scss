@@ -32,11 +32,18 @@
 
 .nav-belt-bar-2 {
     height: 39px;
+    font-size: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: baseline;
     background-color: #232f3e;
+}
+
+
+.nav-link, .nav-link:visited {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1px;
 }
 
 .dropdown-menu {

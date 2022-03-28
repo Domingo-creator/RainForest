@@ -1,6 +1,6 @@
 class Api::ReviewsController < ApplicationController
     def index
-        @reviews = Review.all
+        @reviews = Review.where(productId: params[:product_id])
         render :index
     end
     
@@ -26,6 +26,7 @@ class Api::ReviewsController < ApplicationController
         if @review.save
             render json: @review
         else
+            debugger
             render json: {message: "Review could not be created"}
         end
     end
@@ -40,6 +41,6 @@ class Api::ReviewsController < ApplicationController
     end
     
     def review_params
-        params.require(:review).permit(:user_id, :product_id, :rating, :headline, :body)
+        params.require(:review).permit(:userId, :productId, :rating, :headline, :body)
     end
 end

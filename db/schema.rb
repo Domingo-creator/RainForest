@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_25_175533) do
+ActiveRecord::Schema.define(version: 2022_03_28_185708) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,15 +55,15 @@ ActiveRecord::Schema.define(version: 2022_03_25_175533) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "product_id", null: false
+    t.integer "userId", null: false
+    t.integer "productId", null: false
     t.integer "rating", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "headline"
-    t.index ["product_id"], name: "index_reviews_on_product_id", unique: true
-    t.index ["user_id"], name: "index_reviews_on_user_id", unique: true
+    t.index ["productId"], name: "index_reviews_on_productId"
+    t.index ["userId"], name: "index_reviews_on_userId"
   end
 
   create_table "users", force: :cascade do |t|

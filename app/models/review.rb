@@ -1,12 +1,12 @@
 class Review < ApplicationRecord
-    validates :user_id, :product_id, :rating, presence:true
+    validates :userId, :productId, :rating, presence:true
 
     belongs_to :reviewer,
-        foreign_key: :user_id,
+        foreign_key: :userId,
         class_name: :User
 
     belongs_to :product,
-        foreign_key: :product_id,
+        foreign_key: :productId,
         class_name: :Product
 
 

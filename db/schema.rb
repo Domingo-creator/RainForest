@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2022_03_28_185708) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity", null: false
-    t.index ["productId"], name: "index_cart_items_on_productId"
-    t.index ["userId"], name: "index_cart_items_on_userId"
+    t.index ["productId"], name: "index_cart_items_on_productId", unique: true
+    t.index ["userId"], name: "index_cart_items_on_userId", unique: true
   end
 
   create_table "products", force: :cascade do |t|

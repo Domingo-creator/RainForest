@@ -42,3 +42,4 @@ export const signup = user => dispatch => {
           err => (dispatch(receiveErrors(err.responseJSON)))
         )
 }
+

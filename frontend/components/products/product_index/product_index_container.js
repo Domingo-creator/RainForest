@@ -4,7 +4,8 @@ import ProductIndex from "./product_index"
 
 const mapStateToProps = state => {
     return {
-        products: Object.values(state.entities.products)
+        products: Object.values(state.entities.products),
+        userId: state.session.id
     }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
-import NavBelt from './navigation_bar/navigation_bar';
+import NavBeltContainer from './navigation_bar/navigation_bar_container';
 import ProductIndexContainer from "./products/product_index/product_index_container"
 import ProductShowContainer from './products/product_show/product_show_container';
 import CartItemIndexContainer from './cart_items/cart_item_index_container'
@@ -8,10 +8,11 @@ import CreateReviewFormContainer from './reviews/review_form/create_review_form_
 import homepage from './home_page/homepage';
 
 const MainPage = () => {
+    
     return (
         <div className="main-page">
             <header>
-                <NavBelt />
+                <NavBeltContainer />
             </header>
             <main>
                 <Switch>
@@ -23,6 +24,9 @@ const MainPage = () => {
                     <Route path="/" component={homepage} /> 
                 </Switch>
             </main>
+            <footer>
+                
+            </footer>
 
 
         </div>

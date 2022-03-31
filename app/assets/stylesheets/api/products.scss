@@ -26,6 +26,10 @@
     width: 20vw;
     border: .1px solid lightgrey;
     height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .product-show-section-1 {
@@ -80,6 +84,14 @@
 .main-product-section ul {
     padding-left: 0;
 }
+
+.image-placeholder {
+    width: 90%;
+    // width: 200px;
+    height: 200px;
+    background-color: gray;
+}
+
 
 
 

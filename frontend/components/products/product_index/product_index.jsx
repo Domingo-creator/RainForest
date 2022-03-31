@@ -1,11 +1,6 @@
 import React, { useEffect } from "react"
 import ProductIndexItem from "./product_index_item"
-const ProductIndex = ({products, fetchProducts, createCartItem}) => {
-
-    useEffect( () => {
-        fetchProducts()
-    }, [])
-
+const ProductIndex = ({products, fetchProducts, createCartItem, userId}) => {
     return(
         <ul className="product-list">
             {products.map( product => {

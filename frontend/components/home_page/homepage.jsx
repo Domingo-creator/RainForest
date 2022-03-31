@@ -4,7 +4,7 @@ const homepage = () => {
         <div className="homepage">
             <div className='homepage-banner'></div>
             <ul className="homepage-list">
-                <li></li>
+                <li>Control Your Home With Your Voice!</li>
                 <li></li>
                 <li></li>
                 <li></li>

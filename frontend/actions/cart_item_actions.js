@@ -23,14 +23,12 @@ const deleteCartItem = () => {
     }
 }
 
-
 export const fetchCartItems = (userId) => dispatch => {
     return CartItemApitUtil.fetchCartItems(userId)
         .then(cartItems => dispatch(receiveCartItems(cartItems)))
 }
 
 export const createCartItem = (userId, product) => dispatch => {
-    debugger
     return CartItemApitUtil.createCartItem(userId, product)
         .then(cartItem => dispatch(receiveCartItem(cartItem)))
 }

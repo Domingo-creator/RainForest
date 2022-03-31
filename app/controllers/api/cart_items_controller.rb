@@ -1,16 +1,18 @@
 class Api::CartItemsController < ApplicationController
 
     def index
-        @cart_items = CartItem.all
+        @cart_items = CartItem.where(userId: params[:user_id])
         render :index;
     end
     
     def create 
-        @cart_item = CartItem.new(cart_params)
         debugger
+        @cart_item = CartItem.new(cart_params)
         if @cart_item.save
+            debugger
             render json: {message: 'Item successfully added'}
         else
+            debugger
             render json: {message: 'Item could not be added to cart'}
         end
     end
@@ -23,7 +25,6 @@ class Api::CartItemsController < ApplicationController
             render json: {message: 'Item could not be updated'}
         end
     end
-
     def destroy
         @cart_item = CartItem.find(params.id)
         if @cart_item.delete

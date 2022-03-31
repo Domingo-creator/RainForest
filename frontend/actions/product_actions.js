@@ -22,7 +22,6 @@ export const fetchProducts = filter => dispatch => {
         .then( products => dispatch(receiveProducts(products)))
 }
 
-
 export const fetchProduct = productId => dispatch => {
     return ProductApiUtil.fetchProduct(productId)
         .then( product => dispatch(receiveProduct(product)))

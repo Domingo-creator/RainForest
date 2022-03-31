@@ -13,6 +13,179 @@ users = User.create([
     {username: 'Sir_Demo_of_Demoville', email:'Demo_User@email.com', password: 'password'}
 ])
 
+#### Health & Household ####
+tide= Product.create(
+    {name: "Tide PODS 4 in 1 with Downy, Laundry Detergent Soap PODS, April Fresh Scent, 73 Count, Packaging May Vary", 
+    price: 24.99 ,category: "Health & Household",
+    body: "Only Tide PODS Plus Downy cleans and conditions in 1 step, helping protect clothes from stretching and fading in the wash. 
+    Tide PODS Plus Downy have the signature Downy April Fresh Scent for outstanding freshness
+    America's #1 Trusted Detergent Brand* *Tide is Consumers' #1 Trusted laundry detergent brand in Readers Digest survey
+    )Pd = Product.create(
+    Each Tide PODS is 4-in-1 including detergent, stain remover, brightener, and Downy Fabric Protect technology
+    The new special film now dissolves even better in both hot & cold water",
+    descriptio: "The new and improved Tide PODS laundry detergent pacs are super concentrated with 90 percent cleaning ingredients to rejuvenate even dingy clothes for brighter brights and whiter whites, wash after wash. Each Tide PODS is a 3-in-1 breakthrough laundry solution with highly concentrated detergent, stain remover and color protector, giving you more bang for your buck.
+    Tide PODS pac are small but powerful with an innovative, three chamber design separating key ingredients until they hit the wash for maximum cleaning power. More than just a liquid in a pouch, these reformulated laundry pacs reveal Tide's brightest clean yet.
+    Its special filmenables the multi-chamber technology to dissolve in both hot & cold water. Tide PODS are formulated with quick collapsing Smart SudsTM. It targets tough stains and works in both HE and standard washing machines.
+    For superior perforance, place 2 Tide PODS pacs into the washing machine drum before you add clothes for large loads. For smaller loads, use 1 laundry pac.",
+    product_detail: "Produt Dimensions   :  4.49 x 8.74 x 10.63 inches; 4.6 Pounds
+    Date First Available   :   March 20, 2019
+    Manufacturer Procter & Gamble   :   Pampers
+    ASIN   :   B07NW4Q8MLU
+    Country of Origin   :   USA"}
+)
+snug= Product.create(
+    {name: 'Snuggle SuperCare Laundry Fabric Softener Liquid, Sea Breeze, 2X Concentrated Conditioner, 150 Loads, 78.75 Fl Oz', 
+    price: 16.99 ,category: 'Health & Household',
+    body: 'Snuggle SuperCare liquid fabric softener protects colors from fading, protects against wear and tear and helps clothes hold shape plus the Snuggle benefits you love like Snuggly Softness and Long-Lasting Freshness
+    Protect the clothes you love with specially formulated technology that keeps your clothes looking newer longer* *vs. the leading value liquid detergent alone
+    This concentrated formula delivers 2X more softening in every drop so now you don’t have to use as much to leave your clothes Snuggly soft.
+    )ge= Product.create(
+    Snuggle SuperCare fabric softener is safe for both high efficiency (HE) and regular washing machines
+    You get one bottle of Snuggle SuperCare 2X Concentrated liquid fabric softener in the Sea Breeze scent, enough for 150 regular loads.',
+    descriptio: 'Snuggle SuperCare keeps clothes looking newer longer*. This fabric conditioner protects the clothes you love with specially formulated technology that prevents wear & tear and color fading. All this plus the Snuggly Softness and Long-Lasting Freshness you love. To use, shake the closed Snuggle bottle. Open the bottle and measure to desired line in cap. Locate the fabric softener dispenser and pour product into dispenser of your washing machine. Do not pour directly on fabrics. Snuggle fabric softener works in all washing machines including high efficiency (HE) washers. This package includes one 78.75 ounce bottle of 2X concentrated Snuggle SuperCare fabric softener liquid in Sea Breeze scent, enough for 150 regular loads. *v. leading value liquid detergent alone.' ,
+    product_detai: 'Product Dimensions  :  7.5 x 4.14 x 11.37 inches; 5.34 Pounds
+    Item model numbe  :  00072613471393
+    Date First Availabl  :  August 5, 2021
+    Manufacturer  :  Henke
+    ASIN  :  B09BZT7Y46'}
+)
+
+dryerBalls = Product.create(
+    {name: 'Wool Dryer Balls - Natural Fabric Softener, Reusable, Reduces Clothing Wrinkles and Saves Drying Time. The Large Dryer Ball is a Better Alternative to Plastic Balls and Liquid Softener. (Pack of 6)', 
+    price: 11.99 ,category: 'Health & Household',
+    body: 'SUPERIOR QUALITY WOOL – 100% New Zealand premium wool with no synthetic fillers, rolled into tight, extra-large balls and felted for a natural, long lasting product.
+    REUSABLE FABRIC SOFTENER – Replace chemically infused dryer sheets and liquid fabric softeners with an eco-friendly and natural alternative that will last more than a thousand dryer loads.
+    SPEED UP DRYING TIME – As the dryer balls tumble around in the dryer, they lift and separate laundry allowing the hot air to circulate better and dry faster.
+    SAVE ENERGY COSTS – Reduce appliance usage and electricity bills by shortening drying time up to 25%
+    REDUCE STATIC CLING – Toss them into the dryer and your clothing will dry faster, fluffier and softer, with fewer wrinkles and less static cling.',
+    description: 'Our dryer balls are made from 100% premium New Zealand wool. Using them in the dryer eliminates the need for chemical laden fabric softeners and toxic dryer sheets. A few drops of essential oil can even be added to the ball to create a natural fresh scent.' ,
+    product_detail: 'Product Dimensions :	7.01 x 5.39 x 2.6 inches
+    Item Weight :	11.4 ounces
+    Manufacturer :	Handy Laundry
+    ASIN :	B014WOWNAY
+    Item model number :	5112'}
+)
+
+oxiClean = Product.create(
+    {name: 'OxiClean Color Boost Color Brightener plus Stain Remover Power Paks, 26 Count' , 
+    price: 9.79 ,category:'Health & Household',
+    body: 'One 26 count container of OxiClean Color Boost Color Brightener plus Stain Remover Power Paks
+    Contains active oxygen power to reach deep into fabric fiberst to quickly and safely break up and remove stains
+    Color safe brightener has a built-in optical brightener that reveals vibrant colors and restores radiant whites
+    Use directly on stains to pre-treat clothes before washing
+    The most convenient way to do laundry – no mess, measuring or spills' ,
+    description: 'Want to give your wash an incredible boost? Toss an OxiClean™ Color Boost Color Brightener + Stain Remover Pak into every load along with your detergent. Each contains active oxygen power to reach deep into fabric fibers and quickly, safely break up and remove stains. And the built-in optical brightener brings whites and colors back to life! OxiClean™ Color Boost Color Brightener + Stain Remover Paks remove stains, brightens colors, and whitens whites! Fight stains, whiten whites and brighten colors! Make sure no stain gets past you! OxiClean™ Color Boost Color Brightener + Stain Remover Paks add extra stain fighting abilities to your wash, without the worry of fading the clothes you love best. Its optical brighteners are designed to transform UV light waves to make whites look even whiter. And the paks are simple to use! Now you can boost your detergent’s cleaning power, keep your favorite colors from fading and remove tough stains. Drop a pak into every wash load, or dissolve a pak to pre-soak stains before washing.' ,
+    product_detail: 'Is Discontinued By Manufacturer :  No
+    Product Dimensions :  3 x 5.75 x 10 inches; 1.57 Pounds
+    Item model number :  HDL-113
+    Date First Available :  May 4, 2013
+    Manufacturer :  Church & Dwight
+    ASIN :  B00CN98LAM
+    Country of Origin :  USA'}
+)
+
+armAndHammer = Product.create(
+    {name: 'Arm & Hammer Super Washing Soda Detergent Booster & Household Cleaner, 55oz.', 
+    price: 4.17 ,category: 'Health & Household',
+    body: 'FOR CLEANER, WHITER, BRIGHTER LAUNDRY choose ARM & HAMMER Super Washing Sodaâ€”a natural detergent booster that increases your laundry detergentâ€s cleaning power.
+    IMPROVES LIQUID LAUNDRY DETERGENT PERFORMANCE. Use this effective, natural laundry booster to improve liquid laundry performance by up to 15%.* You can also use it to make your own laundry detergent! (*For mustard and blood stains vs leading value detergent alone)
+    FRESHENS AND CLEANS ALL AROUND THE HOME. From appliances and upholstery to fine jewelry and water-softening, this washing powder tackles tough jobs with simple, pure ingredientsâ€”sodium carbonate and water.
+    EFFECTIVELY CLEANS HARD SURFACES INDOORS & OUTDOORS. Use this washing soda to clean hard surfaces indoors and outdoors all around your home, such as tile and grout, toilets, microwaves, sinks, stainless steel, bathtubs, refrigerators, outdoor furniture, garage floors, silver, and more!
+    CONTAINS NO FRAGRANCES & NO PHOSPHATES. Building off of our commitment to the environment that started more than 120 years ago, this simple two-ingredient formula of sodium carbonate and water is 100% fragrance-free and 100% phosphate-free. It delivers a clean you can trust without fragrances and harsh chemicals.' ,
+    description: 'Pure. Natural. Versatile.That’s what you’ll find in every box of ARM & HAMMER Super Washing Soda. This washing powder delivers super-clean results way beyond the laundry room. It’s a natural detergent booster and effective laundry additive that increases your laundry detergent’s cleaning power. In fact, this washing soda improves liquid laundry detergent performance up to 15%. Use it as a washing machine cleaner, or add to every load for cleaner, whiter, brighter laundry. Super Washing Soda is a Baking Soda-based cleanser that helps to neutralize and eliminate odors—its 100% fragrance-free and 100% phosphate-free formula gets rid of lingering laundry smells instead of just covering them up. Use this washing powder to naturally clean hard surfaces inside and outside your home, such as tile and grout, toilets, microwaves, sinks, stainless steel, bathtubs, refrigerators, outdoor furniture, garage floors, silver and jewelry, upholstery, and more. This natural laundry booster and household cleaner delivers an extra boost of clean from the brand you trust. ARM & HAMMER Super Washing Soda—pure & natural since 1874. For mustard and blood stains vs leading value detergent alone' ,
+    product_detail: 'Is Discontinued By Manufacturer  :  No
+    Product Dimensions  :  9.4 x 6.2 x 2.1 inches; 3.44 Pounds
+    Item model number  :  03020
+    Date First Available  :  May 14, 2009
+    Manufacturer  :  CHUW7
+    ASIN  :  B0029XNTEU' }
+)
+
+downy = Product.create(
+    {name: 'Downy Infusions Liquid Laundry Fabric Softener, Calm Scent, Lavender & Vanilla Bean, 166 Total Loads (Pack of 2)', 
+    price: 15.88 ,category: 'Health & Household',
+    body: 'Downy Infusions calm scent Liquid fabric enhancer transforms your laundry with the soothing scent of lavender and vanilla bean
+    Breathe Deep and let this relaxing, smooth scent of calm envelop you.Dye free
+    Scent boosting fabric softener freshens and softens for comfy, great-smelling clothes
+    Safe for all washing machines and a great COMPANION to your favorite detergent; just add a capful every load before adding your clothes
+    For even more tranquil scent, Use Downy Infusions calm In-Wash Scent Booster Beads and fabric softener dryer sheets',
+    description: 'The soothing scents of lavender and vanilla Bean flutter to life in Downy Infusions calm fabric softener, for clothes that smell as comforting as they feel. Use this scented fabric enhancer in your laundry for a tranquil, calm scent in your fabrics. Safe for all washing machines, including HE, simply add a capful to your machine\'s softener dispenser for softer, scented laundry. For even more mood-enhancing aromas, try Downy Infusions calm In-Wash Scent Booster beads and fabric softener dryer sheets.' ,
+    product_detail: 'Product Dimensions  :  8.25 x 6.94 x 12.63 inches; 5.82 Pounds
+    Item model number  :  1
+    Date First Available  :  October 22, 2019
+    Manufacturer  :  AmazonUs/PRFY7
+    ASIN  :  B07VFPPS3Z'}
+)
+
+earthwash = Product.create(
+    {name: 'earthwash Laundry Sheets, Scent-Free (32 Loads), The Perfect Plastic Free Detergent Strips, Ideal for TravelHome Use. Biodegradable-Easy Dissolve, True Eco-Wash', 
+    price: 16.99,category: 'Health & Household',
+    body: 'Concentrated Power: All the performance of high grade detergent delivered in a lightweight strip! Our formula removes stains and spills, without compromising the vibrant color of your clothing!
+    No Residue Left Behind: Completely water soluble, low sud and will not leave any soap on your clothes or in your washing machine! Also works on all type of washers - top load, front load and HE.
+    Convenient and Mess-Free: Say goodbye to jugs, liquid, pods, and powder! No measuring needed - Just add 1 sheet per load. Lightweight and perfect for travel, camping, dorm use and more!
+    Gentle and Scent-Free : Does not contain paraben, dye, phosphate or bleach. Gentle on hands and even on baby clothes, also has fragrance-free variant for sensitive skin.
+    Space AND Money Saving: Spill-free, easy to store and saves space - eliminating the need for expensive, heavy and bulky detergent bottles and boxes.
+    Unit count type: Count' ,
+    description: 'Make pods and plastic jugs a thing of the past! Earthwash is a powerful earth friendly solution to clean your laundry. Our super concentrated dissolving strips are high performing, simple and convenient. With Earthwash, one sheet equals one large load - no measuring, no pouring, and no mess! Works in any washing machine - front load, top load, HE, even hand washing! Our ultra-concentrated detergent sheets are an effective way to save water and plastic without ever sacrificing cleaning power. Our low sud formula tackles heavy stains and spills, and even revives whites and color. Plus,  Earthwash comes in a soft Ocean Breeze or Scent Free formulas, so even the most sensitive of skin can wash with Earthwash! Choose the best solution for your wallet, clothing, and the planet!  Important Information: Directions: How Many Strips Should I Use?  One Earthwash strip covers a large load of clothing Double or Triple the load? Add 1-2 extra sheets.  Small load? Simply tear off ½ a sheet for use.  Hand washing? Use ¼- ½ a sheet! Machine Wash:  Simply place an Earthwash sheet inside your top loading machine on top of your clothing load, or in the detergent dispenser of your front loading machine. Run your machine as normal.  Hand Wash: Dissolve into warm or cold water thoroughly before hand washing as normal.  Safety Information: Do not use with wool or silk.  Machine or hand wash only.  Do not insert into tumble dryer.  If product comes in contact with eyes, rinse with water immediately.' ,
+    product_detail: 'Product Dimensions  :  7.62 x 2.54 x 10.16 inches; 5.61 Ounces
+    Date First Available  :  September 10, 2020
+    ASIN  :  B094TXL3R6'}
+)
+
+woolite = product.create(
+    {name: 'Woolite Darks with EverCare Liquid Laundry Detergent, 66 Loads, 100 Fl Oz (Pack of 1), Packaging May Vary', 
+    price: 14.39 ,category: 'Health & Household',
+    body: 'NEW FORMULA Woolite Darks with EverCare is a first of its kind formula that protects synthetics and blends from damage in the wash
+    PROTECTS AGAINST FADING, pilling, and stretching for up to 20 washes. Aluminum-Free
+    KEEPS YOUR DARK CLOTHES LOOKING LIKE NEW: Combination of ingredients to gently clean stains, while protecting your clothes (protects against fading for up to 20 washes)
+    FREE FROM Optical Brighteners, Phosphates, Bleach
+    GOOD FOR BOTH REGULAR AND HE WASHING MACHINE',
+    description: 'Woolite Darks with EverCare is a first of its kind formula that keeps your clothes looking like new, even synthetics and blends. It protects your clothes from fading, pilling, and stretching. Woolite Darks with EverCare is perfect for all of your dark clothes, including your favorite jeans, leggings, and go-to blouse. It effectively cleans without the harshness. Woolite Darks with EverCare is free from optical brighteners, phosphates, and bleach. For up to 20 washes. Protects against fading for up to 20 washes. Gently cleans without the harshness.' ,
+    product_detail: 'Is Discontinued By Manufacturer  :  No
+    Product Dimensions  :  5.56 x 7.38 x 10.63 inches; 7.01 Pounds
+    Item model number  :  6233883768
+    Date First Available  :  March 14, 2011
+    Manufacturer  :  Woolite
+    ASIN  :  B004S6C0I2
+    Country of Origin  :  USA' }
+)
+
+tidePens = Product.create(
+    {name: 'Tide To Go Instant Stain Remover, 3 Count', 
+    price: 7.74,category: 'Health & Household',
+    body: 'Powerful solution breaks stains down; microfiber pad lifts and absorbs them
+    Portable, pen-like design – fits neatly into briefcases, purses, drawers, or car compartments
+    No mess, nothing to throw away, nothing to get on hands
+    Works well on tomato juice, ketchup, BBQ sauce, grape juice, coffee, wine, tea, chocolate syrup, and more
+    Doesn\’t contain bleach',
+    description: 'Save the moment with Tide to Go, the instant stain remover that helps eliminate some of your toughest fresh food and drink stains. Best of all, Tide to Go travels easily to stop stains on the spot. Tide To-Go is part of the Tide Laundry Detergent family of products' ,
+    product_detail: 'Is Discontinued By Manufacturer  :  No
+    Product Dimensions  :  4.25 x 0.9 x 9.1 inches; 2.56 Ounces
+    Item model number  :  10037000018718
+    Date First Available  :  March 13, 2006
+    Manufacturer  :  Procter & Gamble - Household/Laundry/Food
+    ASIN  :  B01C3NAT16
+    Country of Origin  :  USA' }
+)
+
+clorox = Product.create(
+    {name: 'Clorox Disinfecting Wipes Value Pack, 75 Ct Each, Pack of 3 (Package May Vary)', 
+    price: 9.98,category: 'Health & Household',
+    body: 'DISINFECTING WIPES: Clorox Disinfecting Wipes are proven to kill COVID-19 Virus in 15 seconds; cleans and kills 99.9% of viruses and bacteria with a powerful wipe; Packaging may vary
+    ALL-PURPOSE WIPE: These all-purpose disposable wipes remove common allergens, germs and messes on surfaces like kitchen counters, bathroom surfaces and more.
+    MULTI-SURFACE CLEANER: Wipes are safe for finished wood, sealed granite and stainless steel and on non-food-contact surfaces in the home, office, classroom, pet area, dorm and locker room.
+    DISPOSABLE WIPES: This 3-pack of 75-count canisters that easily dispenses disposable antibacterial wipes that come in 3 fresh, clean scents. Dispose of wipes according to manufacturer instructions.
+    NO BLEACH: Disinfect and deodorize with Clorox Disinfecting Wipes for a bleach-free, all-in-1 cleaning alternative that’s safe to use on toys and more.',
+    description: 'Clorox Disinfecting Wipes are triple-layered to clean, disinfect, deodorize and remove allergens for 5x cleaning power and leave a pleasant scent. Disinfecting wipes clean and disinfect with antibacterial power that kills 99.9% of viruses and bacteria that can live on surfaces up to 48 hours, including staph, E. coli, MRSA, salmonella, strep and Kleb. These all-purpose disposable wipes remove common allergens, germs and messes on surfaces like kitchen counters, bathroom surfaces and more. Wipes are safe to use on finished wood, sealed granite and stainless steel. Disinfecting Wipes are also great on non-food-contact surfaces in the home, office, classroom, pet area, dorm and locker room. Clean with bleach-free wipes to keep dirt and germs away. Phosphorus-free.' ,
+    product_detail: 'Is Discontinued By Manufacturer  :  No
+    Product Dimensions  :  13.75 x 4.5 x 8.75 inches; 4.87 Pounds
+    Item model number  :  10044600311811
+    Date First Available  :  January 12, 2014
+    Manufacturer  :  Clorox Disinfecting Wipes
+    ASIN  :  B00HSC9F2C'}
+)
+
+#### TOYS & GAMES ####
 gengarPlush = Product.create(
     {name: 'Pokémon Gengar Plush Stuffed Animal Toy - Large 12" - Ages 2+' , price: 34.99 ,category: 'Toys & Games',
     body: 'Cute and cuddly 12" Pokémon Gengar Plush Stuffed Animal is a must have for all Pokemon fans!
@@ -27,117 +200,6 @@ gengarPlush = Product.create(
     Manufacturer recommended age  :  24 months and up
     Manufacturer   :	Wicked Cool Toys'
     }
-)
-
-trexCostume = Product.create(
-    {name: 'Rubies Adult The Original Inflatable Dinosaur Costume, T-Rex, Standard',
-    price: 49.99 ,category: 'fashion',
-    body: '100% Nylon
-    Imported
-    Zipper closure
-    Hand Wash
-    LONG SLEEVE inflatable jumpsuit with zipper closure on back and battery operated fan
-    READ BEFORE BUYING: Costumes are not sized the same as apparel, please review the Rubies SIZE CHART IN IMAGES to determine fit, recent reviews may also be helpful
-    Fan requires 4, AA batteries (not included); do not use rechargeable, nickel-cadmium; remove batteries from fan while not in use From Rubies, manufacturer of the Original Inflatable Dinosaur costume
-    GROUPS AND FAMILIES: Combine with other costumes by Rubies; look for regular and inflatable designs in baby, toddler, child, adult and pet sizes, also look for accessories like candy bowls, masks and more
-    FAMILY-FOCUSED, and based in the U.S.A. since 1951, Rubie’s has classic and licensed costumes and accessories in sizes and styles for your entire family',
-    description: 'Long sleeve inflatable jumpsuit with battery operated fan. Fan requires 4 AA batteries, fan instructions included with costume. Batteries available separately. Please read before buying; costumes are not sized the same as apparel, please review the Rubies size chart in images, read recent reviews and Q & A to determine best fit. Look for Rubies trademark on packaging and labels to help assure you’ve received an authentic safety-tested item. Rubies offers all of your favorite dinosaurs inflatable designs; look for Velociraptor with Sound, Pteranodon, Triceratops, Velociraptor, T-Rex with Sound and the award winning inflatable dinosaur that started it all, the T-Rex; available in standard adult, plus-size and teen. Create your very own family of prehistoric fun and get ready for an unforgettable time.',
-    product_detail: 'Is Discontinued By Manufacturer  :  No
-    Product Dimensions  :  15.75 x 12.99 x 8.27 inches; 1 Pounds
-    Manufacturer recommended age  :  18 years and up
-    Item model number  :  810481
-    Department  :  Mens
-    Batteries  :  4 AA batteries required.
-    Date First Available  :  April 24, 2015
-    Manufacturer  :  Rubie\'s
-    ASIN  :  B00TO6E0T8
-    Country of Origin  :  China'
-    }
-)
-
-threeWolvesShirt = Product.create(
-    {name: 'The Mountain Men\'s Three Wolf Moon Short Sleeve Tee' , price: 29.99 ,category: 'fashion',
-    body: '100% Cotton
-    Machine wash & dry, do not bleach
-    ALL NATURAL QUALITY MATERIALS: 100% cotton, water based inks, and organic dyes ensure the shirt doesn\'t emit nasty toxins; our hand dyeing process make these custom shirts a work of art
-    ULTRA SOFT AND COMFORTABLE:  Using only high quality materials, these shirts will not lose their shape and are easy to care for, just toss in the washing machine on cold, tumble dry low (no bleach)
-    ENVIRONMENT FIRST PRODUCTION: Since 1972, we remain committed to using sustainable practices that  preserve our natural resources; designed and printed in the USA, we are deeply tied to this commitment and continue to implement the latest practices
-    CUSTOM ART WEAR: Our apparel is designed by artists who create stunning works of art that come to life through rich and vibrant colors; these tee shirts are unique and wearable masterpieces making the wonderful gifts
-    Take care when wielding the powers of the Three Wolf Moon T-shirt from The Mountain, for you will call excessive amounts of prospective mates to your presence, and others will stand awestruck in your presence, unable to perform other duties',
-    description: 'Hand dyed shirt featuring a stunning screen print of 3 wolves howling at a moon on a preshrunk, 100% cotton tee dyed and printed by the mountain. This hand dyed tee shirt features a stunning screen print graphic on a preshrunk, 100% cotton tee. Dyed and printed by The Mountain. The Mountain uses only inks and dyes, to bring you an incredibly durable and comfortable garment.',
-    product_detail: 'Item model number  :  56158
-    Department  :  Mens
-    Date First Available  :  March 5, 2007
-    Manufacturer  :  The Mountain Boys 8-20
-    ASIN  :  B002HJ377A'}
-)
- 
-echoDot = Product.create(
-    {name: 'Echo Dot (4th Gen, 2020 release) | Smart speaker with Alexa | Charcoal' , price: 49.99 ,category: 'Smart Home',
-    body: 'Meet the Echo Dot - Our most popular smart speaker with Alexa. The sleek, compact design delivers crisp vocals and balanced bass for full sound.
-    Voice control your entertainment - Stream songs from Amazon Music, Apple Music, Spotify, SiriusXM, and others. Play music, audiobooks, and podcasts throughout your home with multi-room music.
-    Ready to help - Ask Alexa to tell a joke, play music, answer questions, play the news, check the weather, set alarms, and more.
-    Control your smart home - Use your voice to turn on lights, adjust thermostats, and lock doors with compatible devices.
-    Start Routines with your motion - Turn on compatible lights, play your Flash Briefing, or turn on the coffee maker when you walk into the room.
-    Connect with others hands-free - Call friends and family who have the Alexa app or an Echo device. Instantly drop in on other rooms or announce to the whole house that dinner\'s ready.
-    Designed to protect your privacy – Amazon is not in the business of selling your personal information to others. Built with multiple layers of privacy controls including a mic off button.',
-    description: 'Round out any room with Alexa. Our most popular smart speaker has a sleek, compact design that fits perfectly into small spaces. It delivers crisp vocals and balanced bass for full sound you can enjoy anywhere in your home.',
-    product_detail: 'Size  :  3.9” x 3.9” x 3.5” (100 x 100 x 89 mm)
-    Weight   :   12 oz (341.3 g) Actual size and weight may vary by manufacturing process
-    Wi-Fi connectivity   :   Dual-band Wi-Fi supports 802.11a/b/g/n/ac (2.4 and 5 GHz) networks. Does not support connecting to ad-hoc (or peer-to-peer) Wi-Fi networks.'}
-)
-
-frontline = Product.create(
-    {name: 'FRONTLINE Plus Flea and Tick Treatment for Cats' , price: 71.99 ,category: 'Pet Supplies',
-    body: 'The #1 name in flea & tick protection trusted by pet owners for over 20 years, this waterproof, fast-acting flea and tick treatment kills fleas, flea eggs, lice, and ticks, including those that may transmit Lyme disease.
-    Designed for use only with cats and kittens, this long-lasting treatment is made for cats eight weeks or older, weighing 1.5 pounds or more.
-    Made with two active ingredients, fipronil and (S)-methoprene, this treatment stops infestations and prevents new ones.
-    Applied on a single point on your pet, the treatment rapidly covers your cat\'s entire body and deposits in the sebaceous glands. These glands as a reservoir, continuously replenishing the treatment onto your pet, working even if your cat gets wet.
-    One dose of FRONTLINE Plus lasts 30 days.
-    Flea, flea egg, lice, and tick control for cats and kittens',
-    description: 'FRONTLINE Plus for Cats has been trusted by veterinarians for flea and tick control for kittens and cats for nearly 20 years. Made with 2 tough killing ingredients, fipronil and (S)-methoprene – one to kill adult fleas and ticks and the second to kill flea eggs and larvae – this fast-acting, long-lasting protection provides flea and tick control for cats and kittens 8 weeks and older, 1.5 lbs. and over. Its long-lasting formula is stored in the oil glands of the pet’s skin to give non-stop flea and tick protection for a full 30 days.',
-    product_detail: 'Is Discontinued By Manufacturer  :  No
-    Product Dimensions  :  5.7 x 1 x 4.5 inches; 0.16 Ounces
-    Item model number  :  P004FLTSP6-CAT
-    Date First Available  :  October 2, 2001
-    Manufacturer  :  Boehringer Ingelheim Animal Health
-    ASIN  :  B0002J1F7G
-    Country of Origin  :  China'}
-)
-
-purian = Product.create(
-    {name: 'Purina ONE Tender Selects Blend Adult Dry Cat Food' , price: 27.98 ,category: 'Pet Supplies',
-    body: '16 Lb. Bag - Purina One Tender Selects Blend With Real Salmon Adult Dry Cat Food
-    Real Salmon Is The no.1 Ingredient
-    High Protein Helps Support Strong Muscles
-    Natural Plus Essential Nutrients
-    100% Complete And Balanced Nutrition For Adult Cats',
-    description: 'Serve your cat a plate of the deliciously crunchy bites and meaty, tender morsels she\'s been craving with Purina ONE Tender Selects Blend With Real Salmon adult dry cat food. We craft this natural recipe plus essential nutrients with real ingredients, including accents of real carrots and peas. Containing no artificial flavors or preservatives, this formula uses real salmon as the #1 ingredient to provide the protein your cat needs to support strong muscles. The omega-6 fatty acids help nourish and maintain healthy skin and a radiant coat, and antioxidants promote immune health. Along with a great taste cats love, this meal delivers 100% complete and balanced nutrition for adult cats. Plus, the crunchy kibble helps reduce plaque buildup and whiten teeth. This dry food for cats contains 0% fillers, meaning all of our high-quality ingredients have a purpose. For the convenience you demand and the variety your cat appreciates, buy this Purina ONE cat food on Amazon.com today.',
-    product_detail: 'Product Dimensions  :  22 x 14 x 3 inches; 16 Pounds
-    Item model number  :  178609
-    Date First Available  :  February 3, 2006
-    Manufacturer  :  Nestle Purina Pet
-    ASIN  :  B0000AH3RR
-    Country of Origin  :  USA'}
-)
-
-tidePods = Product.create(
-    {name: "Tide PODS 4 in 1 with Downy, Laundry Detergent Soap PODS, April Fresh Scent, 73 Count, Packaging May Vary", 
-    price: 24.99 ,category: "Health & Household",
-    body: "Only Tide PODS Plus Downy cleans and conditions in 1 step, helping protect clothes from stretching and fading in the wash. 
-    Tide PODS Plus Downy have the signature Downy April Fresh Scent for outstanding freshness
-    America's #1 Trusted Detergent Brand* *Tide is Consumers' #1 Trusted laundry detergent brand in Readers Digest survey
-    Each Tide PODS is 4-in-1 including detergent, stain remover, brightener, and Downy Fabric Protect technology
-    The new special film now dissolves even better in both hot & cold water",
-    description: "The new and improved Tide PODS laundry detergent pacs are super concentrated with 90 percent cleaning ingredients to rejuvenate even dingy clothes for brighter brights and whiter whites, wash after wash. Each Tide PODS is a 3-in-1 breakthrough laundry solution with highly concentrated detergent, stain remover and color protector, giving you more bang for your buck.
-    Tide PODS pacs are small but powerful with an innovative, three chamber design separating key ingredients until they hit the wash for maximum cleaning power. More than just a liquid in a pouch, these reformulated laundry pacs reveal Tide's brightest clean yet.
-    Its special film enables the multi-chamber technology to dissolve in both hot & cold water. Tide PODS are formulated with quick collapsing Smart SudsTM. It targets tough stains and works in both HE and standard washing machines.
-    For superior performance, place 2 Tide PODS pacs into the washing machine drum before you add clothes for large loads. For smaller loads, use 1 laundry pac.",
-    product_detail: "Product Dimensions   :  4.49 x 8.74 x 10.63 inches; 4.6 Pounds
-    Date First Available   :   March 20, 2019
-    Manufacturer Procter & Gamble   :   Pampers
-    ASIN   :   B07NW4Q8MLU
-    Country of Origin   :   USA"}
 )
 
 lego =  Product.create(
@@ -209,6 +271,450 @@ slinky = Product.create(
     Country of Origin   :   USA
     ASIN   :   B00000IZKX' }
 )
+
+toyStoryPuzzle = Product.create(
+    {name: 'NEILDEN Disney Toy Story Puzzles in a Metal Box 60 Piece for Kids Ages 4-8 Jigsaw Puzzles for Girls and Boys Great Gifts for Children(Toy Story 4)', 
+    price: 12.99 ,category: 'Toys & Games' ,
+    body: 'wooden
+    SAFE MATERIALS: Our Disney Store are Made of Nontoxic and Tasteless Material which are Sturdy Enough and Do Not Tear Easily So Good for a Child. The Die-cuts are Smooth, Allowing for Easy Assembly and Every Pieces Fit Together Well. Also Our Disney Toy Store Puzzle Pieces on the Back are Numbered to Help Younger Children If Needed.
+    60 PIECE PUZZLE: Our 60 Pieces Kids Which is a Great Family Activity Both for Adults and Kids Ages 4-8 to Learn and Enjoy Together.The Finished Measures 9.2"X5.9". Also We Provide a Full-Size Picture Guide in Package and the Picture is Clear and Vibrant.
+    MISSING PIECE NO WORRY: All NEILDEN for Kids with Easy-to-Reach Lifetime Email Support, 2-Year Quality Warranty.We Offer 30 Days Money Back Guarantee,60 days Replacement, 1 Year Missing Puzzles Protection.We Wish You Enjoy Doing the Jigsaw Puzzles. If You Need Help with Any Puzzles Related,Please Contact Us.We Are Here for You.
+    LEARNING AND FUN: Children Love Disney Puzzles! They’ll Learn While Playing! Not Only Provides Engaged Play-Time for Kids, But Also Helps Practice Problem-Solving and Spatial Reasoning as They Complete the Puzzle.Challenging and Engaging Enough for Kids and Adults,Kids Puzzles is the Perfect Way for a Family to Work Together.
+    STURDY TIN BOX STORAGE: Our Disney Puzzle Comes with a Tin Box Which is Very Convenient to Store and Easy Take for Travel. The Tin Box Size is 5.9” x 3.5” which is a Nice Storage Container,Also It’s an Ideal Place to Keep Pieces Safe, Together and Free From Damage. It Makes a Great Gift for All Ages at Birthdays and Holidays.',
+    description:  'Children Love Toy Story Jigsaw Puzzles! They’ll Learn While Playing! Not Only Provides Engaged Play-Time for Kids, But Also Helps Practice Problem-Solving and Spatial Reasoning as They Complete the Puzzle.Challenging and Engaging Enough for Kids and Adults,Kids Puzzles is the Perfect Way for a Family to Work Together.',
+    product_detail: '
+    Package Dimensions :	6.34 x 4.29 x 1.69 inches
+    Item Weight  :	5.7 ounces
+    ASIN  :	B08T6VD4ZT
+    Manufacturer recommended age   :	4 - 8 years'}
+)
+
+astroHeadset = Product.create(
+    {name: 'ASTRO Gaming A50 Wireless Headset + Base Station Gen 4 - Compatible With PS5, PS4, PC, Mac - Black/Silver', 
+    price: 299.99,category: 'Toys & Games' ,
+    body: 'Astro Audio V2: Immersive Audio and sound experience that delivers dialogue, music and in game sound clearly
+    Dolby Audio: Dolby Audio delivers a cinematic, high resolution gaming audio experience
+    Battery life: 15 plus hour rechargeable lithium ion battery
+    Game: Voice balance: Gives the user total control over the mix of the game and chat Audio
+    Astro command center software: The free Astro command center software gives players complete control over their audio experience, which includes voice communication and game Audio settings; Available on windows 10, Xbox 1 and Mac.
+    USB sound card functionality: When using PC, USB sound card functionality provides game: Voice balance, game and voice streaming; No optical cables needed
+    Mod Kit ready: For even more customization, the optional A50 Mod Kit allows users to add synthetic leather headband and ear cushions for improved noise isolation; Only compatible with A50 wireless Headset Gen 4',
+    description: 'Experience legendary performance and sound of ASTRO Audio V2, with the convenience and freedom that comes without wires. The A50 Wireless + Base Station for PlayStation 4/PC delivers top-of-the-line acoustics, ergonomics, comfort and durability that gamers demand. The all-new Base Station provides clear, low-latency voice communication, while making headset pairing and charging simple. The ASTRO Command Center software allows gamers and streamers to tune every input and output parameter of the A50 precisely for their specific setup. For even more flexibility, the optional A50 Mod Kit allows users to add synthetic leather headband and ear cushions for improved noise isolation. Experience absolute audio immersion with the A50 Wireless + Base Station.' ,
+    product_detail: '
+    ASIN  :	B07R4Q8FQY
+    Release date  :	August 11, 2019
+    Product Dimensions  :	7.28 x 3.48 x 7.17 inches; 1.49 Pounds
+    Binding	: Video Game
+    Item model number : 939-001673
+    Item Weight  :	1.49 pounds
+    Manufacturer  :	Astro
+    Country of Origin  :	China
+    Batteries	:  1 Lithium Polymer batteries required. (included)
+    Date First Available  : 	June 10, 2019'}
+)
+
+eldenRing = Product.create(
+    {name: 'Elden Ring - PlayStation 5' , 
+    price: 59.99 ,category: 'Toys & Games' ,
+    body: 'ELDEN RING, developed by FromSoftware Inc. and produced by BANDAI NAMCO Entertainment Inc., is a fantasy action-RPG and FromSoftware\'s largest game to date, set within a world full of mystery and peril
+    Journey through the Lands Between, a new fantasy world created by Hidetaka Miyazaki, creator of the influential DARK SOULS video game series, and George R. R. Martin, author of The New York Times best-selling fantasy series, A Song of Ice and Fire
+    Traverse the breathtaking world on foot or on horseback, alone or online with other players, and fully immerse yourself in the grassy plains, suffocating swamps, spiraling mountains, and foreboding castles
+    Create your character in FromSoftware’s refi ned action-RPG and defi ne your playstyle by experimenting with a wide variety of weapons, magical abilities, and skills found throughout the world
+    Charge into battle, pick off enemies one-by-one using stealth, or even call upon allies for aid - many options are at your disposal as you decide how to approach exploration and combat',
+    description: 'The Golden Order has been broken. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between. ELDEN RING, developed by FromSoftware Inc. and produced by BANDAI NAMCO Entertainment Inc., is a fantasy action-RPG and FromSoftware\'s largest game to date, set within a world full of mystery and peril. A NEW FANTASY WORLD - Journey through the Lands Between, a new fantasy world created by Hidetaka Miyazaki, creator of the influential DARK SOULS video game series, and George R. R. Martin, author of The New York Times best-selling fantasy series, A Song of Ice and Fire. Unravel the mysteries of the Elden Ring\'s power. Encounter adversaries with profound backgrounds, characters with their own unique motivations for helping or hindering your progress, and fearsome creatures. WORLD EXPLORATION IN THE LANDS BETWEEN - ELDEN RING features vast fantastical landscapes and shadowy, complex dungeons that are connected seamlessly. Traverse the breathtaking world on foot or on horseback, alone or online with other players, and fully immerse yourself in the grassy plains, suffocating swamps, spiraling mountains, foreboding castles and other sites of grandeur on a scale never seen before in a FromSoftware title. GENRE-DEFINING GAMEPLAY - Create your character in FromSoftware\'s refi ned action-RPG and defi ne your playstyle by experimenting with a wide variety of weapons, magical abilities, and skills found throughout the world. Charge into battle, pick off enemies one-by-one using stealth, or even call upon allies for aid. Many options are at your disposal as you decide how to approach exploration and combat. A free upgrade to the PlayStation 5 version will be available for players who purchase ELDEN RING on PlayStation 4, and SmartDelivery will be supported for Xbox One and Xbox Series X|S.' ,
+    product_detail: 'ASIN  :	B09743F8P6
+    Release date  : 	February 25, 2022
+    Product Dimensions  :	6.75 x 5.36 x 0.6 inches; 2.89 Ounces
+    Binding  :	Video Game
+    Rated	:  Mature
+    Item model number  :	13020
+    Item Weight	: 2.89 ounces
+    Manufacturer  :	Bandai
+    Country of Origin  : USA
+    Date First Available  : June 10, 2021'}
+)
+
+raceTrackSet = Product.create(
+    {name: 'Scalextric C1368T 24 Hr Le Mans Sports Cars Slot Car Analog 1:32 Race Track Set, Red/White/Black', 
+    price: 159.99 ,category: 'Toys & Games' ,
+    body: 'Power selector on hand controllers to adjust the speed of the cars which is perfect for beginners or crank it up to full speed for more challenging races. Perfect for all levels or racing
+    Lap counter included to add an extra dimension to make it even more competitive
+    Each hand controller has a four-position selector switch which allows the driver to choose slow or fast speed settings to reflect the driver\'s experience.
+    The race set includes 15\' 9" of track with 4 different layout options to provide endless amounts of fun and variety, can change the layout in a matter of minutes with the easy to connect track.
+    Special features of this race set: easy change Pick-ups, magnatraction and Super tough cars' ,
+    description: 'Take part in your own version of Le Mans with this fantastic set. Feel the sense of accomplishment of making it to the end of an endurance race, with nearly five meters of track and four different track configurations to pick from, plus a lap counter to keep track of your progress against your opponent. Even if you prefer shorter, quicker races this set is perfect with its two Super Resistant Le Mans Prototype cars that can keep going even after more serious accidents. There’s also an adjustable power setting on the hand controllers to limit the speed of a race, perfect for keeping less experienced racers on the track! Contents: 2 x Le Mans Prototype Cars 1 x Powerbase 2x Hand Controllers 1 x Lap Counter 6 x R2 90 degree curve 6 x R2 45 degree curve Track Supports' ,
+    product_detail: 'Product Dimensions  :	28 x 4 x 18 inches
+    Item Weight  :	7.39 pounds
+    ASIN  :	B01CYE2NYK
+    Item model number  :	C1368T
+    Manufacturer recommended age  :	14 years and up'}
+)
+
+babyDollStroller = Product.create(
+    {name: 'My First Baby Doll Stroller - Soft Body Talking Baby Doll Included Fun Play Combo Set for Babies Infants Toddlers Girls Kids', 
+    price: 42.95 ,category: 'Toys & Games' ,
+    body: 'LIFELIKE FEATURES - Dolls To Play has finally come out with the First Lifelike Baby Doll and Carriage for your beloved Little Girl or Boy. The Baby Princess Doll is made of gentle touch Vinyl with a soft weighted body. The dolls features are all Handcrafted Depicting tiny little toes on the feet and adorable fingers on the hand. The Facial features are all hand painted featuring tiny rosebud lips and Sparkling eyes.
+    MY FIRST BABY DOLL STROLLER - This Adorable Detailed Baby Doll Stroller features a seat belt so that the doll shouldn\'t fall out, soft washable fabric, easy to grasp handles special for little hands. Fits dolls up to 18", folds compact for easy storage, strong carriage double wheels for extra stability. Carriage comes fully assembled. Recommended for ages 2 years and older.
+    SNUGLY SOFT BODY - Dolls To Play Baby Doll is an ideal first Baby doll that encourages Kids to express affection and care. It has a soft body that\'s perfect for hugging. Your little ones will learn to role-play nurture, love, and care. The Dolls clothing can easily be changed helping young ones develop fine motor skills. Stroller can also be used a walker
+    EFFECTIVE CHILD DEVELOPMENT - Develop your child\'s imagination with this realistic looking doll and stroller from Dolls To Play. This incredible Doll provides a superior alternative for pretend play. It\'s time to give your child a break from Video Games! In order to properly develop an imagination, Your child needs to physically touch, hold and interact with people. By introducing your child to Dolls your child will learn to engage with babies properly to help them develop essential life skills.
+    MADE FOR DOLLS TO PLAY BRAND - See our other Dolls, Strollers, Doll Accessory, Playpen, etc. by clicking on the Brand Name right under the product title. Dolls To Play is an exclusive Company, manufacturing higher end Dolls and toy accessories for deserving children. Our dolls, toys, and accessories are the perfect gift for Christmas, Holidays, Birthdays, or any other time!' ,
+    description: 'PERFECT FOR LITTLE MOMMIES & DADDIES
+    
+    Would you not like to give your beloved daughter the best-in-class role-playing experience by gifting her a realistic baby doll  and stroller?
+    Would you not love to see her play role of a little mother while also allowing her to develop emotional intelligence – caring and love?
+    
+    Children will love to care for this Adorable 16” Princess Doll and Stroller Set. Stroller is made of comfortable high quality material so that your little one can tote her dolls wherever she goes! The Stroller Fabric can easily be removed and is 100% machine washable; emerges from the wash looking brand new! Now your child can have some wholesome fun without worrying about damaging Dolls Clothing or accessories.
+    
+    PRINCESS DOLL
+    
+    - Made of Gentle Touch Vinyl
+    - Detailed Lifelike Facial Features
+    - Handcrafted Features with Realistic Looking Toes and fingers
+    - Adorable Little Princess Doll outfit with matching hat
+    
+    STROLLER
+    
+    - Easily Foldable making it perfect for on the go
+    - Smooth rolling wheels make it easy to take your doll for a stroll
+    - Wide and Stable base doesn’t easily topple
+    - No sharp corners no risk of hurting the baby
+    - Pink Nursery Print with pacifier, bottle, rattle, hearts, is your Pinky Promise that your baby is gonna love
+    - Fits any other kind of doll easily
+    - Helps your children understand feelings of care and love – better emotional growth
+    
+    MAKE IT THE PERFECT GIFT FOR CHRISTMAS OR YEAR ROUND
+    Don’t get frustrated while searching the right toy gift for you lovely child or grandchild, get this high quality baby doll carriage as a gift she will remember her entire life! 
+    
+    So, why think twice?
+    
+    ORDER NOW TO GIVE YOUR LITTLE GIRL SOMETHING SHE WILL ALWAYS LOVE!',
+    product_detail: '
+    Package Dimensions  :	23.7 x 10.01 x 4 inches
+    Item Weight	:  2.64 pounds
+    ASIN  :	B0754J429C
+    Manufacturer recommended age  :	36 months - 3 years
+    Is Discontinued By Manufacturer  :	No
+    Department  :	Unisex-child
+    Manufacturer   :	Dolls To Play'}
+)
+
+
+###### FASHION ####
+trexCostume = Product.create(
+    {name: 'Rubies Adult The Original Inflatable Dinosaur Costume, T-Rex, Standard',
+    price: 49.99 ,category: 'Fashion',
+    body: '100% Nylon
+    Imported
+    Zipper closure
+    Hand Wash
+    LONG SLEEVE inflatable jumpsuit with zipper closure on back and battery operated fan
+    READ BEFORE BUYING: Costumes are not sized the same as apparel, please review the Rubies SIZE CHART IN IMAGES to determine fit, recent reviews may also be helpful
+    Fan requires 4, AA batteries (not included); do not use rechargeable, nickel-cadmium; remove batteries from fan while not in use From Rubies, manufacturer of the Original Inflatable Dinosaur costume
+    GROUPS AND FAMILIES: Combine with other costumes by Rubies; look for regular and inflatable designs in baby, toddler, child, adult and pet sizes, also look for accessories like candy bowls, masks and more
+    FAMILY-FOCUSED, and based in the U.S.A. since 1951, Rubie’s has classic and licensed costumes and accessories in sizes and styles for your entire family',
+    description: 'Long sleeve inflatable jumpsuit with battery operated fan. Fan requires 4 AA batteries, fan instructions included with costume. Batteries available separately. Please read before buying; costumes are not sized the same as apparel, please review the Rubies size chart in images, read recent reviews and Q & A to determine best fit. Look for Rubies trademark on packaging and labels to help assure you’ve received an authentic safety-tested item. Rubies offers all of your favorite dinosaurs inflatable designs; look for Velociraptor with Sound, Pteranodon, Triceratops, Velociraptor, T-Rex with Sound and the award winning inflatable dinosaur that started it all, the T-Rex; available in standard adult, plus-size and teen. Create your very own family of prehistoric fun and get ready for an unforgettable time.',
+    product_detail: 'Is Discontinued By Manufacturer  :  No
+    Product Dimensions  :  15.75 x 12.99 x 8.27 inches; 1 Pounds
+    Manufacturer recommended age  :  18 years and up
+    Item model number  :  810481
+    Department  :  Mens
+    Batteries  :  4 AA batteries required.
+    Date First Available  :  April 24, 2015
+    Manufacturer  :  Rubie\'s
+    ASIN  :  B00TO6E0T8
+    Country of Origin  :  China'
+    }
+)
+
+threeWolvesShirt = Product.create(
+    {name: 'The Mountain Men\'s Three Wolf Moon Short Sleeve Tee' , price: 29.99 ,category: 'Fashion',
+    body: '100% Cotton
+    Machine wash & dry, do not bleach
+    ALL NATURAL QUALITY MATERIALS: 100% cotton, water based inks, and organic dyes ensure the shirt doesn\'t emit nasty toxins; our hand dyeing process make these custom shirts a work of art
+    ULTRA SOFT AND COMFORTABLE:  Using only high quality materials, these shirts will not lose their shape and are easy to care for, just toss in the washing machine on cold, tumble dry low (no bleach)
+    ENVIRONMENT FIRST PRODUCTION: Since 1972, we remain committed to using sustainable practices that  preserve our natural resources; designed and printed in the USA, we are deeply tied to this commitment and continue to implement the latest practices
+    CUSTOM ART WEAR: Our apparel is designed by artists who create stunning works of art that come to life through rich and vibrant colors; these tee shirts are unique and wearable masterpieces making the wonderful gifts
+    Take care when wielding the powers of the Three Wolf Moon T-shirt from The Mountain, for you will call excessive amounts of prospective mates to your presence, and others will stand awestruck in your presence, unable to perform other duties',
+    description: 'Hand dyed shirt featuring a stunning screen print of 3 wolves howling at a moon on a preshrunk, 100% cotton tee dyed and printed by the mountain. This hand dyed tee shirt features a stunning screen print graphic on a preshrunk, 100% cotton tee. Dyed and printed by The Mountain. The Mountain uses only inks and dyes, to bring you an incredibly durable and comfortable garment.',
+    product_detail: 'Item model number  :  56158
+    Department  :  Mens
+    Date First Available  :  March 5, 2007
+    Manufacturer  :  The Mountain Boys 8-20
+    ASIN  :  B002HJ377A'}
+)
+
+adidasHat = Product.create(
+    {name: 'adidas mens Release 2 Structured Stretch Fit Cap' , 
+    price: 20.66 ,category: 'Fashion' ,
+    body: '80% Polyester, 20% Spandex
+    Imported
+    Hand Wash Only
+    Low crown, 6-panel stretch fit silhouette.
+    Breathable mesh fabric.
+    Textured offset embroidered badge of sport logo.
+    Moisture-wicking sweatband for a dry, comfortable fit.',
+    description:  'Go all-in on game day. the iconic adidas badge of sport sits offset on the front of this cap. the soft, stretch-fit build features breathable mesh and a low crown for a traditional fit.',
+    product_detail: 'Product Dimensions :  6 x 6 x 51 inches; 3.53 Ounces
+    Item model number :  978221
+    Department :  Mens
+    Date First Available :  May 8, 2019
+    Manufacturer :  Adidas
+    ASIN :  B07RMBWQK2'}
+)
+
+bucket_hats = Product.create(
+    {name: 'MaxNova Bucket Hats Summer Travel Beach Sun Hat Outdoor Cap Unisex 2pack', 
+    price: 19.99,category: 'Fashion' ,
+    body: '100% Cotton
+    Material:This cute BUCKET HAT for women/men made of 100% high quality Cotton,it is cozy and comfortable .
+    Size:Bucket hats has One free size with head circumference:56-58cm/22.1-22.8".Fits most of boys girls women and men.
+    Packable and reversible:This cute bucket hat is easy to pack and roll into your bag and pocket, when not in use.The one fishing cap could be used as two hats, one side is a color bucket hat, the other side is another solid color hat, it is great value for money.
+    Occusion:Perfect for both casual daily and outdoor activities,such as fishing,hunting,hiking,camping and beach.It is a good sun hats for women.'
+    description: '100% Satisfaction Guaranteed - MaxNova bucket hats for women has 30 days free exchange and returns. Please contact us first if there is any question. We will do our best to meet your request and solve your problem quickly and efficiently!',
+    product_detail: 'Department  :  Womens
+    Date First Available  :  September 21, 2020
+    ASIN  :  B08JMFKDG8'}
+)
+
+lemurOnesie = Product.create(
+    {name: 'Unisex Adult Onesie Animal Pajamas One-piece Cosplay Costume Women Man Halloween' , 
+    price: 22.99 ,category: 'Fashion' ,
+    body: 'Zipper closure
+    The material is relatively Loose fitting and has a high degree of comfort
+    Made of wool, with excellent breathability
+    Animal pajamas have buttons for easy putting on and taking off
+    Easy to clean, non-fading and lint-free
+    If you are not sure about the size, it is recommended to buy a larger size. If you are not satisfied with the product, please contact us and we will help you',
+    description: 'If you are not sure about the size, it is recommended to buy a larger one
+
+    Below is the size table：
+    
+    Small(S)-height 57"-62" suitable for height from 146CM-159CM  
+    
+    Medium(M)-height 63"-66" suitable for height from 160CM-169CM 
+    
+    Large(L)-height 67"-70" suitable for height from 170CM-179CM 
+    
+    X-Large(XL)-height 71"-74" suitable for height from 180CM-188CM'  ,
+    product_detail: 'Department  :  Womens
+    Date First Available  :  September 18, 2019
+    ASIN  :  B07Z1CQ5KW'}
+)
+
+bad_cat_shirt = Product.create(
+    {name: 'Do What I Want Vintage Black Cat Red Cup Funny My Cat T-Shirt', 
+    price: 16.98,category: 'Fashion' ,
+    body: 'Solid colors: 100% Cotton; Heather Grey: 90% Cotton, 10% Polyester; All Other Heathers: 50% Cotton, 50% Polyester
+    Imported
+    Machine Wash
+    Do What I Want Vintage Black Cat Red Cup Funny My Cat i do what i want the tshirt for Halloween to cats lovers from dad or mom to special daughter or kids or sons or from brothers to sisters nice humor cute halloween loves cat for Halloween holiday
+    Lightweight, Classic fit, Double-needle sleeve and bottom hem' ,
+    description: 'Great present to gift to husband, wife, grandpa, grandma, mom, dad, brother, sister, son, daughter, friends or family on occasions such as Graduation, Wedding, Birthday, Valentine's day, New Year's, Christmas, Mother's Day, Father's Day, or Easter holiday.',
+    product_detail: 'Package Dimensions  :  10 x 8 x 1 inches; 4.8 Ounces
+    Department  :  Womens
+    Date First Available  :  March 3, 2021
+    Manufacturer  :  i do what i want cat shirt
+    ASIN  :  B08XZB97RG'}
+)
+
+fullStackShirt = Product.create(
+    {name: 'Full Stack Developer - Computer Science Programmer Coding T-Shirt', 
+    price: 19.99,category: 'Fashion' ,
+    body: 'Solid colors: 100% Cotton; Heather Grey: 90% Cotton, 10% Polyester; All Other Heathers: 50% Cotton, 50% Polyester
+    Imported
+    Machine wash cold with like colors, dry low heat
+    Are you a Coder or a Programmer? If you like to code and are a software developer you can probably relate to the problem. This makes a great Birthday Gift for a software engineer.
+    This funny computer engineering design is an exclusive novelty design. Grab this coding enthusiast design as a gift for a Developer, Computer Science Student, Software Engineer or any other IT professional
+    Lightweight, Classic fit, Double-needle sleeve and bottom hem',
+    description: 'This Programmer design features a stack of pancakes and the text "Full Stack Developer" which is nicely incorporated into the design. Are you looking for a Great Birthday Gift for a Coder or Programmer? Then this Coding design is perfect for you! This will be an eye catcher at work, at the university or at the college. Wear this computer geek design at the next hackathon.' ,
+    product_detail: 'Package Dimensions  :  10 x 8 x 1 inches; 4.8 Ounces
+    Department  :  Mens
+    Date First Available  :  October 27, 2021
+    Manufacturer  :  Funny Programmer Shirts
+    ASIN  :  B09KHKQC7M'}
+)
+
+nikeJoggers = Product.create(
+    {name: 'Nike Sportswear Tech Fleece Men\'s Joggers', 
+    price: 64.99 ,category: 'Fashion' ,
+    body:'66% Cotton, 34% Polyester
+    Drawstring closure
+    Machine Wash
+    Room in the thighs helps you move without restriction.
+    Tapering at the knee provides a tailored look to help your sneakers shine.
+    Elastic waistband with drawcord provides a snug fit.
+    Slim fit for a tailored feel
+    Ribbed cuffs and a tapered leg design' ,
+    description: 'Ready for cooler weather, the Nike Sportswear Tech Fleece Joggers feature an updated fit perfect for everyday wear. Roomy through the thigh, this tapered design narrows at the knee to give you a comfortable feel without losing the clean, tailored look you love. Tall ribbed cuffs complete the jogger look while a zippered pocket on the right leg provides secure small-item storage and elevate the look.' ,
+    product_detail: 'Package Dimensions  :  11.06 x 9.49 x 2.91 inches; 1.27 Pounds
+    Department  :  Mens
+    Date First Available  :  July 2, 2021
+    Manufacturer  :  Nike
+    ASIN  :  B09LWRQS6G'}
+)
+
+nikeShirt = Product.create(
+    {name: 'Nike Men\'s Dry Tee', 
+    price: 25.00,category: 'Fashion' ,
+    body: 'Imported
+    Machine Wash
+    SWEAT-WICKING NIKE T-SHIRT STYLE: The Nike Dri-FIT Men\'s T-Shirt delivers a soft feel, sweat-wicking performance and great range of motion to get you through your workout in total comfort.
+    NIKE SHIRT: The Nike men\'s workout shirt has a standard fit for a relaxed, easy feel during physical activity. Small Nike swoosh trademark on left chest.
+    COMFORTABLE FIT: The Nike Dry fabric material moves with you for optimal range while you play. The Nike shirt for men is crafted with 60% cotton and 40% polyester.
+    RIBBED CREW NECK: The Nike t-shirt for men has a ribbed crew neck that gives you a comfortable fit when active. The cut is designed to lay smoothly against the skin.
+    NIKE MEN\'S SHIRT: Regular fit, fabric: 60% cotton/40% polyester, imported, machine wash',
+    description:  'The Nike Dri-FIT Men\'s T-Shirt delivers a soft feel, sweat-wicking performance and great range of motion to get you through your workout in total comfort.',
+    product_detail: 'Package Dimensions  :  10.4 x 5.5 x 1.5 inches; 4.97 Ounces
+    Item model number  :  AR6029
+    Department  :  Mens
+    Date First Available  :  March 2, 2019
+    Manufacturer  :  Nike Apparel (Sporting Goods)
+    ASIN  :  B07DYTCL4W'}
+)
+
+leatherBelt = Product.create(
+    {name: 'WOLFANT Full Grain Leather Belt for Men,100% Italian Real Solid Leather Casual Jeans belt', 
+    price: 39.98,category: 'Fashion' ,
+    body: '[Full Grain]: This solid belts is handmade of 100% Italian Full Grain Leather– NO Fillers, NO Bonding, one single piece of 1.5" top Real Solid cowhide, wont break, wont split. The quality of this leather ensures a long-lasting life and durability.
+    [Aesthetic Buckle]: Unlike a common buckle, the anaglyph of heavy duty metal buckle makes it look more aesthetic.Combined with exquisite handmade, this cowhide belt will serve as a fine accessory to any jeans, casual, work pants, business slacks& more.You can be sure to never go out of style with the classic yet stylish design of belt.
+    [Perfect Fit]: There are 7 holes on the mens belt to make belt fits more waistline size. Each product comes with a puncher so that you can remove the belt head to adjust the belt length according to your waist size.
+    [Gift Box]: Experience premium with WOLFANT! As luxury packaging comes as standard! WOLFANT high quality men\'s belt is a great gift for boyfriend, husband, father and male colleagues as birthday gift or anniversary gift.
+    [100% Guarantee]: Any product issue makes you dissatisfy with this men\'s leather belt, let us know and we will make it right. Full Refund or a Free Replacement, whichever You Prefer.',
+    description: 'The first layer of cowhide leather has a smooth feel, good ductility and breathability, making it more comfortable. The durability of the leather has been significantly improved due to the careful selection of the cowhide. And it has only a little natural scent, no chemical odor.
+
+    There are no two pieces of leather that are exactly the same in the world. Each leather has its characteristics and texture. Each belt is unique. Every effort we put in is to bring you a better experience.' ,
+    product_detail: 'Package Dimensions  :  6.34 x 5.16 x 4.29 inches; 9.91 Ounces
+    Department  :  Mens
+    Date First Available  :  April 14, 2021
+    ASIN  :  B092HTJLT3'}
+
+
+#### Electronics ####
+echoDot = Product.create(
+    {name: 'Echo Dot (4th Gen, 2020 release) | Smart speaker with Alexa | Charcoal' , price: 49.99 ,category: 'Electronics',
+    body: 'Meet the Echo Dot - Our most popular smart speaker with Alexa. The sleek, compact design delivers crisp vocals and balanced bass for full sound.
+    Voice control your entertainment - Stream songs from Amazon Music, Apple Music, Spotify, SiriusXM, and others. Play music, audiobooks, and podcasts throughout your home with multi-room music.
+    Ready to help - Ask Alexa to tell a joke, play music, answer questions, play the news, check the weather, set alarms, and more.
+    Control your smart home - Use your voice to turn on lights, adjust thermostats, and lock doors with compatible devices.
+    Start Routines with your motion - Turn on compatible lights, play your Flash Briefing, or turn on the coffee maker when you walk into the room.
+    Connect with others hands-free - Call friends and family who have the Alexa app or an Echo device. Instantly drop in on other rooms or announce to the whole house that dinner\'s ready.
+    Designed to protect your privacy – Amazon is not in the business of selling your personal information to others. Built with multiple layers of privacy controls including a mic off button.',
+    description: 'Round out any room with Alexa. Our most popular smart speaker has a sleek, compact design that fits perfectly into small spaces. It delivers crisp vocals and balanced bass for full sound you can enjoy anywhere in your home.',
+    product_detail: 'Size  :  3.9” x 3.9” x 3.5” (100 x 100 x 89 mm)
+    Weight   :   12 oz (341.3 g) Actual size and weight may vary by manufacturing process
+    Wi-Fi connectivity   :   Dual-band Wi-Fi supports 802.11a/b/g/n/ac (2.4 and 5 GHz) networks. Does not support connecting to ad-hoc (or peer-to-peer) Wi-Fi networks.'}
+)
+
+
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+= Product.create(
+
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+= Product.create(
+
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+
+#### Pet Supplies ####
+frontline = Product.create(
+    {name: 'FRONTLINE Plus Flea and Tick Treatment for Cats' , price: 71.99 ,category: 'Pet Supplies',
+    body: 'The #1 name in flea & tick protection trusted by pet owners for over 20 years, this waterproof, fast-acting flea and tick treatment kills fleas, flea eggs, lice, and ticks, including those that may transmit Lyme disease.
+    Designed for use only with cats and kittens, this long-lasting treatment is made for cats eight weeks or older, weighing 1.5 pounds or more.
+    Made with two active ingredients, fipronil and (S)-methoprene, this treatment stops infestations and prevents new ones.
+    Applied on a single point on your pet, the treatment rapidly covers your cat\'s entire body and deposits in the sebaceous glands. These glands as a reservoir, continuously replenishing the treatment onto your pet, working even if your cat gets wet.
+    One dose of FRONTLINE Plus lasts 30 days.
+    Flea, flea egg, lice, and tick control for cats and kittens',
+    description: 'FRONTLINE Plus for Cats has been trusted by veterinarians for flea and tick control for kittens and cats for nearly 20 years. Made with 2 tough killing ingredients, fipronil and (S)-methoprene – one to kill adult fleas and ticks and the second to kill flea eggs and larvae – this fast-acting, long-lasting protection provides flea and tick control for cats and kittens 8 weeks and older, 1.5 lbs. and over. Its long-lasting formula is stored in the oil glands of the pet’s skin to give non-stop flea and tick protection for a full 30 days.',
+    product_detail: 'Is Discontinued By Manufacturer  :  No
+    Product Dimensions  :  5.7 x 1 x 4.5 inches; 0.16 Ounces
+    Item model number  :  P004FLTSP6-CAT
+    Date First Available  :  October 2, 2001
+    Manufacturer  :  Boehringer Ingelheim Animal Health
+    ASIN  :  B0002J1F7G
+    Country of Origin  :  China'}
+)
+
+purian = Product.create(
+    {name: 'Purina ONE Tender Selects Blend Adult Dry Cat Food' , price: 27.98 ,category: 'Pet Supplies',
+    body: '16 Lb. Bag - Purina One Tender Selects Blend With Real Salmon Adult Dry Cat Food
+    Real Salmon Is The no.1 Ingredient
+    High Protein Helps Support Strong Muscles
+    Natural Plus Essential Nutrients
+    100% Complete And Balanced Nutrition For Adult Cats',
+    description: 'Serve your cat a plate of the deliciously crunchy bites and meaty, tender morsels she\'s been craving with Purina ONE Tender Selects Blend With Real Salmon adult dry cat food. We craft this natural recipe plus essential nutrients with real ingredients, including accents of real carrots and peas. Containing no artificial flavors or preservatives, this formula uses real salmon as the #1 ingredient to provide the protein your cat needs to support strong muscles. The omega-6 fatty acids help nourish and maintain healthy skin and a radiant coat, and antioxidants promote immune health. Along with a great taste cats love, this meal delivers 100% complete and balanced nutrition for adult cats. Plus, the crunchy kibble helps reduce plaque buildup and whiten teeth. This dry food for cats contains 0% fillers, meaning all of our high-quality ingredients have a purpose. For the convenience you demand and the variety your cat appreciates, buy this Purina ONE cat food on Amazon.com today.',
+    product_detail: 'Product Dimensions  :  22 x 14 x 3 inches; 16 Pounds
+    Item model number  :  178609
+    Date First Available  :  February 3, 2006
+    Manufacturer  :  Nestle Purina Pet
+    ASIN  :  B0000AH3RR
+    Country of Origin  :  USA'}
+)
+
 
 dogCarSeat = Product.create(
     {name: 'PETICON Car Seat Cover for Dogs, 100% Waterproof Dog Seat Cover for Back Seat with Mesh Window, Scratchproof Dog Car Hammock for Cars, Trucks, SUVs, Jeep, Nonslip Dog Back Seat Protection, Black',
@@ -346,6 +852,8 @@ catLitter = Product.create(
     ASIN  :  B07ZK3DZB3'}
 )
 
+
+#### Sporting Goods ####
 basketball = Product.create(
     {name: 'WILSON Evolution Game Basketball',
     price: 69.95 ,category:'Sporting Goods' ,
@@ -423,15 +931,63 @@ paracordBracelet = Product.create(
     Material	:  Cellulose
     Manufacturer	:  The Atomic Bear' }
 )
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+
+    
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+    
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+    
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+    
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+    
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
+    
+= Product.create(
+    {name: , 
+    price: ,category: ,
+    body: ,
+    description:  ,
+    product_detail: }
+)
 
 
-    #{name: , price: ,category: ,
-    #body: ,
-    #description:  ,
-    #product_detail: }
 
-
-
- #Review.create([
-  #   { userId: 1, productId: 7, rating: 5, headline: 'Eating them on camera makes you really cool!', body: 'Who needs food when you can just eat tide pods!'}
- #])
+ Review.create([
+     { usrId: 1, productId: 7, rating: 5, headline: 'Eating them on camera makes you really cool!', body: 'Who needs food when you can just eat tide pods!'}

@@ -1,35 +1,30 @@
 import React, { useEffect } from "react"
-import { fetchProducts } from "../../actions/product_actions"
 import CartItemIndexItem from "./cart_item_index_item"
-import CartItemIndexItemContainer from "./cart_item_index_item_container"
 
-
-const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, userId, fetchProduct}) => {
+const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, userId}) => {
 
     useEffect( () => {
-        // debugger
-        fetchCartItems(userId)
+        if(userId) fetchCartItems(userId)
     },[])
 
-    useEffect( () => {
-        fetchProducts(createFilter)
-    },[cartItems])
-
-    const createFilter = () => {
-        let filter = cartItems.map(cartItem => `id = ${cartItem.productId}`)
-        return filter.join(' OR ')
+    const cartItemList = () => {
+        if(userId) {
+            return cartItems.map( cartItem => {
+                return <CartItemIndexItem key={cartItem.id} cartItem={cartItem} removeCartItem={removeCartItem}/>
+            })
+        } else {
+            return JSON.parse(localStorage.getItem('cart')).map( cartItem => {
+                return <CartItemIndexItem key={cartItem.productId} cartItem={cartItem} removeCartItem={removeCartItem}/>
+            })
+        }
     }
 
     return (
         <ul>
-            <li>Something</li>
-            {cartItems.map( cartItem => {
-                return <CartItemIndexItem key={cartItem.id} cartItem={cartItem} removeCartItem={removeCartItem} fetchProduct={fetchProduct}/>
-                // return <CartItemIndexItemContainer key={cartItem.id} cartItem={cartItem}/>
-            })}
+            <h1>Your Cart</h1>
+            {cartItemList()}
         </ul>
     )
-
 }
 
 export default CartItemIndex

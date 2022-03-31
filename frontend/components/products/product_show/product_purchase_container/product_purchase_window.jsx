@@ -10,7 +10,21 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) =
 
     const handleAddToCart = () => {
         let cartItem = Object.assign( {}, {userId: userId, productId: product.id, quantity: parseInt(quantity)})
-        createCartItem(userId, cartItem);
+        if(userId) {
+            createCartItem(userId, cartItem);
+        } else {
+            let prevCart;
+            if(localStorage.getItem('cart') === '') {
+                prevCart = []
+            } else {
+                prevCart = JSON.parse(localStorage.getItem('cart'))
+            }
+            cartItem.name = product.name
+            cartItem.price = product.price
+            cartItem.image_url = product.image_url
+            prevCart.push(cartItem)
+            localStorage.setItem('cart', JSON.stringify(prevCart))
+        }
     }
 
     const handleBuyNow = () => {

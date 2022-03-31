@@ -1,4 +1,5 @@
 import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 import { fetchProducts } from "../../../actions/product_actions"
 import SearchBar from "./search_bar"
 
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar))

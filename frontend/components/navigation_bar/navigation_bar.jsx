@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import AccountListContainer from './account_list/account_list_container'
-import { Link } from 'react-router-dom'
 import Logo from '../logo'
 import SearchBarContainer from './search_bar/search_bar_container'
 import CategoryLink from './category_link'
@@ -19,7 +18,7 @@ const NavBelt = ({fetchProducts, history, userId}) => {
                 <SearchBarContainer setDepartment={setDepartment} department={department}/>
                 <AccountListContainer />
                 <CartIconContainer />
-                <Link to='/cart'>[CART IMAGE]</Link>
+                
             </div>
 
             <div className="nav-belt-bar-2">

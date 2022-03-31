@@ -3,15 +3,6 @@ import { Link } from 'react-router-dom';
 import AccountListDropDownContainer from './account_list_dropdown/account_list_dropdown_container';
 
 const Greeting = ({currentUser, logout}) => {
-    // debugger
-    // const sessionLinks = () => {
-    //     return (
-    //         <div className="login-signup">
-    //             <Link to='/login'>Log In</Link>
-    //             <Link to='/signup'>Sign Up</Link>
-    //         </div>
-    //     )
-    // };
 
     const personalGreeting = () => {
         return (
@@ -22,14 +13,13 @@ const Greeting = ({currentUser, logout}) => {
                 </div>
                 <div className="account-list-dropdown-content">
                     <AccountListDropDownContainer />
-                {/* <button onClick={logout}>Log Out</button> */}
                 </div>
             </div>
         )
     }
     
     return personalGreeting()
-    // return currentUser ? personalGreeting() : sessionLinks();
+    
 }
 
 export default Greeting;

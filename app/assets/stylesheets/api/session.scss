@@ -8,6 +8,7 @@
 .logo {
     font-size: 30px;
     text-decoration: none;
+    margin: 5px 5px 5px 5px;
 } 
 
 .logo:visited{
@@ -21,11 +22,13 @@
     flex-direction: column;
 }
 
+
+
 .nav-belt-bar-1 {
     height: 60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    // justify-content: space-around;
     align-items: baseline;
     background-color: #131921;
 }
@@ -56,22 +59,22 @@
     color: black;
 }
 
-.account-list-header {
-    position:relative;
-    display: inline-block;
-}
 
 .nav-line-1 {
-    font-size: small;
+    font-size: 12px;
     margin-bottom: 2px;
 }
 
 .nav-line-2 {
     margin-top: 2px;
-    font-size: medium;
+    font-size: 16px;
     font-weight: bold;
 }
 
+.account-list-header {
+    position:relative;
+    display: inline-block;
+}
 .account-list-dropdown-content {
     display: none;
     position: absolute;
@@ -92,6 +95,34 @@
 .search-bar {
     display: flex;
     flex-direction: row;
+    width: 100%;
+}
+
+.search-bar select {
+    width: auto;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    left: 0;
+    border-radius: 0 0 0 0;
+    border: none;
+    font-size: 20px;
+}
+
+.search-field:focus .search-bar{
+    border-color: orange;
+}
+
+.search-bar button {
+     background-color: #febd69;
+     height: 50px;
+     width: 58px;
+     margin-top: -2px;
+    
 }
 
 ////////////
@@ -235,7 +266,7 @@ main {
 }
 
 
-input:focus, input {
-    outline: none !important;
+input:focus {
+    outline: orange 2px solid !important;
 }
 

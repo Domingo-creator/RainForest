@@ -8,14 +8,20 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, userId}) => {
     },[])
 
     const cartItemList = () => {
-        if(userId) {
+        if(userId && cartItems.length) {
             return cartItems.map( cartItem => {
                 return <CartItemIndexItem key={cartItem.id} cartItem={cartItem} removeCartItem={removeCartItem}/>
             })
-        } else {
+        } else if(localStorage.getItem('cart')) {
             return JSON.parse(localStorage.getItem('cart')).map( cartItem => {
                 return <CartItemIndexItem key={cartItem.productId} cartItem={cartItem} removeCartItem={removeCartItem}/>
             })
+        } else {
+            return (
+                <div>
+                    <h1>Your Cart is Empty</h1>
+                </div>
+            )
         }
     }
 

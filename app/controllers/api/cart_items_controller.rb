@@ -6,29 +6,27 @@ class Api::CartItemsController < ApplicationController
     end
     
     def create 
-        debugger
         @cart_item = CartItem.new(cart_params)
         if @cart_item.save
-            debugger
             render json: {message: 'Item successfully added'}
         else
-            debugger
             render json: {message: 'Item could not be added to cart'}
         end
     end
 
     def update
-        @cart_item = CartItem.find(params.id)
+        @cart_item = CartItem.find(params[:id])
         if @cart_item.update
             render json: {message: 'Item succesffully updated'}
         else
             render json: {message: 'Item could not be updated'}
         end
     end
+    
     def destroy
-        @cart_item = CartItem.find(params.id)
+        @cart_item = CartItem.find(params[:id])
         if @cart_item.delete
-            ender json: {message: 'Item destroyed'}
+            render json: {message: 'Item destroyed'}
         else
             render json: {message: 'Item could not be destroyed'}
         end

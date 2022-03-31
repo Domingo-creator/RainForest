@@ -10,7 +10,7 @@ const cartItemsReducer = (oldState = {}, action) => {
             newState[action.cartItems.id] = action.cartItem
             return newState
         case REMOVE_CART_ITEM:
-            delete newState[action.cartItems.id] 
+            delete newState[action.cartItemId] 
             return newState
         default:
             return oldState

@@ -14,7 +14,7 @@ users = User.create([
 ])
 
 #### Health & Household ####
-tide= Product.create(
+tidePods= Product.create(
     {name: "Tide PODS 4 in 1 with Downy, Laundry Detergent Soap PODS, April Fresh Scent, 73 Count, Packaging May Vary", 
     price: 24.99 ,category: "Health & Household",
     body: "Only Tide PODS Plus Downy cleans and conditions in 1 step, helping protect clothes from stretching and fading in the wash. 
@@ -23,7 +23,7 @@ tide= Product.create(
     )Pd = Product.create(
     Each Tide PODS is 4-in-1 including detergent, stain remover, brightener, and Downy Fabric Protect technology
     The new special film now dissolves even better in both hot & cold water",
-    descriptio: "The new and improved Tide PODS laundry detergent pacs are super concentrated with 90 percent cleaning ingredients to rejuvenate even dingy clothes for brighter brights and whiter whites, wash after wash. Each Tide PODS is a 3-in-1 breakthrough laundry solution with highly concentrated detergent, stain remover and color protector, giving you more bang for your buck.
+    description: "The new and improved Tide PODS laundry detergent pacs are super concentrated with 90 percent cleaning ingredients to rejuvenate even dingy clothes for brighter brights and whiter whites, wash after wash. Each Tide PODS is a 3-in-1 breakthrough laundry solution with highly concentrated detergent, stain remover and color protector, giving you more bang for your buck.
     Tide PODS pac are small but powerful with an innovative, three chamber design separating key ingredients until they hit the wash for maximum cleaning power. More than just a liquid in a pouch, these reformulated laundry pacs reveal Tide's brightest clean yet.
     Its special filmenables the multi-chamber technology to dissolve in both hot & cold water. Tide PODS are formulated with quick collapsing Smart SudsTM. It targets tough stains and works in both HE and standard washing machines.
     For superior perforance, place 2 Tide PODS pacs into the washing machine drum before you add clothes for large loads. For smaller loads, use 1 laundry pac.",
@@ -33,6 +33,9 @@ tide= Product.create(
     ASIN   :   B07NW4Q8MLU
     Country of Origin   :   USA"}
 )
+tidePodsImage = File.open("Desktop/App\ Academy\ Course/amazon_clone_images/tidePods.jpg")
+tidePods.image.attach(io: tidePodsImage, filename: 'tidePods.jpg')
+
 snug= Product.create(
     {name: 'Snuggle SuperCare Laundry Fabric Softener Liquid, Sea Breeze, 2X Concentrated Conditioner, 150 Loads, 78.75 Fl Oz', 
     price: 16.99 ,category: 'Health & Household',
@@ -42,8 +45,8 @@ snug= Product.create(
     )ge= Product.create(
     Snuggle SuperCare fabric softener is safe for both high efficiency (HE) and regular washing machines
     You get one bottle of Snuggle SuperCare 2X Concentrated liquid fabric softener in the Sea Breeze scent, enough for 150 regular loads.',
-    descriptio: 'Snuggle SuperCare keeps clothes looking newer longer*. This fabric conditioner protects the clothes you love with specially formulated technology that prevents wear & tear and color fading. All this plus the Snuggly Softness and Long-Lasting Freshness you love. To use, shake the closed Snuggle bottle. Open the bottle and measure to desired line in cap. Locate the fabric softener dispenser and pour product into dispenser of your washing machine. Do not pour directly on fabrics. Snuggle fabric softener works in all washing machines including high efficiency (HE) washers. This package includes one 78.75 ounce bottle of 2X concentrated Snuggle SuperCare fabric softener liquid in Sea Breeze scent, enough for 150 regular loads. *v. leading value liquid detergent alone.' ,
-    product_detai: 'Product Dimensions  :  7.5 x 4.14 x 11.37 inches; 5.34 Pounds
+    description: 'Snuggle SuperCare keeps clothes looking newer longer*. This fabric conditioner protects the clothes you love with specially formulated technology that prevents wear & tear and color fading. All this plus the Snuggly Softness and Long-Lasting Freshness you love. To use, shake the closed Snuggle bottle. Open the bottle and measure to desired line in cap. Locate the fabric softener dispenser and pour product into dispenser of your washing machine. Do not pour directly on fabrics. Snuggle fabric softener works in all washing machines including high efficiency (HE) washers. This package includes one 78.75 ounce bottle of 2X concentrated Snuggle SuperCare fabric softener liquid in Sea Breeze scent, enough for 150 regular loads. *v. leading value liquid detergent alone.' ,
+    product_detail: 'Product Dimensions  :  7.5 x 4.14 x 11.37 inches; 5.34 Pounds
     Item model numbe  :  00072613471393
     Date First Availabl  :  August 5, 2021
     Manufacturer  :  Henke
@@ -132,7 +135,7 @@ earthwash = Product.create(
     ASIN  :  B094TXL3R6'}
 )
 
-woolite = product.create(
+woolite = Product.create(
     {name: 'Woolite Darks with EverCare Liquid Laundry Detergent, 66 Loads, 100 Fl Oz (Pack of 1), Packaging May Vary', 
     price: 14.39 ,category: 'Health & Household',
     body: 'NEW FORMULA Woolite Darks with EverCare is a first of its kind formula that protects synthetics and blends from damage in the wash
@@ -469,7 +472,7 @@ bucket_hats = Product.create(
     Material:This cute BUCKET HAT for women/men made of 100% high quality Cotton,it is cozy and comfortable .
     Size:Bucket hats has One free size with head circumference:56-58cm/22.1-22.8".Fits most of boys girls women and men.
     Packable and reversible:This cute bucket hat is easy to pack and roll into your bag and pocket, when not in use.The one fishing cap could be used as two hats, one side is a color bucket hat, the other side is another solid color hat, it is great value for money.
-    Occusion:Perfect for both casual daily and outdoor activities,such as fishing,hunting,hiking,camping and beach.It is a good sun hats for women.'
+    Occusion:Perfect for both casual daily and outdoor activities,such as fishing,hunting,hiking,camping and beach.It is a good sun hats for women.',
     description: '100% Satisfaction Guaranteed - MaxNova bucket hats for women has 30 days free exchange and returns. Please contact us first if there is any question. We will do our best to meet your request and solve your problem quickly and efficiently!',
     product_detail: 'Department  :  Womens
     Date First Available  :  September 21, 2020
@@ -509,7 +512,7 @@ bad_cat_shirt = Product.create(
     Machine Wash
     Do What I Want Vintage Black Cat Red Cup Funny My Cat i do what i want the tshirt for Halloween to cats lovers from dad or mom to special daughter or kids or sons or from brothers to sisters nice humor cute halloween loves cat for Halloween holiday
     Lightweight, Classic fit, Double-needle sleeve and bottom hem' ,
-    description: 'Great present to gift to husband, wife, grandpa, grandma, mom, dad, brother, sister, son, daughter, friends or family on occasions such as Graduation, Wedding, Birthday, Valentine's day, New Year's, Christmas, Mother's Day, Father's Day, or Easter holiday.',
+    description: 'Great present to gift to husband, wife, grandpa, grandma, mom, dad, brother, sister, son, daughter, friends or family on occasions such as Graduation, Wedding, Birthday, Valentine\'s day, New Year\'s, Christmas, Mother\'s Day, Father\'s Day, or Easter holiday.',
     product_detail: 'Package Dimensions  :  10 x 8 x 1 inches; 4.8 Ounces
     Department  :  Womens
     Date First Available  :  March 3, 2021
@@ -587,7 +590,7 @@ leatherBelt = Product.create(
     Department  :  Mens
     Date First Available  :  April 14, 2021
     ASIN  :  B092HTJLT3'}
-
+)
 
 #### Electronics ####
 echoDot = Product.create(
@@ -606,78 +609,203 @@ echoDot = Product.create(
 )
 
 
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+lgTv = Product.create(
+    {name: 'LG OLED C1 Series 65” Alexa Built-in 4k Smart TV (3840 x 2160), 120Hz Refresh Rate, AI-Powered 4K, Dolby Cinema, WiSA Ready, Gaming Mode (OLED65C1PUB, 2021)', 
+    price: 1746.99,category: 'Electronics',
+    body: 'OLED DISPLAY: Watch your content come to life in over 8 million pixels. Each pixel turns on and off independently so you\'ll see your content with perfect black, over a billion rich colors and infinite contrast for a viewing experience like no other.
+    α9 GEN 4 AI PROCESSOR 4K: Picture and sound adjustment happen automatically with our best processor. The a9 Gen4 AI Processor 4K uses deep-learning algorithms to detect scenes and genres to make your content look its best no matter what or when you\'re watching.
+    GAME OPTIMIZER: Game Optimizer gives you easier access to all your game settings, while the latest HDMI allows for fast gaming speeds. Plus, you\'ll get low input lag and fast response times with Auto Low-Latency Mode and HGiG.
+    GOOGLE ASSISTANT & ALEXA BUILT IN: There’s no need for an extra device – just ask your TV for music, weather, news, your Amazon shopping list, and more. Plus, conveniently control your connected home and smart devices.
+    HOME CINEMA EXPERIENCE: Get breathtaking picture and audio that makes you feel like you\'re in the action with Cinema HDR, Dolby Vision IQ & Dolby Atmos. See movies exactly how directors intended with Filmmaker Mode. And with built-in access to Netflix, Prime Video, Apple TV+, Disney+ and LG channels, your favorite content is at your fingertips.',
+    description: 'From the big game to being in the game, no detail goes unseen. With advanced gaming technology like NVIDIA G-SYNC, you\'ll crush the competition. Self-lit pixels emit their own light for perfect black, intense color and stunning picture—paired with our best processor for even better picture quality. Only on OLED.' ,
+    product_detail: 'Brand Name	:  LG
+    Item Weight	:  71.9 pounds
+    Package Dimensions	:  67 x 38 x 7.7 inches
+    Country of Origin	:  Mexico
+    Item model number	:  OLED65C1PUB
+    Is Discontinued By Manufacturer	:  No
+    Color Name	:  Black
+    Special Features	:  Filmmaker Mode, HDR10, HLG, Dolby Vision, Magic Explorer
+    Speaker Type	:  Built-In' }
 )
 
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+tclTv= Product.create(
+    {name:'TCL 40-inch 1080p Smart LED Roku TV - 40S325, 2019 Model , Black' , 
+    price: 219.91 ,category: 'Electronics' ,
+    body: 'Easy Voice Control: Works with Amazon Alexa or Google Assistant to help you find movie titles, launch or change channels, even switch inputs, using just your voice. Also available through the Roku mobile app
+    Smart Functionality offers access to over 5,000 streaming channels featuring more than 500,000 movies and TV episodes via Roku TV
+    1080p Full HD Resolution excellent detail, color, and contrast
+    Direct lit LED produces great picture quality with 60Hz refresh Rate for fast moving action scenes with virtually no Motion blur
+    Inputs: 3 HDMI, 1 USB, RF, Composite, Headphone Jack, optical audio out',
+    description: 'The 3-Series Full HD TCL Roku TV puts all your entertainment favorites in one place, allowing seamless access to over 500,000 movies and TV episodes, your cable box, gaming console, and other devices—all from your simple, intuitive interface. The super-simple remote and dual-band Wi-Fi make it fast and easy to access your favorite content in Full HD. Connect all your favorite devices with the three HDMI inputs. The built-in TV tuner makes this the ultimate cord-cutting TV as it also gives you the ability to access free, over-the-air HD content.' ,
+    product_detail: '
+    Brand Name	: TCL
+    Item Weight	: 18.7 pounds
+    Product Dimensions	: 35.6 x 7.2 x 22.7 inches
+    Country of Origin	: China
+    Item model number	: 40S325
+    Batteries	: 2 AAA batteries required. (included)
+    Is Discontinued By Manufacturer	: No
+    Output Wattage	: 5 Watts
+    Color Name	: Black
+    Number of Component Outputs	: Optical'}
 )
 
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+fireStick = Product.create(
+    {name: 'Fire TV Stick with Alexa Voice Remote (includes TV controls), HD streaming device', 
+    price: 39.99 ,category: 'Electronics',
+    body: 'Latest generation of our best-selling Fire TV device - 50% more powerful than the 2nd generation for fast streaming in Full HD. Includes Alexa Voice Remote with power and volume buttons.
+    Endless entertainment - Stream more than 1 million movies and TV episodes from Netflix, Prime Video, Disney+, Peacock, and more, plus listen to millions of songs. Subscription fees may apply.
+    Live TV - Watch your favorite live TV, news, and sports with subscriptions to SLING TV, YouTube TV, and others. Use the Guide button to see what\'s available and when.
+    Free TV - Access over 200,000 free movies and TV episodes from popular ad-supported streaming apps like IMDb TV, Tubi, Pluto TV and more.
+    Listen to music - Stream on Amazon Music, Spotify, Pandora, and others. Subscription fees may apply.
+    Less clutter, more control - Alexa Voice Remote lets you use your voice to search and launch shows across apps. All-new preset buttons get you to favorite apps quickly. Plus, control power and volume on your TV and soundbar with a single remote.
+    Home theater audio with Dolby Atmos - Feel scenes come to life with immersive Dolby Atmos audio on select titles with compatible home audio systems.
+    Easy to set up, stays hidden - Plug in behind your TV, turn on the TV, and connect to the internet to get set up.
+    Certified for Humans - Struggle-free, tinker-free, and stress-free. No patience needed—it\'s actually simple.',
+    description: 'Streaming on Fire TV is simple and intuitive. It all starts with the Main Menu, where you can quickly access your favorite content. Search across hundreds of channels and apps to find what you want to watch. Enjoy personalized streaming using Profiles, with recommendations, viewing history, and watch lists for each person in your household.
+    Enjoy favorites from Netflix, YouTube, Prime Video, Disney+, HBO Max, Apple TV+, Peacock, STARZ, SHOWTIME, Paramount+, and others. Stream live news, sports, and must-see shows. Access tens of thousands of HDR titles. Plus, play millions of songs through services like Amazon Music, Apple Music, Spotify, Pandora and iHeartRadio. Subscription fees may apply.' ,
+    product_detail: 'Size : 3.4” x 1.2” x 0.5” (86 x 30 x 13 mm)
+    Weight : 1.1 oz (32.0 g)
+    Processor : Quad-core 1.7 GHz
+    GPU  : IMG GE8300
+    Storage : 8 GB internal
+    Video content formats supported : HDR 10, HDR10+, HLG, H.265, H.264, Vp9
+    Output resolution supported : 1080p and 720p up to 60 fps'}
 )
 
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+ringDoorbell = Product.create(
+    {name: 'Ring Video Doorbell – 2020 release – 1080p HD video, improved motion detection, easy installation – Venetian Bronze', 
+    price: 99.99 ,category: 'Electronics' ,
+    body:'1080p HD video doorbell with enhanced features that let you see, hear, and speak to anyone from your phone, tablet, or PC.
+    An update from the original Ring Video Doorbell, enjoy improved motion detection, privacy zones and audio privacy, and crisper night vision.
+    Receive mobile notifications when anyone presses your doorbell or triggers your built-in motion sensors.
+    Powered by the built-in rechargeable battery or connects to existing doorbell wires for constant power.
+    Easily setup by connecting your Ring Video Doorbell to wifi through the Ring app and mounting with the included tools.
+    With a Ring Protect Plan (subscription sold separately), record all your videos, review what you missed for up to 60 days, and share videos and photos.
+    Pair with select Alexa-enabled devices to enable announcements and two-way talk for convenient in-home monitoring.' ,
+    description: 'Monitor your home, your way with the all-new Ring Video Doorbell.  Enjoy improved 1080p HD video, crisper night vision, and adjustable motion zones == including the added near zone that reduces false notifications.  See, hear, and speak to anyone at your door from anywhere with Ring Video Doorbell.  Get real-time notifications when visitors press your doorbell or trigger the built-in motiion sensors.  And adjust your motion settings so you can focus on key areas and only receive notifications when you want.' ,
+    product_detail: 'Average install time : 5 minutes    
+    Video : 1080p HD Video, Live View, Night Vision    
+    Field of view : 155° horizontal, 90° vertical    
+    Motion detection : Advanced Motion Detection with adjustable motion zones    
+    Audio: Two-way audio with noise cancellation
+    Connectivity : 802.11 b/g/n wifi connection @ 2.4 GHz
+    Operating conditions : -5°F to 120°F (-20°C to 48°C), water resistant
+    Available colors: Satin Nickel, Venetian Bronze
+    Dimensions : 4.98 in. x 2.44 in. x 1.10 in. (126.5mm x 62mm x 28mm)' }
 )
 
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+polkSoundSystem = Product.create(
+    {name: 'Polk Audio 5.1 Channel Home Theater System with Powered Subwoofer |Two (2) T15 Bookshelf, One (1) T30 Center Channel, Two (2) T50 Tower Speakers, PSW10 Sub | Alexa + HEOS', 
+    price: 675.00 ,category: 'Electronics',
+    body: 'MASSIVE SOUND FROM 15 SPEAKERS – Each bookshelf features a 5.25” driver & a 0.75” tweeter, center has (2) 5.25” driver & a 1” tweeter, and each tower has a 6.5” driver, 1” tweeter & (2) 6.5” Bass Radiators that produce a well-balanced, room-filling sound
+    A POWERED SUBWOOFER FOR EXTRA BASS & PUNCH (up to 100 watts) - A 10-inch subwoofer with a uniquely configured directed port provides accurate bass with added depth that brings your music and movies alive. A perfect solution for your small-to-mid size room
+    All speakers, including the sub, are equipped with POLK’S PROPRIETARY DYNAMIC BALANCE TECHNOLOGY with wider dispersion & minimal distortions so every listener in the room hears UNSURPASSED THREE-DIMENSIONAL SURROUND SOUND WITH HEART-THUMPING BASS
+    Polk speakers are COMPATIBLE WITH MOST HOME THEATER AV RECEIVERS giving you many setup options. Use this 5.1 channel system as is or upgrade to an immersive multi-room setup with 7.1, 9.1 or more channels
+    POLK\'S UNMATCHED QUALITY AT AN AFFORDABLE PRICE. With these value-priced speakers, you can now enjoy premium acoustics, high quality construction, easy setup and a spectacular theater experience right at home',
+    description: 'With These Value-Priced Speakers, You Can Now Enjoy Premium Acoustics, High Quality Construction, Easy Setup And A Spectacular Theater Experience Right At Home . Create A Full-Fledged 5.1 Home Theater Setup With The Complete Range Of T-Series Speakers From Polk With Two T50 Tower Speakers, One T30 Center Channel, Two T15 Bookshelf Speakers And A Subwoofer . A Sleek Detachable Grille On The Front, Speaker And Line-Level Inputs As Well As Speaker-Level Outputs On The Back, And A Phase Toggle Switch For Multiple Subwoofers, Make This Sub Cohesive And Complete.' ,
+    product_detail:'ASIN : B07TZ7T3GX
+    Country of Origin :	China
+    Date First Available :	July 6, 2019'}
 )
 
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+jblSpeaker = Product.create(
+    {name: 'JBL Xtreme 3 - Portable Bluetooth Speaker, Powerful Sound and Deep Bass, IP67 Waterproof, 15 Hours of Playtime, Powerbank, JBL PartyBoost for Multi-speaker Pairing (Black)', 
+    price: 319.99 ,category: 'Electronics',
+    body: 'POWERFUL JBL ORIGINAL PRO SOUND: Four drivers and two JBL Bass Radiators effortlessly deliver dynamic, immersive sound with deep bass and plenty of detail. You\'ll get lost in the music wherever you are.
+    PORTABLE DESIGN: The included carrying strap with built-in bottle opener makes it easy to bring your speaker wherever you go.
+    15 HOURS OF PLAYTIME: The fun doesn\'t have to stop. Packed with an incredible 15 hours of battery life, JBL Xtreme 3 lets you party all day and into the night.
+    WIRELESS BLUETOOTH STREAMING: Wirelessly stream music from your phone, tablet, or any other Bluetooth-enabled device.
+    P67 WATERPROOF AND DUSTPROOF: To the pool. To the park. In the shower. JBL Xtreme 3 is fully waterproof and dustproof, so you can bring your speaker anywhere.',
+    description: 'The JBL Xtreme 3 portable Bluetooth speaker effortlessly delivers powerful JBL Original Pro Sound. With four drivers and two pumping JBL Bass Radiators, the powerful sound draws everybody in. Packed with 15 hours of playtime and built-in powerbank let\'s you party all day long. With JBL PartyBoost, you can connect multiple JBL PartyBoost-enabled speakers to take things to the next level. A little rain might spoil your fun, but the IP67 waterproof and dustproof Xtreme 3 won’t mind at all, and the convenient carrying strap with built-in bottle opener makes it a breeze to move the party indoors. The JBL Xtreme 3 makes a big splash wherever you go.' ,
+    product_detail: 'Product Dimensions  :	5.28 x 11.75 x 5.35 inches
+    Item Weight  :	4.34 pounds
+    ASIN  :	B08NLCW9WY
+    Item model number  :	JBLXTREME3BLKAM
+    Batteries :	1 Lithium Polymer batteries required. (included)
+    Is Discontinued By Manufacturer :	No
+    Date First Available :	November 18, 2020
+    Manufacturer :	JBL
+    Country of Origin : China' }
 )
 
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+samsungLaptop = Product.create(
+    {name: 'Samsung Electronics Galaxy Book Pro Windows 11 Intel Evo Platform Laptop Computer 15.6" AMOLED Screen 11th Gen Intel Core i7 Processor 16GB Memory 512GB SSD Long-Lasting Battery, Mystic Silver', 
+    price: 1195.99 ,category: 'Electronics',
+    body: 'EASY ON THE EYES: Everything looks brilliant with the first 13.3" AMOLED screen in a Galaxy Book; Enjoy vibrant viewing while you work or school inside or in direct sunlight, and it lessens eye strain by reducing harmful blue light.
+    LIGHTEST GALAXY BOOK LAPTOP: Sleek, ultrathin and available in a stylish, dual color design, Galaxy Book Pro is the lightest chrome book and won’t weigh you down.
+    DO IT IN A FLASH: From downloading large documents fast to watching streams with no lag, and more — all with the new 11th Gen Core processor that’s Intel Evo certified, so it works on a premium platform; With 256 GB of storage, you’ll have all the space you need.
+    LONG-LASTING BATTERY: Power through up to 20 hours on a full battery then recharge quick with our super small, light charger.
+    WORK AND PLAY: Pair your devices and jump from work to personal; Set up computer as a second screen for more productivity; Share files with Quick Share; Do your gaming on a larger display; Connect your Galaxy Buds Pro and smoothly switch from video calls to catch up with friends; With Samsung SmartThings capabilities, control other devices with a tap.
+    LOOK LIKE A PRO: Make WFH work for you with tools that help you look, sound and do your best; Attend a last-minute meeting and still make a good impression with our camera beauty filter; Hide your family’s ruckus with background noise removal and more.
+    WAY BETTER WIFI, UPDATED OS: Experience next generation Wi-Fi 6E with speeds up to 3x faster than normal Wi-Fi
+    Windows 11 Home',
+    description: 'PC power that\'s smartphone thin.  The Galaxy Book Pro comes in under two pounds and is designed on the Intel Evo platform, so it\'s the perfect mix of portability and productivity.  Do more on the move and look good while you do it.  Sleek, ultrathin and available in a stylish, dual-color design, Galaxy Book Pro is the lightest Galaxy Book Ever, so it won\'t weigh you down.' ,
+    product_detail:'Sold By  :	Rainforest.com
+    Computer Memory Size  :	16 GB
+    CPU Model Manufacturer  :	Intel
+    CPU Speed  :	2.8 GHz
+    Display Resolution Maximum  :	1920 x 1080 pixels
+    Screen Size  :	15.6 inches
+    Display Technology  :	AMOLED
+    Item Dimensions  :	13.99 x 8.89 x 0.46 inches
+    Item Weight	 : 2.31 lbs
+    Operating System :	Chrome OS
+    Processor Count :	1
+    Wireless Communication Standard	: 802.11ax, Bluetooth' }
 )
 
-= Product.create(
-
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+oculus = Product.create(
+    {name: 'Oculus Quest 2 — Advanced All-In-One Virtual Reality Headset — 128 GB', 
+    price: 299.00 ,category: 'Electronics',
+    body: 'Next-level Hardware - Make every move count with a blazing-fast processor and our highest-resolution display (Packaging may vary)
+    All-In-One Gaming - With backward compatibility, you can explore new titles and old favorites in the expansive Quest content library
+    Immersive Entertainment - Get the best seat in the house to live concerts, groundbreaking films, exclusive events and more
+    Easy Setup - Just open the box, set up with the smartphone app and jump into VR. No PC or console needed. Requires wireless internet access and the Oculus app (free download) to set up device
+    Premium Display - Catch every detail with a stunning display that features 50% more pixels than the original Quest
+    Ultimate Control - Redesigned Oculus Touch controllers transport your movements directly into VR with intuitive controls
+    PC VR Compatible - Step into incredible Oculus Rift titles by connecting an Oculus Link cable to a compatible gaming PC. Oculus Link Cable sold separately
+    3D Cinematic Sound - Hear in all directions with built-in speakers that deliver cinematic 3D positional audio',
+    description: 'Oculus quest 2 is our most advanced all-in-one VR system yet. Every detail has been engineered to make virtual worlds adapt to your movements, letting you explore awe-inspiring games and experiences with unparalleled freedom. No PC or Console required. Get the most out of each moment with blazing-fast performance and next-generation graphics. Stay focused with a stunning display that features 50% more pixels than the original quest. Or take a break from the action and grab front-row seats to live concerts, exclusive events and more. The redesigned touch controllers feature improved ergonomics and intuitive controls that transport your gestures, motions and actions directly into VR. You can even connect your VR headset to a gaming-compatible computer with an Oculus Link cable to access hundreds of PC VR games and experiences. Quest 2 also lets you bring your friends into the action. With live casting, you can share your VR experience with people around you. Or meet up with friends in virtual worlds to battle in multiplayer competitions or just spend some time together. With Oculus quest 2, there\'s no end in sight to what you can play, create and discover in virtual reality.' ,
+    product_detail: '
+    ASIN  :	B099VMT8VZ
+    Release date  :	August 23, 2021
+    Product Dimensions  :	10.24 x 7.36 x 4.96 inches; 1.83 Pounds
+    Binding  :	Video Game
+    Language  :	None
+    Item model number  :	899-00182-02
+    Item Weight  :	1.83 pounds
+    Manufacturer  :	Facebook Technologies, LLC
+    Country of Origin  :	China
+    Batteries  :	4 AA batteries required. (included)
+    Date First Available  : ocu	July 21, 2021' }
 )
 
-= Product.create(
+samsungEarbuds = Product.create(
 
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+    {name: 'SAMSUNG Galaxy Buds Pro, Bluetooth Earbuds, True Wireless, Noise Cancelling, Charging Case, Quality Sound, Water Resistant, Phantom Black (US Version)', 
+    price: 149.99 ,category: 'Electronics',
+    body: 'Intelligent Active Noise Cancellation: Escape and tune in to your own moment of Zen — all with a single tap; Answer calls and instantly switch to talking with voice detection and let in the sounds that matter most with 4 ambient levels
+    High Quality Sound: Relive the memories of every beat of your favorite song with an 11-mm woofer and 6.5-mm tweeter built into every ear bud. Earbud Dimension (W x H x D)-0.81 x 0.77 x 0.82 inches. Case Dimension (W x H x D)-1.97 x 1.98 x 1.09 inches
+    Water Resistant Workouts: Water won’t ruin your workout; Your IPX7 water-resistant Galaxy Buds Pro can keep the beat going even with a little rain; They’re even protected for immersion up to 3 feet deep for a half-hour
+    Crystal Clear Calls: No matter where you are, stay connected whether you’re owning that virtual meeting or catching up with a friend; Our new design reduces background noise, so your voice comes through loud and clear.
+    Long Lasting Battery Life: Get the juice you need to jam for hours; Wireless charging case is included, and you can also share your phone’s battery by placing your earbuds on the back of your compatible Galaxy device for on-the-go charging
+    Touch Music Control: Control your playlist without reaching in your pocket; Skip songs, launch music and answer calls simply by tapping your buds, so you can stay in the moment' ,
+    description: 'Elevate the everyday with epic sound. SAMSUNG Galaxy Buds Pro combines crystal-clear sound quality with unprecedented control, making it effortless to elevate everyday moments. Use intelligent Active Noise Cancellation to escape into your music at a moment’s notice, even in a noisy crowd. Close the distance with crystal clear calls, so it always feels like you’re in the same room. And water won’t ruin your workout since the resistant Galaxy Buds Pro keeps the beat going even with a little rain. Auto pair your Galaxy Buds Pro with a Palette and find even more ways to make ordinary extraordinary. Disclaimers: Actual battery life may vary and depend on usage conditions such as function settings, playback file type, and Bluetooth signal strength. Some features require Bluetooth connection to a compatible device, and are available only on Android devices running Android 7.0 or higher and 1.5GB RAM or above.' ,
+    product_detail: 'Product Dimensions  :	3 x 2 x 4 inches
+    Item Weight  :	1.18 ounces
+    ASIN  :	B08MWZHHKP
+    Item model number  :	SM-R190NZKAXAR
+    OS  :	IOS, Android
+    Wireless communication technologies  :	Bluetooth
+    Connectivity technologies  :	Wireless
+    Other display features  :	Wireless
+    Form Factor  :	Wearable Accessory
+    Color  :	Phantom Black
+    Included Components  :	Earbuds, USB-C Charging Cable, Replacement eargels, Charging case
+    Department  :	Unisex Adult
+    Manufacturer  :	Samsung'}
 )
 
 #### Pet Supplies ####
@@ -931,63 +1059,188 @@ paracordBracelet = Product.create(
     Material	:  Cellulose
     Manufacturer	:  The Atomic Bear' }
 )
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
-
-    
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+maxiClimber = Product.create(
+    {name: 'MaxiClimber XL-2000 Hydraulic Resistance Vertical Climber. Combines Muscle Toning + Aerobic Exercise for Maximum Calorie Burn. 12 Resistance Levels, Lightweight Aluminum Mainframe, Free Fitness App.' , 
+    price: 356.15 ,category: 'Sporting Goods',
+    body:'Next generation MaxiClimber with aluminum mainframe; redesigned with a long lasting roller mechanism for the most intense, smoothest and quietest vertical climber workout.
+    Mobile device holder to follow the specially designed fitness routines on our FREE MaxiClimber fitness APP for IOS and ANDROID.
+    Bi-directional, 12-Level Hydraulic Resistance System for the ultimate Full-Body workout.
+    Compact, durable, lightweight and easy to assemble, with integrated rollers to move around the house and anti-sliding leveling mechanism for working out on uneven surfaces.
+    Burn TWICE the calories per workout with High Intensity Interval Training routines (HIIT). You’ll experience a 40% increase in AFTERBURN, helping you build a lean body in less time.',
+    description: 'MaxiClimber combines weight resistance, muscle toning and aerobic exercise for a full body workout in the comfort of your home.' ,
+    product_detail: 'Item Package Dimensions L x W x H	:  56.3 x 11.26 x 8.66 inches
+    Package Weight	:  23.84 Kilograms
+    Brand Name	:  Maxi Climber
+    Model Name	:  Vertical Climber
+    Color	:  Red
+    Material	:  Aluminum
+    Manufacturer	:  Inova USA
+    Part Number	:  400-002-341
+    Size	:  XL-2000' }
 )
     
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+dartBoard = Product.create(
+    {name: 'Winmau Blade 5 and Blade6 Dual Core Bristle Dartboards', 
+    price: 88.70 ,category: 'Sporting Goods',
+    body: 'The world\'s most advanced dartboard with exclusive British Darts Organization (BDO) endorsement
+    Fewer lost darts and best-in-class durability with the patented Dual Core Technology
+    Increased scoring area with 14% thinner wiring system than the previous generation Blade 4 Dual Core for higher scoring potential
+    Reduced bounce-outs and improved dart deflection with 30-degree reduction in razor wire angle
+    Triple Wheel lock-and-level system easily secures the dartboard to virtually any surface
+    Sport type: Darting',
+    description: 'Thinner razor wiring reduces we surface area and increases scoring area for fewer bounce outs.  Outer Core - lower compression reduces surface resistance for increased point penetration.  Inner core- Higher compression increases resistance for improved durability.' ,
+    product_detail: 'Item Package Dimensions L x W x H	:  18.5 x 18.3 x 2 inches
+    Package Weight	:  5.44 Kilograms
+    Item Dimensions LxWxH	:  17.75 x 17.75 x 1.5 inches
+    Item Weight	:  12 Pounds
+    Brand Name	:  Winmau
+    Warranty Description	:  30 days
+    Color	:  Blade 5 Dual Core
+    Material	:  Plywood
+    Suggested Users	:  Unisex-adult
+    Number of Items	:  1
+    Manufacturer	:  Winmau
+    Part Number	:  3009
+    Model Year	:  2017
+    Included Components	:  Dual Core Dartboard
+    Size	:  1.50 x 17.75 x 17.75'}
 )
     
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+trampoline = Product.create(
+    {name: 'Pro Trampoline with Safety Enclosure, 8Ft 10Ft 12Ft 14Ft 15Ft 16Ft Heavy Duty Jumping Mat and Spring Cover Padding for Kids and Adults', 
+    price: 200.60 ,category: 'Sporting Goods',
+    body:'Safety is NO.1：Safety always comes top priority. Our Tiktun trampoline have been tested and approved with ASTM F381, ASTM F2225-15（R2020）Standard Safety Specifications.You can ensure that our trampoline is safe for your family. Let you and your kids play safely on the trampoline.
+    A Safe Enclosure for Safe Play:Safety and quality in backyard play is at the heart of everything we do. We have created a 12ft Frame Diameter,72inch Enclosure Height and 360-degree net safety enclosure that is UV, fade resistant and resistant to tearing. These will prevent your child from jumping off the trampoline.
+    Strong & Steady Structure：Fully galvanized steel frame for better resistance to rust and corrosion; 4 U-shaped big legs with 8 extra Wind Stakes for better stability and safety.These U-shaped design helps stabilize trampoline during storms or strong wind.
+    Higher Quality Bounce：72pcs high tension steel springs provide superior bounce, all the springs are covered with thick and durable blue PE+PVC foam pad, 1.5mm steel poles are padded with thicker foam. It offers you a sense of secure feeling while you jump on the mat.Ideal for physical training or entertainment for the entire family indoors and outdoors.
+    POWERFUL LOADING CAPACITY: Max loading capacity is 440 lbs. Large capacity make you feel more safe and allows 3-4 kids can play and jump on this trampoline together.A safe trampoline can offer fall protection, shock absorbency, and can lead to a more structured play than ever before. This helps you and your kids engage in more challenging sport like basketball when bouncing on a trampoline. Recommended for ages 6 and above.Note:Children need to be used under the guardianship of adults adults.' ,
+    description:  'Manufactured with EU standard Poly-propylene bounce surface provides unmatched rebounding force.  High quality UV-proof safety enclosures to protect you from the sun and premature material fading.  Frames use high tensile steel with a T-joint assembly, giving our trampolines and enclosures a solid, rigid, base and a smoother, bigger bounce',
+    product_detail: 'Item Package Dimensions L x W x H	:  57.5 x 17 x 8 inches
+    Package Weight	:  47.17 Kilograms
+    Item Weight	:  104 Pounds
+    Brand Name	:  Tiktun
+    Warranty Description	:  6Months
+    Model Name	:  Trampoline-12FT
+    Color	:  Black
+    Model Year	:  2021
+    Style	:  12ft
+    Included Components	:  1Pc Trampoline-12FT
+    Size	:  12FT' }
 )
     
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+tableTennisSet = Product.create(
+    {name: 'STIGA Pure Color Advance 2-Player Table Tennis Set - Great Ping Pong Starter Set For Beginners', 
+    price: 33.00 ,category: 'Sporting Goods',
+    body: 'Colorful Paddles and Balls Add Extra Dose of Fun!
+    Set Includes 2 Rackets (1-Green, 1 Orange) and 3 Balls (1-Orange, 2- Green)
+    Racket Features: Concave Handle, 1-Star Rubber, 5-Ply Blade, 1.5mm Sponge
+    Racket Performance Ratings: Speed- 44, Spin- 32, Control- 88
+    Rackets Feature ACS Technology for Outstanding Control
+    Designed in Sweden',
+    description: 'Pure Color Advance 2-Player Set
+    -The STIGA Pure Color Advance 2-Player Set brings even more fun to the game of table tennis. With orange and green paddles and balls, the Pure Set offers colorful excitement in a performance-level set.
+    
+    What’s Included?
+    -2 Rackets- 1 Green and 1 Orange
+    -3 STIGA Pure Balls- 1 Orange and 2 Green
+    
+    Racket Specifications:
+    -Handle: Concave
+    -Rubber: 1 Star
+    -Sponge: 1.5mm
+    -Blade: 5-ply
+    
+    Racket Performance Ratings:
+    -Speed: 44
+    -Spin: 32
+    -Control: 88
+    
+    Racket ACS Technology
+    -Numerous microscopic air-capsules in an ultralight rubber allows high speed to be combined with maximum elasticity and outstanding control.' ,
+    product_detail: 'Item Package Dimensions L x W x H	:  12 x 8 x 1.1 inches
+    Package Weight	:  0.75 Pounds
+    Item Dimensions LxWxH	:  8.2 x 1.7 x 12.2 inches
+    Item Weight	:  0.3 Pounds
+    Brand Name	:  STIGA
+    Warranty Description	:  [30 Days]
+    Model Name	:  Pure Color Advance 2-Player Set
+    Color	:  Orange
+    Material	:  Rubber
+    Number of Items	:  1'}
 )
     
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+baseballBat = Product.create(
+    {name: 'Easton 2022 ADV 360 USA Baseball Bat | -5-8 -10-11 | 2 Pc. Composite | 2 5/8 Barrel', 
+    price: 349.95 ,category: 'Sporting Goods',
+    body: 'PERFECT BALANCE: This 2-piece balanced composite feels great in your hand and with your swing.
+    UNLOCK YOUR POTENTIAL: This carefully engineered design gives you a balanced swing with optimized barrel length and balance point for the ultimate combination of power and speed.
+    FEELS NATURAL IN YOUR HAND: With a 2 ⅝ inch barrel, this bat has been engineered for max power and area.
+    TAKE IT UP A NOTCH: From end to end, this is made to help you get the most out of every trip to the plate.
+    THE GUARDIAN 6-MONTH EXTENDED WARRANTY: You expect nothing but the best, and we’re here to make it happen. That’s why we add an EXTRA sixth months onto the manufacturer\'s warranty for all baseball gear.' ,
+    description: 'Delivers a bigger barrel contour with a massive sweet spot, combined with high performance straight out of the wrapper.  Isolates the handle from the barrel, using Nitrocell foam to reduce vibration, while creating a stiff feel to transfer more energy back into the ball at contact.  Provides hitters with more leverage, while reducing vibration and improving comfort for the bottom hand.' ,
+    product_detail: 'Item Package Dimensions L x W x H	:  27.5 x 3.25 x 3 inches
+    Package Weight	:  0.66 Kilograms
+    Item Dimensions LxWxH	:  1 x 1 x 1 inches
+    Brand Name	:  Easton
+    Warranty Description	:  One Year Mfg. Limited
+    Model Name	:  8074051
+    Color	:  Multi
+    Material	:  Blend
+    Suggested Users	:  Unisex-adult
+    Manufacturer	:  Easton Sports, Inc.
+    Part Number	:  8074051
+    Model Year	:  2022'}
 )
     
-= Product.create(
-    {name: , 
-    price: ,category: ,
-    body: ,
-    description:  ,
-    product_detail: }
+bicycle = Product.create(
+    {name: 'sixthreezero Around The Block Women\'s Beach Cruiser Bike, 1/3/7/21 Speed Bicycles, 26"/24" Wheels, Multiple Colors', 
+    price: 269.99 ,category: 'Sporting Goods',
+    body: 'Classic, curvy women\'s beach cruiser bicycle with 17-inch durable steel frame; ideal for casual, comfortable riding around the neighborhood
+    Upright riding style keeps your back and shoulders comfortable; dual-spring saddle and wide cruiser handlebar with foam grips
+    Single-speed bike great for cruising on flat terrain; pedal-backwards coaster brakes for easy stopping
+    26-inch, 2.125-inch wide aluminum wheels with large waffle tread tires provide a cushioned ride for easy rolling
+    Blacked-out components for added style; includes rear rack for optional baskets and panniers; Drop Out: 3/8" Threading Axle',
+    description: 'Cruise with style on the supremely comfortable Around The Block women\'s bike, featuring an upright riding design and sweeping cruiser handlebars to keep your back and shoulders relaxed. The comfort and ease of the sixthreezero Around The Block make it great for casual jaunts — whether to the beach, down the bike path, or around the neighborhood. The Around the Block amps up its eye-catchingly curvy steel cruiser frame with comfort details like high-density foam grips on the wide handlebars, a dual-spring seat that ensures tailbone comfort on long rides, and 2. 125-inch wide aluminum wheels with large waffle tread tires (available in 24-inch and 26-inch sizes) that help smooth out the bumps. The Around The Block women\'s bike is available in four gearing options: 21-speed Shimano Tourney derailleur and EZ Fire Plus shifter help you tackle demanding street, trail, long distance, and uphill riding. Front and rear handbrakes make stopping easy and precise. 7-speed Shimano external hub allows for a wide range of riding — from leisure to long distance commutes. Includes front and rear handbrakes. 3-speed Shimano internal hub with easy-to-use Nexus shifter enables you to handle longer distances and moderate hills. Includes front handbrake and rear coaster brake. Single-speed model offers ultimate simplicity, and is ideal for flat terrain. The coaster braking system is simple — just pedal backwards to glide to a stop. This bike comes with a chain guard to protect pant cuffs from getting caught, plus a rear rack for use with optional panniers, baskets, and other accessories.' ,
+    product_detail: 'Item Package Dimensions L x W x H	:  54 x 27.25 x 7.5 inches
+    Package Weight	:  19.5 Kilograms
+    Item Weight	:  40 Pounds
+    Brand Name	:  Sixthreezero
+    Warranty Description	:  365 Day Manufacturer Warranty
+    Color	:  Mint Green w/ Black Seat/Grips
+    Material	:  Steel
+    Suggested Users	:  Womens
+    Manufacturer	:  Sixthreezero Enterprises, L.L.C.
+    Part Number	:  630042
+    Style	:  Around the Block (Women\'s)'}
+)
+    
+puttingGreen = Product.create(
+    {name: 'PUTT-A-BOUT Par Three Golf Putting Green' , 
+    price: 44.99 ,category: 'Sporting Goods',
+    body: 'Manufactured from PET resin
+    Manufactured in the USA
+    Kidney shaped practice putting green
+    High quality putting surface stays smooth
+    Built in sand trap cutouts catch missed shots
+    3 practice cup cutouts
+    Measures 3 by 9 feet
+    Non skid backing',
+    description:  'The PUTT-A-BOUT Par 3 Putting Green is the perfect training aid to work on your short game.  The kidney, shaped mat measures approximatedly 3\' x 9\', has the slight incline at the end, and is made with high-quality putting surface and a non-skid backing, designed to stay smooth and flat.  Made in USA.  Multiple cup targes allow you to vary your angles and practice different putt lengths.  A slight incline at the cups helps to develop firmness of stroke, and the built-in hazards help catch missed shots.',
+    product_detail: 'Item Package Dimensions L x W x H	:  33.8 x 7.5 x 7.5 inches
+    Package Weight	:  2 Kilograms
+    Item Dimensions LxWxH	:  108 x 36 x 2 inches
+    Item Weight	:  3.5 Pounds
+    Brand Name	:  PUTT-A-BOUT
+    Color	:  Green
+    Material	:  PET resin
+    Manufacturer	:  Putt-A-Bout
+    Part Number	:  PUTTPAR3A
+    Style	:  Par Three
+    Size	:  3-Feet x9-Feet'}
 )
 
 
 
  Review.create([
-     { usrId: 1, productId: 7, rating: 5, headline: 'Eating them on camera makes you really cool!', body: 'Who needs food when you can just eat tide pods!'}
+     { userId: 1, productId: 7, rating: 5, headline: 'Eating them on camera makes you really cool!', body: 'Who needs food when you can just eat tide pods!'}
+])

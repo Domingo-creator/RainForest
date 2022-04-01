@@ -1,25 +1,24 @@
-# README
-delete this
+# Welcome to RainForest
+RainForest is an amazon clone, where you can shop and search for all your needs.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+# Technologies Used
+Ruby on Rails
+React / Redux
+JavaScript / AJAX / JBuilder
+PostgreSQL
+HTML5 and CSS
+AWS S3 and AWS IAM
+Heroku
 
-* Configuration
 
-* Database creation
+# Features
+### Products Search and Sort-by category
 
-* Database initialization
+### User Authorization
 
-* How to run the test suite
+### Update Cart
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Leave Reviews

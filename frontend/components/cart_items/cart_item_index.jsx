@@ -26,8 +26,8 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, userId}) => {
     }
 
     return (
-        <ul>
-            <h1>Your Cart</h1>
+        <ul className='cart-list'>
+            <h1>Shopping Cart</h1>
             {cartItemList()}
         </ul>
     )

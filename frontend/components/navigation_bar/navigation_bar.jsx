@@ -15,6 +15,7 @@ const NavBelt = ({fetchProducts, history, userId}) => {
         <nav className="nav-belt">
             <div className="nav-belt-bar-1">
                 <Logo/>
+                {/* <DeliverToContainer /> */}
                 <SearchBarContainer setDepartment={setDepartment} department={department}/>
                 <AccountListContainer />
                 <CartIconContainer />

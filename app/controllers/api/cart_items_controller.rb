@@ -8,7 +8,8 @@ class Api::CartItemsController < ApplicationController
     def create 
         @cart_item = CartItem.new(cart_params)
         if @cart_item.save
-            render json: {message: 'Item successfully added'}
+            #render json: {message: 'Item successfully added'}
+            render :show
         else
             render json: {message: 'Item could not be added to cart'}
         end

@@ -6,12 +6,14 @@ const CategoryLink = ({category, fetchProducts, history, department, setDepartme
         localStorage.setItem('department', e.target.textContent)
         setDepartment(e.target.textContent)
         if(category !== 'All Products') {
+            localStorage.setItem('prevFilter', `category = '${category}'` )
             fetchProducts(`category = '${category}'`)
-                .then(history.push('./products'))
+                .then(history.push('../products'))
         }
         else {
+            localStorage.removeItem('prevFilter')
             fetchProducts()
-                .then(history.push('./products'))
+                .then(history.push('../products'))
         }
     }
 

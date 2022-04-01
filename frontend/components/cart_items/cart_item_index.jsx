@@ -9,12 +9,12 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, userId}) => {
 
     const cartItemList = () => {
         if(userId && cartItems.length) {
-            return cartItems.map( cartItem => {
-                return <CartItemIndexItem key={cartItem.id} cartItem={cartItem} removeCartItem={removeCartItem}/>
+            return cartItems.map( (cartItem,index) => {
+                return <CartItemIndexItem key={cartItem.id} index={index} cartItem={cartItem} removeCartItem={removeCartItem}/>
             })
         } else if(localStorage.getItem('cart')) {
-            return JSON.parse(localStorage.getItem('cart')).map( cartItem => {
-                return <CartItemIndexItem key={cartItem.productId} cartItem={cartItem} removeCartItem={removeCartItem}/>
+            return JSON.parse(localStorage.getItem('cart')).map( (cartItem, index) => {
+                return <CartItemIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem}/>
             })
         } else {
             return (

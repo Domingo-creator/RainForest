@@ -42,9 +42,7 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                 <p>{product.category}</p>
             </div>
             <section className="product-show-section-1">
-                <div className="product-image">
-                    <img src={product.image_url} className="product-image"></img>
-                </div>
+                <img src={product.image_url} className="product-show-image"></img>
                 <div className="main-product-section">
                     <div className="main-product-subsection">
                         <h1>{product.name}</h1>
@@ -64,6 +62,7 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                 <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice}/>
             </section>
             <div className="product-description main-product-subsection">
+                <h1>Description</h1>
                 <ul>
                     {parseString(product.description).map( (descriptionElement, index) => 
                         <li key={index}>{descriptionElement}</li>
@@ -71,6 +70,7 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                 </ul>
             </div>
             <div className="product-detail main-product-subsection">
+                <h1>Product Details</h1>
                 <ul>
                     {parseString(product.product_detail).map( (detail, index) => 
                     <li key={index}>{detail}</li>

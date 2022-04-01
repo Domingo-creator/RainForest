@@ -2,7 +2,14 @@ import React, { useEffect } from "react"
 import ProductIndexItem from "./product_index_item"
 const ProductIndex = ({products, fetchProducts, createCartItem, userId}) => {
 
-    debugger
+    useEffect( () => {
+        if(localStorage.getItem('prevFilter')) {
+            fetchProducts(localStorage.getItem('prevFilter'))
+        } else{
+            fetchProducts()
+        }
+    },[])
+
 
     return(
         <ul className="product-list">

@@ -31,8 +31,10 @@ class SearchBar extends React.Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault
-        this.props.fetchProducts(this.createFilter())
+        e.preventDefault()
+        let filter = this.createFilter()
+        localStorage.setItem('prevFilter', filter)
+        this.props.fetchProducts(filter)
             .then(this.props.history.push('/products'))
     }
 
@@ -44,6 +46,7 @@ class SearchBar extends React.Component {
         if(this.props.department !== 'All Departments' && this.props.department !== 'All Products') {
             filterArray.push(`category = '${this.props.department}'`)
         }
+        
         return filterArray.join(" AND ")
     }
 

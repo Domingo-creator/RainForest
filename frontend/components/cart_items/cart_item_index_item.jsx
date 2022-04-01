@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react'
-const CartItemIndexItem = ({cartItem, removeCartItem}) => {
-    // debugger
+const CartItemIndexItem = ({cartItem, removeCartItem, index}) => {
     const handleDelete = () => {
-        removeCartItem(cartItem.userId, cartItem.id)
+        if(cartItem.userId) {
+            removeCartItem(cartItem.userId, cartItem.id)
+        } else {
+            let cart = localStorage.getItem('cart')
+            // localStorage.setItem('cart', cart.slice(0, index).concat(cart.slice(index1)))
+        }
         
     }
 
     return (
         <li>
-            <p>{cartItem.image_url}</p>
+            <img src={cartItem.image_url}/>
             <p>{cartItem.name}</p>
             <p>{cartItem.price}</p>
             <button onClick={() => handleDelete()}>Delete</button>

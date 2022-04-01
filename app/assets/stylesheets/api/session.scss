@@ -8,8 +8,15 @@
 .logo {
     font-size: 30px;
     text-decoration: none;
-    margin: 5px 5px 5px 5px;
+    margin: 10px 10px 10px 20px;
 } 
+
+.logo img {
+    width: 180px;
+    height: auto;
+    margin-top: -48px;
+    margin-left: -21px;
+}
 
 .logo:visited{
     color: inherit
@@ -29,24 +36,35 @@
     display: flex;
     flex-direction: row;
     // justify-content: space-around;
-    align-items: baseline;
+    // align-items: baseline;
     background-color: #131921;
 }
 
 .nav-belt-bar-2 {
     height: 39px;
-    font-size: 20px;
+    font-size: 14px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: #232f3e;
+    align-items: center;
 }
 
+ 
+.nav-belt-bar-2 p {
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.nav-link:hover, .carticon:hover, .account-list-header:hover {
+    border: white solid;
+}
 
 .nav-link, .nav-link:visited {
     color: white;
     text-decoration: none;
     margin-bottom: 1px;
+    cursor:pointer
 }
 
 .dropdown-menu {
@@ -69,11 +87,17 @@
     margin-top: 2px;
     font-size: 16px;
     font-weight: bold;
+    margin-bottom: 0px;
 }
 
 .account-list-header {
+    // text-align: center;
     position:relative;
     display: inline-block;
+    min-width: 150px;
+    margin-left: 10px;
+    margin-right: 15px;
+    margin-bottom: 0px;
 }
 .account-list-dropdown-content {
     display: none;
@@ -96,17 +120,20 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: center;
 }
 
 .search-bar select {
     width: auto;
+    height: 47px;
+    
 }
 
 .search-bar input {
     width: 100%;
     height: 45px;
     box-sizing: border-box;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     left: 0;
     border-radius: 0 0 0 0;
     border: none;
@@ -121,10 +148,30 @@
      background-color: #febd69;
      height: 50px;
      width: 58px;
-     margin-top: -2px;
+    //  margin-top: -39px;
     
 }
 
+.searchicon {
+    height: 23px;
+    width: auto;
+}
+
+.carticon {
+    margin-right: 15px;
+    margin-left: -15px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.cart-count {
+    color: orange;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: -35px;
+    margin-left: 8px;
+    font-weight: bold;
+}
 ////////////
 
 .login-signup {

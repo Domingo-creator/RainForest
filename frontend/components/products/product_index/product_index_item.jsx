@@ -17,9 +17,11 @@ const ProductIndexItem = ({product}) => {
 
     return(
         <li>
-            <div className="image-placeholder"></div>
-            <Link to={`/products/${product.id}`} className='link'>{product.name}</Link> 
-            <Link to={`/products/${product.id}`} className='link'>{formatPrice()}</Link>
+            <Link to={`/products/${product.id}`} >
+                <img src={product.image_url} className="product-index-image"/>
+            </Link> 
+            <Link to={`/products/${product.id}`} className='product-index-name' >{product.name}</Link> 
+            <Link to={`/products/${product.id}`} className='product-index-price'>{formatPrice()}</Link>
         </li>
     )
 

@@ -1,18 +1,19 @@
 import React, { useEffect } from "react"
+import StarRating from "./star_rating"
 
 const ReviewIndexItem = ({review}) => {
 
-    const starRating = ()  => {
+    // const starRating = ()  => {
         
-    }
+    // }
     return (
         <li>
-            <label>Rating   
-                <p>{review.rating}</p>
-            </label>
-            <h2>{review.headline}</h2>
-
-            <p>{review.body}</p>
+            <p>{review.reviewer}</p>
+            <div className="review-headline">
+                <StarRating reviews={[review]} />
+                <p>{review.headline}</p>
+            </div>
+            <p className='review-body'>{review.body}</p>
         </li>
     )
 }

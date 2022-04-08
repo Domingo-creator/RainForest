@@ -1036,7 +1036,7 @@ dogPoopBags = Product.create(
 dogPoopBagsImage = open("https://rainforest-dev.s3.us-west-1.amazonaws.com/dogPoopBags.jpg")
 dogPoopBags.image.attach(io: dogPoopBagsImage, filename: 'dogPoopBags.jpg')
 
-dogSqueakToy = Product.create(
+dogSqueekToy = Product.create(
     {name: 'Best Pet Supplies 2-in-1 Fun Skin Stuffless Dog Squeaky Toy and Plush toys',
     price: 5.99,category: 'Pet Supplies',
     body: 'STUFFING FREE: These stuffing free dog toys won’t make a mess while your pup pulls, tugs and chews away.
@@ -1051,6 +1051,7 @@ dogSqueakToy = Product.create(
     Manufacturer  :  Best Pet Supplies
     ASIN  :  B00G5M75UK'}
 )
+
 dogSqueekToyImage = open("https://rainforest-dev.s3.us-west-1.amazonaws.com/dogSqueekToy.jpg")
 dogSqueekToy.image.attach(io: dogSqueekToyImage, filename: 'dogSqueekToy.jpg')
 

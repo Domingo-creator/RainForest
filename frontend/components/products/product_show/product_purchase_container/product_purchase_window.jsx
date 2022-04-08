@@ -8,6 +8,13 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) =
         setQuantity(e.target.value)
     }
 
+    const getNextDeliveryTime = () => {
+
+    }
+
+    const getDeliveryDate = () => {
+
+    }
     const handleAddToCart = () => {
         let cartItem = Object.assign( {}, {userId: userId, productId: product.id, quantity: parseInt(quantity)})
         if(userId) {
@@ -33,8 +40,14 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) =
 
     return (
         <div className="product-purchase-window">
-            {formatPrice()}
-            <div className="product-purchase-window-delivery-info"></div>
+            <div className="product-purchase-window-price">
+                {formatPrice()}
+                <p className="product-purchase-window-returns">& <span className='fake-link'>Free Returns</span></p>
+            </div>
+            <div className="product-purchase-window-delivery-info">
+                <p>FREE delivery {getDeliveryDate()}</p>
+                <p>Order within {getNextDeliveryTime()}</p>
+            </div>
             <h2 className="product-purchase-window-stock-status">In Stock</h2>
             
             <select 
@@ -42,20 +55,20 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) =
               id="product-quantity"
               value={quantity}
               onChange={update}>
-                <option value={1}>1</option>     
-                <option value={2}>2</option>     
-                <option value={3}>3</option>     
-                <option value={4}>4</option>     
-                <option value={5}>5</option>     
-                <option value={6}>6</option>     
-                <option value={7}>7</option>     
-                <option value={8}>8</option>     
-                <option value={9}>9</option>     
-                <option value={10}>10</option>     
+                <option value={1}>Qty: 1</option>     
+                <option value={2}>Qty: 2</option>     
+                <option value={3}>Qty: 3</option>     
+                <option value={4}>Qty: 4</option>     
+                <option value={5}>Qty: 5</option>     
+                <option value={6}>Qty: 6</option>     
+                <option value={7}>Qty: 7</option>     
+                <option value={8}>Qty: 8</option>     
+                <option value={9}>Qty: 9</option>     
+                <option value={10}>Qty: 10</option>     
             </select>
 
-            <button onClick={handleAddToCart}>Add to Cart</button>
-            <button onClick={handleBuyNow}>Buy Now</button>
+            <button onClick={handleAddToCart} className="add-to-cart-button">Add to Cart</button>
+            <button onClick={handleBuyNow} className="buy-now-button">Buy Now</button>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import StarRating from '../../reviews/star_rating'
 
 const ProductIndexItem = ({product}) => {
 
@@ -22,6 +23,7 @@ const ProductIndexItem = ({product}) => {
             </Link> 
             <Link to={`/products/${product.id}`} className='product-index-name' >{product.name}</Link> 
             <Link to={`/products/${product.id}`} className='product-index-price'>{formatPrice()}</Link>
+            <StarRating reviews={product.reviews}/>
         </li>
     )
 

@@ -5,3 +5,11 @@ else
     json.image_url url_for(product.image)
 end
 
+json.reviews do 
+    if( product.reviews.length)
+        json.array! product.reviews, :rating
+    end
+end
+
+
+

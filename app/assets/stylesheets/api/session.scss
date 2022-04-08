@@ -213,7 +213,7 @@
     box-shadow: .1px .1px .1px rgba(235, 144, 92, 0.089);
 }
 
-.account-button {
+.grey-button {
     text-align: center;
     max-height: 30px;
     min-width: 350px;
@@ -226,6 +226,10 @@
     cursor:pointer;
     border: .5px black solid;
     box-shadow: .5px .5px .5px black;
+}
+
+.grey-button:visited {
+    color: black;
 }
 
 // :visited {

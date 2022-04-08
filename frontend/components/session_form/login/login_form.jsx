@@ -81,10 +81,10 @@ const LogInForm = ({errors, login}) => {
                 <button className='continue-button'>Continue</button>
             </form>
             <div className="login-footer">
-                <button onClick={demoUserLogin} className='account-button'>Log in as Demo User</button>
+                <button onClick={demoUserLogin} className='grey-button'>Log in as Demo User</button>
                 <div className='create-account-button-container'>
                     <p>New to RainForest?</p>
-                    <Link to='/signup' className='account-button'>Create your RainForest account</Link>
+                    <Link to='/signup' className='grey-button'>Create your RainForest account</Link>
                 </div>
                 {/* <Button component={Link} to='/signup'>Create your Rainforest account</Button> */}
             </div>

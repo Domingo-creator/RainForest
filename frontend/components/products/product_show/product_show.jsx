@@ -3,6 +3,7 @@ import ReviewIndexContainer from '../../reviews/review_index_container'
 import ProductPurchaseWindow from './product_purchase_container/product_purchase_window'
 import ProductPurchaseWindowContainer from './product_purchase_container/product_purcase_window_container'
 import { Link } from 'react-router-dom'
+import StarRating from '../../reviews/star_rating'
 
 const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
     useEffect( () => {
@@ -32,6 +33,17 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
         )
     }
 
+    const getReviewScore = () => {
+        let reviewScore = 0.0;
+        product.reviews.forEach( review => reviewScore += review.rating )
+        return reviewScore > 0 ? reviewScore/product.reviews.length : 0
+    } 
+
+    const getRatingPercent = (rating) => {
+        let ratingCount = product.reviews.filter( review => review.rating === rating);
+        return (ratingCount.length / product.reviews.length) * 100   
+    }
+
     if (!product) {
         return <></>
     }
@@ -46,16 +58,17 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                 <div className="main-product-section">
                     <div className="main-product-subsection">
                         <h1>{product.name}</h1>
+                        <StarRating reviews={product.reviews} />
                     </div>
                     <div className="main-product-subsection">
                         {formatPrice()}
-                        <label> About this item:
-                            <ul>
-                                {parseString(product.body).map( (bodyElement, index) =>
-                                    <li key={index}>{bodyElement}</li> 
-                                )}      
-                            </ul>
-                        </label>
+                        <p className='bold'> About this item:</p>
+                        <ul>
+                            {parseString(product.body).map( (bodyElement, index) =>
+                                <li key={index}>{bodyElement}</li> 
+                            )}      
+                        </ul>
+                        
                     </div>
                 </div>
                 {/* <ProductPurchaseWindowContainer /> */}
@@ -77,8 +90,58 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                     )}
                 </ul>
             </div>
-            <Link to={`/products/${product.id}/reviews/new`}>Write a customer review</Link>
-            <ReviewIndexContainer />
+            <div className="product-reviews main-product-subsection">
+                <div className="product-reviews-left" >
+                    <div className="product-reviews-breakdown">
+                        <h1>Customer reviews</h1>
+                        <div className="product-reviews-score">
+                            <StarRating reviews={product.reviews} />
+                            <p>{Math.round(getReviewScore() * 10) / 10} Out of 5</p>
+                        </div>
+                        <p className="ratings-count">{product.reviews.length} global ratings</p>
+                        <div className="ratings-chart">
+                            <div className="ratings-chart-column">
+                                <p>5 star</p>
+                                <div className="ratings-chart-column-graph"></div>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(5) * 10) / 10}%</p>
+                                <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(5) * 2) + 'px'}}></div>
+                           </div>
+                            <div className="ratings-chart-column">
+                                <p>4 star</p>   
+                                <div className="ratings-chart-column-graph"></div>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(4) * 10) / 10}%</p>
+                                <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(4) * 2) + 'px'}}></div>
+                            </div>
+                            <div className="ratings-chart-column">
+                                <p>3 star</p>
+                                <div className="ratings-chart-column-graph"></div>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(3) * 10) / 10}%</p>
+                                <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(3) * 2) + 'px'}}></div>
+                            </div>
+                            <div className="ratings-chart-column">
+                                <p>2 star</p>
+                                <div className="ratings-chart-column-graph"></div>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(2) * 10) / 10}%</p>
+                                <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(2) * 2) + 'px'}}></div>
+                            </div>
+                            <div className="ratings-chart-column">
+                                <p>1 star</p>
+                                <div className="ratings-chart-column-graph"></div>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(1) * 10) / 10}%</p>
+                                <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(1) * 2) + 'px'}}></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="review-product-section">
+                        <h2>Review this product</h2>
+                        <p>Share your thoughts with other customers</p>
+                        <Link to={`/products/${product.id}/reviews/new`} className="grey-button">Write a customer review</Link>
+                    </div>
+                </div>
+                <div className="product-reviews-right">
+                    <ReviewIndexContainer />
+                </div>
+            </div>
         </div>
     )
 }

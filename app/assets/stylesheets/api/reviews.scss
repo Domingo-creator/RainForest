@@ -1,3 +1,69 @@
 // Place all the styles related to the api/reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.review-list {
+    list-style: none;
+}
+
+.review-list li {
+    margin-bottom: 40px;
+}
+
+.product-reviews-score {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.product-reviews-score p {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.ratings-chart-column {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ratings-chart-column-graph {
+    width: 200px;
+    height: 25px;
+    background-color: whitesmoke;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+.ratings-chart-column-graph-results{
+    width: 0px;
+    height: 25px;
+    margin-left: -240px;
+    background-color: orange;  
+}
+
+.review-headline {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.review-headline p {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+
+}
+
+.review-body { 
+    margin-top: 0px;
+}
+
+.ratings-chart-column-percent {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.ratings-count {
+    margin-top: 0px;
+}

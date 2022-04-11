@@ -46,7 +46,6 @@ class SearchBar extends React.Component {
         if(this.props.department !== 'All Departments' && this.props.department !== 'All Products') {
             filterArray.push(`category = '${this.props.department}'`)
         }
-        
         return filterArray.join(" AND ")
     }
 

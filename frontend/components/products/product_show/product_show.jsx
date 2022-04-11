@@ -33,6 +33,17 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
         )
     }
 
+    const formatProductDetails = () => {
+        let detailsObj = {}
+        parseString(product.product_detail).forEach( product_detail => {
+            let detailParts = product_detail.split(':')
+            detailsObj[detailParts[0].trim()] = detailParts[1].trim()
+        })
+        return detailsObj
+    }
+
+    const formattedProductDetails = product ? formatProductDetails() : null
+
     const getReviewScore = () => {
         let reviewScore = 0.0;
         product.reviews.forEach( review => reviewScore += review.rating )
@@ -44,10 +55,12 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
         return (ratingCount.length / product.reviews.length) * 100   
     }
 
+
+
     if (!product) {
         return <></>
     }
-
+   
     return (
         <div>
             <div className="category-bar">
@@ -84,11 +97,18 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
             </div>
             <div className="product-detail main-product-subsection">
                 <h1>Product Details</h1>
-                <ul>
-                    {parseString(product.product_detail).map( (detail, index) => 
-                    <li key={index}>{detail}</li>
-                    )}
-                </ul>
+                <div>
+                    <ul>
+                        {Object.keys(formattedProductDetails).map( (detailKey, index ) => 
+                            <li key="index">{detailKey}</li>
+                        )}
+                    </ul>
+                    <ul>
+                        {Object.values(formattedProductDetails).map( (detailValue, index) => 
+                            <li key="index">{detailValue}</li>
+                        )}
+                    </ul>
+                </div>
             </div>
             <div className="product-reviews main-product-subsection">
                 <div className="product-reviews-left" >
@@ -103,31 +123,31 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                             <div className="ratings-chart-column">
                                 <p>5 star</p>
                                 <div className="ratings-chart-column-graph"></div>
-                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(5) * 10) / 10}%</p>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(5) * 10) / 10 || 0}%</p>
                                 <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(5) * 2) + 'px'}}></div>
                            </div>
                             <div className="ratings-chart-column">
                                 <p>4 star</p>   
                                 <div className="ratings-chart-column-graph"></div>
-                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(4) * 10) / 10}%</p>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(4) * 10) / 10 || 0}%</p>
                                 <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(4) * 2) + 'px'}}></div>
                             </div>
                             <div className="ratings-chart-column">
                                 <p>3 star</p>
                                 <div className="ratings-chart-column-graph"></div>
-                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(3) * 10) / 10}%</p>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(3) * 10) / 10 || 0}%</p>
                                 <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(3) * 2) + 'px'}}></div>
                             </div>
                             <div className="ratings-chart-column">
                                 <p>2 star</p>
                                 <div className="ratings-chart-column-graph"></div>
-                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(2) * 10) / 10}%</p>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(2) * 10) / 10 || 0}%</p>
                                 <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(2) * 2) + 'px'}}></div>
                             </div>
                             <div className="ratings-chart-column">
                                 <p>1 star</p>
                                 <div className="ratings-chart-column-graph"></div>
-                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(1) * 10) / 10}%</p>
+                                <p className="ratings-chart-column-percent">{Math.round(getRatingPercent(1) * 10) / 10 || 0}%</p>
                                 <div className="ratings-chart-column-graph ratings-chart-column-graph-results" style={{width: (getRatingPercent(1) * 2) + 'px'}}></div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
     const [rerender, setRerender] = useState('')
 
     let cart = localStorage.getItem('cart')
+
     if(cart && userId) {
         JSON.parse(cart).forEach( cartItem => {
             cartItem.userId = userId
@@ -17,10 +18,14 @@ import { Link } from 'react-router-dom'
     },[])
 
     const cartItemCount = () => {
-        if(userId) return cartItems.length
-        // let cartCount = 
-        return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0
-        // setRerender(cartCount)
+        let count = 0;
+        if(userId) {
+            cartItems.forEach( cartItem => count += cartItem.quantity)
+        } else if( localStorage.getItem('cart') ) {
+            JSON.parse(localStorage.getItem('cart')).forEach( cartItem => { debugger;
+                count += cartItem.quantity} )
+        }
+        return count;
     }
 
     return (

@@ -11,8 +11,6 @@ const ReviewIndex = ({reviews, fetchReviews, match}) => {
     return (
         <div>
             
-            {/* <CreateReviewFormContainer /> */}
-            {/* <Link to={`/review/create-review/${match.params.productId}`}>Write a customer review</Link> */}
             <ul className='review-list'>
                 {reviews.map( review => {
                     return <ReviewIndexItem  key={review.id} review={review}/>

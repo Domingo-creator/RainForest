@@ -22,3 +22,11 @@ export const removeCartItem = (userId, cartItemId) => {
         url: `api/users/${userId}/cart_items/${cartItemId}`
     })
 }
+
+export const updateCartItem = (cartItem) => {
+    return $.ajax({
+        method: 'PATCH',
+        url: `api/users/${cartItem.userId}/cart_items/${cartItem.id}`,
+        data: {cart_item: cartItem}
+    })
+}

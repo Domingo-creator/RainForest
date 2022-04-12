@@ -5,7 +5,7 @@ import ProductPurchaseWindowContainer from './product_purchase_container/product
 import { Link } from 'react-router-dom'
 import StarRating from '../../reviews/star_rating'
 
-const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
+const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem}) => {
     useEffect( () => {
         fetchProduct(match.params.productId)
     },[])
@@ -84,8 +84,7 @@ const ProductShow = ({userId, match, product,fetchProduct, createCartItem}) => {
                         
                     </div>
                 </div>
-                {/* <ProductPurchaseWindowContainer /> */}
-                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice}/>
+                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice} cartItems={cartItems} updateCartItem={updateCartItem} history={history}/>
             </section>
             <div className="product-description main-product-subsection">
                 <h1>Description</h1>

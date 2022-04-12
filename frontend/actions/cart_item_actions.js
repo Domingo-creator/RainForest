@@ -38,3 +38,8 @@ export const removeCartItem = (userId, cartItemId) => dispatch => {
     return CartItemApitUtil.removeCartItem(userId, cartItemId)
         .then( () => dispatch(deleteCartItem(cartItemId)))  // this may be wrong
 }
+
+export const updateCartItem = (cartItem) => dispatch => {
+    return CartItemApitUtil.updateCartItem(cartItem)
+        .then( (updatedCartItem) => dispatch(receiveCartItem(updatedCartItem)))
+}

@@ -17,8 +17,8 @@ class Api::CartItemsController < ApplicationController
 
     def update
         @cart_item = CartItem.find(params[:id])
-        if @cart_item.update
-            render json: {message: 'Item succesffully updated'}
+        if @cart_item.update(cart_params)
+            render :show
         else
             render json: {message: 'Item could not be updated'}
         end

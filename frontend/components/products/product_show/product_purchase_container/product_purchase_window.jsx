@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) => {
+const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems}) => {
 
     const [quantity, setQuantity] = useState('1')
 
@@ -15,10 +15,26 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) =
     const getDeliveryDate = () => {
 
     }
+
+    const findMatchingCartItem = (currentCart) => {
+        for(let i = 0; i < currentCart.length; i++) {
+            if(currentCart[i].productId === product.id) {
+                return currentCart[i]
+            }
+        }
+        return null
+    }
+
     const handleAddToCart = () => {
         let cartItem = Object.assign( {}, {userId: userId, productId: product.id, quantity: parseInt(quantity)})
         if(userId) {
-            createCartItem(userId, cartItem);
+            let matchingCartItem = findMatchingCartItem(cartItems);
+            if(findMatchingCartItem(cartItems)) {
+                matchingCartItem.quantity = matchingCartItem.quantity + parseInt(quantity)
+                updateCartItem(matchingCartItem)
+            } else {
+                createCartItem(userId, cartItem);
+            }
         } else {
             let prevCart;
             if(localStorage.getItem('cart') === '') {
@@ -26,10 +42,15 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) =
             } else {
                 prevCart = JSON.parse(localStorage.getItem('cart'))
             }
-            cartItem.name = product.name
-            cartItem.price = product.price
-            cartItem.image_url = product.image_url
-            prevCart.push(cartItem)
+            let matchingCartItem = findMatchingCartItem(prevCart)
+            if(matchingCartItem) {
+                matchingCartItem.quantity += parseInt(quantity)
+            } else {
+                cartItem.name = product.name
+                cartItem.price = product.price
+                cartItem.image_url = product.image_url
+                prevCart.push(cartItem)
+            }
             localStorage.setItem('cart', JSON.stringify(prevCart))
         }
     }
@@ -48,7 +69,7 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, formatPrice}) =
                 <p>FREE delivery {getDeliveryDate()}</p>
                 <p>Order within {getNextDeliveryTime()}</p>
             </div>
-            <h2 className="product-purchase-window-stock-status">In Stock</h2>
+            <h2 className="product-purchase-window-stock-status">In Stock.</h2>
             
             <select 
               name="quantity" 

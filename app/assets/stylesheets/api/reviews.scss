@@ -4,6 +4,8 @@
 
 .review-list {
     list-style: none;
+    margin-left: 100px;
+    width: 40vw;
 }
 
 .review-list li {
@@ -111,4 +113,17 @@
     border-radius: 8px;
     height: 31px;
     align-self: flex-end;
+}
+
+.reviewer-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.reviewer-info svg {
+    color: white;
+    background-color: rgba(211, 211, 211, 0.757);
+    margin-right: 15px;
+    border-radius: 34px;
 }

@@ -1,14 +1,16 @@
 import React, { useEffect } from "react"
 import StarRating from "./star_rating"
+import {AiOutlineUser} from 'react-icons/ai'
 
 const ReviewIndexItem = ({review}) => {
 
-    // const starRating = ()  => {
-        
-    // }
     return (
         <li>
-            <p>{review.reviewer}</p>
+            <div className="reviewer-info">
+                <AiOutlineUser size={34}/>
+                <p>{review.reviewer}</p>
+            </div>
+                
             <div className="review-headline">
                 <StarRating reviews={[review]} />
                 <p>{review.headline}</p>

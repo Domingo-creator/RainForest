@@ -1,19 +1,21 @@
 import { connect } from "react-redux"
-import { createCartItem } from "../../../../actions/cart_item_actions"
+import { withRouter } from "react-router-dom"
+import { createCartItem, updateCartItem } from "../../../../actions/cart_item_actions"
 import ProductPurchaseWindow from "./product_purchase_window"
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         userId: state.session.id,
-        product: state.entities.product[ownProps.match.params.productId]
+        product: state.entities.product[ownProps.match.params.productId],
+        cartItems: state.entitites.cartItems
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        createCartItem: (userId, cartItem) => dispatch(createCartItem(userId, cartItem)) 
+        createCartItem: (userId, cartItem) => dispatch(createCartItem(userId, cartItem)),
+        updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem)) 
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductPurchaseWindow)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductPurchaseWindow))

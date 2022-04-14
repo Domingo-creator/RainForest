@@ -10,6 +10,9 @@ const ProductIndex = ({products, fetchProducts, createCartItem, userId}) => {
         }
     },[])
 
+    if(!products.length) {
+        return <h1>No products found matching your search...</h1>
+    }
 
     return(
         <ul className="product-list">

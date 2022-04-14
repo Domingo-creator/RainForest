@@ -78,6 +78,7 @@ const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsS
                 </div>
             </div>
                 <Link to={`/products/${cartItem.productId}`} className='product-index-price'>{formatPrice()}</Link>
+          
         </li>
     )
 }

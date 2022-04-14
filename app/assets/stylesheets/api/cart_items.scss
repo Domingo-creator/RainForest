@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.cart-page {
+    display: flex;
+    flex-direction: row;
+}
+
 .cart-list {
     background-color: whitesmoke;
     list-style: none;
@@ -60,7 +65,7 @@
     cursor: pointer;
 }
 
-.cart-item-price {
+.cart-item-dollars, .cart-item-dollar-symbol, .cart-item-cents {
     font-size: 18px;
     font-weight: bold;
     margin-top: 0px;
@@ -113,4 +118,48 @@
 
 .cart-item-checkbox :checked {
  
+}
+
+.cart-checkout {
+    width: 300px;
+    height: 122.5px;
+    margin: 20px;
+    background-color: whitesmoke;
+}
+
+.cart-checkout button {
+    text-align: center;
+    max-height: 30px;
+    width: 258px;
+    padding: 8px 20px;
+    margin: 0px 10px 30px 10px;
+    text-decoration:none;
+    border-radius: 8px;
+    cursor:pointer;
+    box-shadow: .5px .5px .5px black;
+    background-color: #ffd814;
+    border: .5px #fcd200 solid;
+
+
+}
+
+.cart-checkout .cart-item-dollars {
+    font-size: 28px;
+    margin-bottom: 0px;
+}
+
+.cart-checkout .cart-item-dollar-symbol, .cart-checkout .cart-item-cents {
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.cart-price {
+    display: flex;
+}
+
+.cart-checkout div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 0;
 }

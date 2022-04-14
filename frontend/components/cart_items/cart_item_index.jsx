@@ -51,33 +51,45 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
         let subtotalArray = subtotal.toString().split('.')
         if(subtotalArray.length === 1) subtotalArray.push('00');
         return (
-            <div className="product-price">
-                <p className="cart-item-price">$</p>
-                <p className="cart-item-price">{subtotalArray[0]}.</p>
-                <p className="cart-item-price">{subtotalArray[1]}</p>
+            <div className="cart-price">
+                <p className="cart-item-dollar-symbol">$</p>
+                <p className="cart-item-dollars">{subtotalArray[0]}.</p>
+                <p className="cart-item-cents">{subtotalArray[1]}</p>
             </div>
         )
     }
 
+    const handleCheckout = () => {}
+
+
     return (
-        <ul className='cart-list'>
-            <div>
-                <h1>Shopping Cart</h1>
-                { cartItems.length ? 
-                    <p onClick={toggleSelectAll} className="cart-select-all">
-                        {checkAllSelected() ? 'Deselect all items' : 'Select All'}
-                    </p>
-                    :
-                    <></>
-                }
-                <p>Price</p>
+        <div className="cart-page">
+            <ul className='cart-list'>
+                <div>
+                    <h1>Shopping Cart</h1>
+                    { cartItems.length ? 
+                        <p onClick={toggleSelectAll} className="cart-select-all">
+                            {checkAllSelected() ? 'Deselect all items' : 'Select All'}
+                        </p>
+                        :
+                        <></>
+                    }
+                    <p>Price</p>
+                </div>
+                {cartItemList()}
+                <div className="cart-subtotal">
+                    <p className="cart-subtotal-count">Subtotal ({getCount()}):</p>
+                    {getSubtotal()}
+                </div>
+            </ul>
+            <div className="cart-checkout">
+                <div>
+                    <p className="cart-subtotal-count">Subtotal ({getCount()}):</p>
+                    {getSubtotal()}
+                </div>
+                <button onClick={handleCheckout}>Proceed to checkout</button>
             </div>
-            {cartItemList()}
-            <div className="cart-subtotal">
-                <p className="cart-subtotal-count">Subtotal ({getCount()}):</p>
-                {getSubtotal()}
-            </div>
-        </ul>
+        </div>
     )
 }
 

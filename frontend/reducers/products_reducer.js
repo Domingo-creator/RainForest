@@ -1,4 +1,4 @@
-import { RECEIVE_PRODUCTS, RECEIVE_SINGLE_PRODUCT } from "../actions/product_actions"
+import { RECEIVE_PRODUCTS, RECEIVE_SEARCH_RESULTS, RECEIVE_SINGLE_PRODUCT } from "../actions/product_actions"
 
 const productsReducer = (oldState = {}, action) => {
     Object.freeze(oldState)

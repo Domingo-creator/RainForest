@@ -3,10 +3,16 @@
     background-color: #d3d3d391;
 }
 
+.homepage-banner {
+    /* position: absolute; */
+    margin-bottom: -280px;
+}
+
 .homepage-banner img {
     height: auto;
     width: 100%;
     background-color: skyblue;
+    -webkit-mask-image: linear-gradient(#000 40%, transparent);
 }
 
 .homepage-list {
@@ -14,8 +20,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
-    margin-top: -310px;
+    /* margin-top: -310px; */
     justify-content: space-around;
+    position: relative;
+    z-index: 2;
 }
 
 .homepage-list li {
@@ -27,6 +35,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+
 }
 
 .homepage-list img {

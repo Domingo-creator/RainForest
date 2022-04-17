@@ -328,8 +328,7 @@ toyStoryPuzzle = Product.create(
     LEARNING AND FUN: Children Love Disney Puzzles! They’ll Learn While Playing! Not Only Provides Engaged Play-Time for Kids, But Also Helps Practice Problem-Solving and Spatial Reasoning as They Complete the Puzzle.Challenging and Engaging Enough for Kids and Adults,Kids Puzzles is the Perfect Way for a Family to Work Together.
     STURDY TIN BOX STORAGE: Our Disney Puzzle Comes with a Tin Box Which is Very Convenient to Store and Easy Take for Travel. The Tin Box Size is 5.9” x 3.5” which is a Nice Storage Container,Also It’s an Ideal Place to Keep Pieces Safe, Together and Free From Damage. It Makes a Great Gift for All Ages at Birthdays and Holidays.',
     description:  'Children Love Toy Story Jigsaw Puzzles! They’ll Learn While Playing! Not Only Provides Engaged Play-Time for Kids, But Also Helps Practice Problem-Solving and Spatial Reasoning as They Complete the Puzzle.Challenging and Engaging Enough for Kids and Adults,Kids Puzzles is the Perfect Way for a Family to Work Together.',
-    product_detail: '
-    Package Dimensions :	6.34 x 4.29 x 1.69 inches
+    product_detail: 'Package Dimensions :	6.34 x 4.29 x 1.69 inches
     Item Weight  :	5.7 ounces
     ASIN  :	B08T6VD4ZT
     Manufacturer recommended age   :	4 - 8 years'}
@@ -349,8 +348,7 @@ astroHeadset = Product.create(
     USB sound card functionality: When using PC, USB sound card functionality provides game: Voice balance, game and voice streaming; No optical cables needed
     Mod Kit ready: For even more customization, the optional A50 Mod Kit allows users to add synthetic leather headband and ear cushions for improved noise isolation; Only compatible with A50 wireless Headset Gen 4',
     description: 'Experience legendary performance and sound of ASTRO Audio V2, with the convenience and freedom that comes without wires. The A50 Wireless + Base Station for PlayStation 4/PC delivers top-of-the-line acoustics, ergonomics, comfort and durability that gamers demand. The all-new Base Station provides clear, low-latency voice communication, while making headset pairing and charging simple. The ASTRO Command Center software allows gamers and streamers to tune every input and output parameter of the A50 precisely for their specific setup. For even more flexibility, the optional A50 Mod Kit allows users to add synthetic leather headband and ear cushions for improved noise isolation. Experience absolute audio immersion with the A50 Wireless + Base Station.' ,
-    product_detail: '
-    ASIN  :	B07R4Q8FQY
+    product_detail: 'ASIN  :	B07R4Q8FQY
     Release date  :	August 11, 2019
     Product Dimensions  :	7.28 x 3.48 x 7.17 inches; 1.49 Pounds
     Binding	: Video Game

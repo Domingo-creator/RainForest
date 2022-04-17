@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 const homepage = () => {
+    const [currentBannerIndex, setBannerIndex] = useState(0)
+    const bannerSrcUrls = [ "https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_1.jpg",
+                            "https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_4.jpg"
+                          ]
+
+    const carouselInterval = setInterval( () => setBannerIndex( (currentBannerIndex + 1) % bannerSrcUrls.length ), 15000)
+
     return (
         <div className="homepage">
             <div className='homepage-banner'>
-                <img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_1.jpg"/>
+                <img src={bannerSrcUrls[currentBannerIndex]}/>
             </div>
             <div className="homepage-list">
                 <li>

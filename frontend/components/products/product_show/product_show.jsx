@@ -37,7 +37,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
         let detailsObj = {}
         parseString(product.product_detail).forEach( product_detail => {
             let detailParts = product_detail.split(':')
-            detailsObj[detailParts[0].trim()] = detailParts[1].trim()
+            if (detailParts.length > 1) detailsObj[detailParts[0].trim()] = detailParts[1].trim()
         })
         return detailsObj
     }

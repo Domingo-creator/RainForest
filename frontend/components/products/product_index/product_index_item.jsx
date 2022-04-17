@@ -9,21 +9,40 @@ const ProductIndexItem = ({product}) => {
         if(priceArray.length === 1) priceArray.push('00');
         return (
             <div className="product-price">
-                <p className="product-price-money-symbol">$</p>
+                <p className="product-price-dollar-symbol">$</p>
                 <p className="product-price-dollars">{priceArray[0]}</p>
                 <p className="product-price-cents">{priceArray[1]}</p>
             </div>
         )
     }
 
+    const formatDeliveryDate = (deliveryDelay = Math.floor(Math.random() * 6) + 2) => {
+        let deliveryDate = new Date
+        deliveryDate.setDate(deliveryDate.getDate() + deliveryDelay)
+        deliveryDate = deliveryDate.toDateString().split(' ')
+        deliveryDelay === 1 ? deliveryDate[0] = 'Tomorrow' : deliveryDelay === 0 ? deliveryDate[0] = 'Today' : null;
+        deliveryDate[0] += ','
+        return deliveryDate.slice(0, 3).join(' ') 
+    }
+
+    const trimmedName = () => product.name.length > 120 ? product.name.slice(0,120).concat('...') : product.name
+
     return(
         <li>
-            <Link to={`/products/${product.id}`} >
-                <img src={product.image_url} className="product-index-image"/>
-            </Link> 
-            <Link to={`/products/${product.id}`} className='product-index-name' >{product.name}</Link> 
-            <Link to={`/products/${product.id}`} className='product-index-price'>{formatPrice()}</Link>
-            <StarRating reviews={product.reviews}/>
+            <div className="product-index-image-container">
+                <Link to={`/products/${product.id}`} className="product-index-image-link">
+                    <img src={product.image_url} className="product-index-image"/>
+                </Link> 
+            </div>
+            <div className="product-index-item-info">
+                <Link to={`/products/${product.id}`} className='product-index-name' >{trimmedName()}</Link> 
+                <div className="product-index-reviews">
+                    <StarRating reviews={product.reviews}></StarRating>
+                    <Link to={`/products/${product.id}`} className="product-index-reviews-count"><p>{product.reviews.length}</p></Link>
+                </div>
+                <Link to={`/products/${product.id}`} className='product-index-price'>{formatPrice()}</Link>
+                <div className="product-index-delivery-date">Get it <span>{formatDeliveryDate()}</span></div>
+            </div>
         </li>
     )
 

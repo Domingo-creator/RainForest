@@ -1,0 +1,227 @@
+/////// NAV BAR  MOVE THIS////
+
+.logo {
+    font-size: 30px;
+    text-decoration: none;
+    margin: 10px 10px 10px 20px;
+} 
+
+.logo img {
+    width: 180px;
+    height: auto;
+    margin-top: -48px;
+    margin-left: -21px;
+}
+
+.logo:visited{
+    color: inherit
+}
+
+
+.nav-belt {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.nav-belt-bar-1 {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-around;
+    // align-items: baseline;
+    background-color: #131921;
+}
+
+.nav-belt-bar-2 {
+    height: 39px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #232f3e;
+    align-items: center;
+}
+
+ 
+.nav-belt-bar-2 p {
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.nav-link:hover, .carticon:hover, .account-list-header:hover {
+    outline: white solid;
+}
+
+.nav-link, .nav-link:visited {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1px;
+    cursor:pointer
+}
+
+.dropdown-menu {
+    display: flex;
+    align-items: center;
+ 
+    background-color: beige;
+    list-style: none;
+    min-width: 200px;
+    color: black;
+}
+
+
+.nav-line-1 {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.nav-line-2 {
+    margin-top: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.account-list-header {
+    // text-align: center;
+    position:relative;
+    display: inline-block;
+    min-width: 150px;
+    margin-left: 10px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+.account-list-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: beige;
+    min-height: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+.account-list-container:hover .account-list-dropdown-content {
+    display: block;
+
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.search-bar select {
+    width: auto;
+    height: 47px;
+    cursor: pointer;
+    
+}
+
+.search-bar div {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    // margin-bottom: 40px;
+    left: 0;
+    border-radius: 0 0 0 0;
+    border: none;
+    font-size: 20px;
+}
+
+.search-field:focus .search-bar{
+    border-color: orange;
+}
+
+.search-bar button {
+     background-color: #febd69;
+     height: 50px;
+     width: 58px;
+     cursor: pointer;
+    //  margin-top: -39px;
+    
+}
+
+.searchicon {
+    height: 23px;
+    width: auto;
+}
+
+.carticon {
+    margin-right: 15px;
+    margin-left: -15px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.cart-count {
+    color: orange;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: -35px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.modal-background {
+    min-height: 186vh;
+    min-width: 100vw;
+    position: absolute;
+    background-color: rgba(213, 208, 208, 0.5)
+}
+
+.modal-child {
+    background-color: white;
+    position: absolute;
+    top: -41px;
+    left: 26vw;
+    right: 19.5vw;
+}
+
+.results-list {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding:0;
+}
+
+.results-link li {
+    margin: 5px;
+};
+
+.results-link li:hover {
+    background-color: lightgray;
+}
+
+.results-link {
+    text-decoration: none;
+    color: black;
+}
+
+.results-link :visited {
+    color: black;
+}
+
+.results-link p {
+    margin: 0;
+    padding: 0;
+}
+
+.results-link span {
+    // font-weight: 100;
+    color: grey;
+}
+////////////

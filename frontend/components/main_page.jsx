@@ -6,6 +6,7 @@ import ProductShowContainer from './products/product_show/product_show_container
 import CartItemIndexContainer from './cart_items/cart_item_index_container'
 import CreateReviewFormContainer from './reviews/review_form/create_review_form_container';
 import homepage from './home_page/homepage';
+import Results from './navigation_bar/search_bar/results.';
 
 const MainPage = () => {
     
@@ -13,6 +14,7 @@ const MainPage = () => {
         <div className="main-page">
             <header>
                 <NavBeltContainer />
+                <Results />
             </header>
             <main>
                 <Switch>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import AccountListContainer from './account_list/account_list_container'
 import Logo from '../logo'
-import SearchBarContainer from './search_bar/search_bar_container'
+import SearchBar from './search_bar/search_bar'
 import CategoryLink from './category_link'
 import CartIconContainer from './cart_icon/cart_icon_container'
 
@@ -16,7 +16,7 @@ const NavBelt = ({fetchProducts, history, userId}) => {
             <div className="nav-belt-bar-1">
                 <Logo/>
                 {/* <DeliverToContainer /> */}
-                <SearchBarContainer setDepartment={setDepartment} department={department}/>
+                <SearchBar setDepartment={setDepartment} department={department}/>
                 <AccountListContainer />
                 <CartIconContainer />
                 

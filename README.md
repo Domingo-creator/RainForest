@@ -7,13 +7,13 @@ LIVE-LINK: https://rainforest-amazon-clone.herokuapp.com/#/products
 
 
 # Technologies Used
-Ruby on Rails
-React / Redux
-JavaScript / AJAX / JBuilder
-PostgreSQL
-HTML5 and CSS
-AWS S3 and AWS IAM
-Heroku
++ Ruby on Rails
++ React / Redux
++ JavaScript / AJAX / JBuilder
++ PostgreSQL
++ HTML5 and CSS
++ AWS S3 and AWS IAM
++ Heroku
 
 
 # Features

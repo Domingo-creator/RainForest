@@ -22,7 +22,7 @@ Users can select a department from the drop down menu, or click one of the depar
 
 
 ### Update Cart
-Users can add, update quantities, and delete products from their cart.  If not logged in, cart items will be stored in sessionStorage until the user logs in, at which time the cart will be merged with the users cart.  Users can checkout their cart when they are finished shopping, or select the *buy now* option to instantly checkout an item.
+Users can add, update quantities, and delete products from their cart.  If not logged in, cart items will be stored in sessionStorage until the user logs in, at which time the cart will be merged with the users cart.  Users can checkout their cart when they are finished shopping, or select the **_buy now_** option to instantly checkout an item.
 
 ### Leave Reviews
 Users can leave reviews for products.  Reviews for any given product are averaged to give the star rating for the product.

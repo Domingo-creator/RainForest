@@ -18,9 +18,11 @@ LIVE-LINK: https://rainforest-amazon-clone.herokuapp.com/#/products
 
 # Features
 ### Products Search and Sort-by category
+Users can select a department from the drop down menu, or click one of the department links to add a category filter to the product search.  Users can also type a search term into the search bar to filter for products that contain the search term in their name within the selected department.
 
-### User Authorization
 
 ### Update Cart
+Users can add, update quantities, and delete products from their cart.  If not logged in, cart items will be stored in sessionStorage until the user logs in, at which time the cart will be merged with the users cart.  Users can checkout their cart when they are finished shopping, or select the *buy now* option to instantly checkout an item.
 
 ### Leave Reviews
+Users can leave reviews for products.  Reviews for any given product are averaged to give the star rating for the product.

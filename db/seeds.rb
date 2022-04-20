@@ -9,7 +9,10 @@
 # imageVarialbe = open("link to aws bucket")
 # product1.image.attach(io: imageVarialbe, filename: 'some-image.jpg')
 require 'open-uri'
-
+User.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+Product.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('products')
 
 users = User.create([
     {username: 'Sir_Demo_of_Demoville', email:'Demo_User@email.com', password: 'password'}
@@ -357,7 +360,7 @@ astroHeadset = Product.create(
     Manufacturer  :	Astro
     Country of Origin  :	China
     Batteries	:  1 Lithium Polymer batteries required. (included)
-    Date First Available  : 	June 10, 2019'}
+    Date First Available  :  June 10, 2019'}
 )
 astroHeadsetImage = open("https://rainforest-dev.s3.us-west-1.amazonaws.com/astroHeadset.jpg")
 astroHeadset.image.attach(io: astroHeadsetImage, filename: 'astroHeadset.jpg')

@@ -21,15 +21,15 @@
     flex-wrap: wrap;
     list-style: none;
     /* margin-top: -310px; */
-    justify-content: space-around;
+    justify-content: center;
     position: relative;
     z-index: 2;
 }
 
 .homepage-list li {
     background-color: white;
-    margin: 20px;
-    width: 25vw;
+    margin: 10px;
+    width: 23vw;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
 
 .homepage-list img {
     margin: auto;
-    height: 14vw;
+    height: 13vw;
     width: auto;
 
 }

@@ -180,7 +180,8 @@
     min-height: 186vh;
     min-width: 100vw;
     position: absolute;
-    background-color: rgba(213, 208, 208, 0.5)
+    background-color: rgba(213, 208, 208, 0.5);
+    z-index: 3;
 }
 
 .modal-child {
@@ -189,6 +190,7 @@
     top: -41px;
     left: 26vw;
     right: 19.5vw;
+    z-index: 5;
 }
 
 .results-list {

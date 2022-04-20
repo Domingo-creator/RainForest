@@ -7,6 +7,7 @@ import CartItemIndexContainer from './cart_items/cart_item_index_container'
 import CreateReviewFormContainer from './reviews/review_form/create_review_form_container';
 import homepage from './home_page/homepage';
 import Results from './navigation_bar/search_bar/results.';
+import CartCheckout from './cart_items/cart_checkout';
 
 const MainPage = () => {
     
@@ -22,6 +23,7 @@ const MainPage = () => {
                     <Route path="/products/:productId/reviews/:reviewId/edit" component={CreateReviewFormContainer} />
                     <Route path="/products/:productId" component={ProductShowContainer}/>
                     <Route path="/products" component={ProductIndexContainer} />
+                    <Route path="/cart/checkout" component={CartCheckout} />
                     <Route path="/cart" component={CartItemIndexContainer} />
                     <Route path="/" component={homepage} /> 
                 </Switch>

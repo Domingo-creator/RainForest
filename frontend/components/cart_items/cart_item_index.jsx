@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from "react"
 import CartItemIndexItem from "./cart_item_index_item"
+import { Link } from 'react-router-dom';
+
 
 const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId}) => {
     const [cartItemsSelected, setCartItemsSelected] =  useState({})
+    const [checkedOut, setCheckout] = useState(false)
 
     useEffect( () => {
         if(userId) fetchCartItems(userId)
+        // cartItems.forEach( cartItem => newSelected[cartItem.id] = true )
     },[])
+    
+    useEffect( () => {
+        // debugger
+        let newSelected = {}
+        cartItems.forEach( cartItem => newSelected[cartItem.id] = true) 
+        setCartItemsSelected(newSelected)
+
+    },[cartItems])
 
     const cartItemList = () => {
         if(userId && cartItems.length) {
@@ -47,7 +59,7 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
 
     const getSubtotal = () => {
         let subtotal = 0.00;
-        cartItems.forEach( cartItem => subtotal += (cartItem.price * cartItem.quantity))
+        cartItems.forEach( cartItem => subtotal += cartItemsSelected[cartItem.id] ? (cartItem.price * cartItem.quantity) : 0)
         let subtotalArray = subtotal.toString().split('.')
         if(subtotalArray.length === 1) subtotalArray.push('00');
         return (
@@ -59,8 +71,18 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
         )
     }
 
-    const handleCheckout = () => {}
+    const handleCheckout = () => {
+        
+        setCheckout(true)
+    }
 
+    if (checkedOut) {
+        return (
+            <div>
+                <p>Thank you for your purchase</p>
+            </div>
+        )
+    } 
 
     return (
         <div className="cart-page">
@@ -88,6 +110,7 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
                     {getSubtotal()}
                 </div>
                 <button onClick={handleCheckout}>Proceed to checkout</button>
+                {/* <Link to="/cart/checkout" className="link-button">Proceed to checkout</Link> */}
             </div>
         </div>
     )

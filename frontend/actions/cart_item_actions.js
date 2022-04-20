@@ -34,6 +34,11 @@ export const createCartItem = (userId, product) => dispatch => {
         .then(cartItem => dispatch(receiveCartItem(cartItem)))
 }
 
+export const createNoUserCartItem = (cartItem) => dispatch => {
+    sessionStorage.setItem('cart', Object.assign({cartItem}, sessionStorage.getItem('cart')) )
+        .then( () => dispatch(receiveCartItem(cartItem)))
+}
+
 export const removeCartItem = (userId, cartItemId) => dispatch => {
     return CartItemApitUtil.removeCartItem(userId, cartItemId)
         .then( () => dispatch(deleteCartItem(cartItemId)))  // this may be wrong

@@ -1,28 +1,36 @@
  import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
- const CartIcon = ({userId, cartItems, createCartItem, fetchCartItems}) => {
+ const CartIcon = ({userId, cartItems, createCartItem, fetchCartItems, sessionStorageUpdate}) => {
     const [rerender, setRerender] = useState('')
+    const [storageUpdate, setStoragetUpdate] = useState(sessionStorageUpdate)
 
-    let cart = localStorage.getItem('cart')
+    let cart = sessionStorage.getItem('cart')
 
     if(cart && userId) {
         JSON.parse(cart).forEach( cartItem => {
             cartItem.userId = userId
             createCartItem(userId, cartItem)
         })
-        localStorage.removeItem('cart')
+        sessionStorage.removeItem('cart')
     }
 
     useEffect( () => {
         if(userId) fetchCartItems(userId) 
     },[])
 
+    useEffect( () => {
+        // if( sessionStorage.getItem('cart') ) {
+        //     JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => count += cartItem.quantity )
+        // }
+        // debugger
+    },[sessionStorageUpdate])
+
     const cartItemCount = () => {
         let count = 0;
         if(userId) {
             cartItems.forEach( cartItem => count += cartItem.quantity)
-        } else if( localStorage.getItem('cart') ) {
-            JSON.parse(localStorage.getItem('cart')).forEach( cartItem => { debugger;
+        } else if( sessionStorage.getItem('cart') ) {
+            JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => { 
                 count += cartItem.quantity} )
         }
         return count;

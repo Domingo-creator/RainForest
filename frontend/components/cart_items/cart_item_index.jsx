@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId}) => {
     const [cartItemsSelected, setCartItemsSelected] =  useState({})
-    const [checkedOut, setCheckout] = useState(false)
+    const [checkedOut, setCheckout] = useState(false);
 
     useEffect( () => {
         if(userId) fetchCartItems(userId)
@@ -25,8 +25,8 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
             return cartItems.map( (cartItem,index) => {
                 return <CartItemIndexItem key={cartItem.id} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
             })
-        } else if(localStorage.getItem('cart')) {
-            return JSON.parse(localStorage.getItem('cart')).map( (cartItem, index) => {
+        } else if(sessionStorage.getItem('cart')) {
+            return JSON.parse(sessionStorage.getItem('cart')).map( (cartItem, index) => {
                 return <CartItemIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
             })
         } else {
@@ -72,8 +72,10 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
     }
 
     const handleCheckout = () => {
-        
         setCheckout(true)
+        cartItems.forEach( cartItem => cartItemsSelected[cartItem.id] ? removeCartItem(cartItem.userId, cartItem.id) : null)
+        // debugger
+        
     }
 
     if (checkedOut) {

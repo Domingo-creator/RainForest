@@ -5,8 +5,8 @@ const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsS
         if(cartItem.userId) {
             removeCartItem(cartItem.userId, cartItem.id)
         } else {
-            let cart = localStorage.getItem('cart')
-            // localStorage.setItem('cart', cart.slice(0, index).concat(cart.slice(index1)))
+            let cart = sessionStorage.getItem('cart')
+            // sessionStorage.setItem('cart', cart.slice(0, index).concat(cart.slice(index1)))
         }
        
     }

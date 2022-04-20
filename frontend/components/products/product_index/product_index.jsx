@@ -6,25 +6,23 @@ const ProductIndex = ({products, fetchProducts, createCartItem, userId}) => {
 
     useEffect( () => {
         if(sessionStorage.getItem('prevFilter')) {
-            fetchProducts(sessionStorage.getItem('prevFilter'))
+            fetchProducts(sessionStorage.getItem('prevFilter')).then(() => setLoading(false))
         } else{
-            fetchProducts()
+            fetchProducts().then( () => setLoading(false))
         }
         
     },[])
 
-    useEffect( () => {
-        if(products) setLoading(false)
-    }, [products])
 
     if(!products.length && !loading) {
+        debugger
         return <h1>No products found matching your search...</h1>
     }
 
     return(
         <ul className="product-list">
             {products.map( product => {
-                return <ProductIndexItem key={product.id} product={product} createCartItem={createCartItem}/>
+                return <ProductIndexItem key={product.id} product={product} createCartItem={createCartItem} />
             })}
         </ul>
     )

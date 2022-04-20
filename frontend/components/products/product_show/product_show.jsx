@@ -5,7 +5,7 @@ import ProductPurchaseWindowContainer from './product_purchase_container/product
 import { Link } from 'react-router-dom'
 import StarRating from '../../reviews/star_rating'
 
-const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem}) => {
+const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem, setSessionStorageUpdate, sessionStorageUpdate}) => {
     useEffect( () => {
         fetchProduct(match.params.productId)
     },[])
@@ -33,6 +33,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
         )
     }
 
+    
     const formatProductDetails = () => {
         let detailsObj = {}
         parseString(product.product_detail).forEach( product_detail => {
@@ -61,6 +62,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
         return <></>
     }
    
+    // debugger
     return (
         <div>
             <div className="category-bar">
@@ -84,7 +86,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                         
                     </div>
                 </div>
-                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice} cartItems={cartItems} updateCartItem={updateCartItem} history={history}/>
+                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice} cartItems={cartItems} updateCartItem={updateCartItem} history={history} setSessionStorageUpdate={setSessionStorageUpdate}/>
             </section>
             <div className="product-description main-product-subsection">
                 <h1>Description</h1>

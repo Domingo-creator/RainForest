@@ -5,12 +5,14 @@ import SearchBar from './search_bar/search_bar'
 import CategoryLink from './category_link'
 import CartIconContainer from './cart_icon/cart_icon_container'
 
-const NavBelt = ({fetchProducts, history, userId}) => {
-    if(localStorage.getItem('department') === 'undefined') localStorage.setItem('department', 'All Departments')
-    if(!userId && !localStorage.getItem('cart')) localStorage.setItem('cart', '')
-    const [department, setDepartment] = useState(localStorage.getItem('department'))
-    // const [cart, setCart] = useState(localStorage.getItem('cart'))
+const NavBelt = ({fetchProducts, history, userId, sessionStorageUpdate}) => {
+    if(sessionStorage.getItem('department') === 'undefined') sessionStorage.setItem('department', 'All Departments')
+    if(!userId && !sessionStorage.getItem('cart')) sessionStorage.setItem('cart', '')
+    const [department, setDepartment] = useState(sessionStorage.getItem('department'))
+    // const [cart, setCart] = useState(sessionStorage.getItem('cart'))
 
+
+    // debugger
     return (
         <nav className="nav-belt">
             <div className="nav-belt-bar-1">
@@ -18,7 +20,7 @@ const NavBelt = ({fetchProducts, history, userId}) => {
                 {/* <DeliverToContainer /> */}
                 <SearchBar setDepartment={setDepartment} department={department}/>
                 <AccountListContainer />
-                <CartIconContainer />
+                <CartIconContainer sessionStorageUpdate={sessionStorageUpdate}/>
                 
             </div>
 

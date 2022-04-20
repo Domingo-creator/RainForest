@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems}) => {
+const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems, setSessionStorageUpdate, createNoUserCartItem}) => {
 
     const [quantity, setQuantity] = useState('1')
 
@@ -36,11 +36,12 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
                 createCartItem(userId, cartItem);
             }
         } else {
+            // debugger
             let prevCart;
-            if(localStorage.getItem('cart') === '') {
+            if(sessionStorage.getItem('cart') === '') {
                 prevCart = []
             } else {
-                prevCart = JSON.parse(localStorage.getItem('cart'))
+                prevCart = JSON.parse(sessionStorage.getItem('cart'))
             }
             let matchingCartItem = findMatchingCartItem(prevCart)
             if(matchingCartItem) {
@@ -50,8 +51,12 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
                 cartItem.price = product.price
                 cartItem.image_url = product.image_url
                 prevCart.push(cartItem)
+                // createNoUserCartItem(cartItem)
             }
-            localStorage.setItem('cart', JSON.stringify(prevCart))
+            
+            debugger
+            sessionStorage.setItem('cart', JSON.stringify(prevCart))
+            // setSessionStorageUpdate(Math.random() * 1000)
         }
     }
 
@@ -85,7 +90,7 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
                 <option value={7}>Qty: 7</option>     
                 <option value={8}>Qty: 8</option>     
                 <option value={9}>Qty: 9</option>     
-                <option value={10}>Qty: 10</option>     
+                <option value={10}>Qty: 10+</option>     
             </select>
 
             <button onClick={handleAddToCart} className="add-to-cart-button">Add to Cart</button>

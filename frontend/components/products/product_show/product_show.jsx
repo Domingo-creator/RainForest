@@ -73,7 +73,9 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                 <p>{product.category}</p>
             </div>
             <section className="product-show-section-1">
-                <img src={product.image_url} className="product-show-image"></img>
+                <div className='product-show-image-container'>
+                    <img src={product.image_url} className="product-show-image"></img>
+                </div>
                 <div className="main-product-section">
                     <div className="main-product-subsection">
                         <h1>{product.name}</h1>

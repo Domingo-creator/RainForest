@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Logo from '../../logo'
 
 const SignUpForm = ({errors, signup, login}) => {
     const [email, setEmail] = useState('')
@@ -143,65 +144,69 @@ const SignUpForm = ({errors, signup, login}) => {
     
 
     return(
-        <div className="session-form-container">
-            <h1 className="logo">RainForest</h1>
-            <form onSubmit={(e) =>handleSubmit(e)} className="session-form">
-                <h1>Create Account</h1>
-                {errors.map(error=> {
-                    return <p>{error}</p>
-                })}
-                <label>Your Name
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={update('Username')}
-                        className={ formErrors.username === '' ? '' : 'input-error-highlight' }
-                        autoFocus
-                    />
-                    <p className='error-message'>{formErrors.username}</p>
-                </label>
-                <label>Mobile Number or email
-                    <input
-                        type='text'
-                        value={email}
-                        onChange={update('Email')}
-                        className={ formErrors.email === '' ? '' : 'input-error-highlight' }
+        <div className="session-form-page">
 
-                    />
-                    <p className='error-message'>{formErrors.email}</p>
+            <div className="session-form-container">
+                {/* <h1 className="logo">RainForest</h1> */}
+                <Logo/>
+                <form onSubmit={(e) =>handleSubmit(e)} className="session-form">
+                    <h1>Create Account</h1>
+                    {errors.map(error=> {
+                        return <p>{error}</p>
+                    })}
+                    <label>Your Name
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={update('Username')}
+                            className={ formErrors.username === '' ? '' : 'input-error-highlight' }
+                            autoFocus
+                        />
+                        <p className='error-message'>{formErrors.username}</p>
+                    </label>
+                    <label>Mobile Number or email
+                        <input
+                            type='text'
+                            value={email}
+                            onChange={update('Email')}
+                            className={ formErrors.email === '' ? '' : 'input-error-highlight' }
 
-                </label>
-                <label>Password
-                    <input
-                        type='password'
-                        value={password}
-                        onChange={update('Password')}
-                        className={ formErrors.password === '' ? '' : 'input-error-highlight' }
-                    />
-                    <p className='error-message'>{formErrors.password}</p>
+                        />
+                        <p className='error-message'>{formErrors.email}</p>
 
-                </label>
-                <label>Re-Enter Password
-                    <input
-                        type='password'
-                        value={passwordConfirm}
-                        onChange={update('PasswordConfirm')}
-                        className={ formErrors.passwordConfirm === '' ? '' : 'input-error-highlight' }
-                    />
-                    <p className='error-message'>{formErrors.passwordConfirm}</p>
+                    </label>
+                    <label>Password
+                        <input
+                            type='password'
+                            value={password}
+                            onChange={update('Password')}
+                            className={ formErrors.password === '' ? '' : 'input-error-highlight' }
+                        />
+                        <p className='error-message'>{formErrors.password}</p>
 
-                </label>
-                <button className="continue-button">Continue</button>
+                    </label>
+                    <label>Re-Enter Password
+                        <input
+                            type='password'
+                            value={passwordConfirm}
+                            onChange={update('PasswordConfirm')}
+                            className={ formErrors.passwordConfirm === '' ? '' : 'input-error-highlight' }
+                        />
+                        <p className='error-message'>{formErrors.passwordConfirm}</p>
 
-                <button type="button" onClick={demoUserLogin} className='account-button'>Sign up as Demo User</button>
-                <div>
-                    <p className="text-small">By creating an account, you agree to RainForest's</p>
-                    <p className="text-small">Conditions of Use and Privacy Notice.</p>
-                </div>
-                <p className="text-medium">Already a have an account? <Link to='/login' className='link'>Sign In</Link></p>
-            </form>
+                    </label>
+                    <button className="continue-button">Continue</button>
 
-           
+                    <button type="button" onClick={demoUserLogin} className='account-button'>Sign up as Demo User</button>
+                    <div>
+                        <p className="text-small">By creating an account, you agree to RainForest's</p>
+                        <p className="text-small">Conditions of Use and Privacy Notice.</p>
+                    </div>
+                    <p className="text-medium">Already a have an account? <Link to='/login' className='link'>Sign In</Link></p>
+                </form>
+
+            
+            </div>
         </div>
     )
 

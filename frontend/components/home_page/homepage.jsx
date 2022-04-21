@@ -19,7 +19,7 @@ const homepage = () => {
             <div className="homepage-list">
                 <li>
                     <h1>Control Your Home With Your Voice!</h1>
-                    <Link to='products/34'  className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/echoDot.jpg" /></Link>
+                    <Link to='products/31'  className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/echoDot.jpg" /></Link>
                 </li>
                 <li>
                     <h1>Play the hottest games</h1>
@@ -27,19 +27,19 @@ const homepage = () => {
                 </li>
                 <li>
                     <h1>Stock up on pet supplies</h1>
-                    <Link to='products/54' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/catLitter.jpg" /></Link>
+                    <Link to='products/50' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/catLitter.jpg" /></Link>
                 </li>
                 <li>
                     <h1>Get the latest TVs</h1>
-                    <Link to='products/35' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/lgTv.jpg" /></Link>
+                    <Link to='products/32' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/lgTv.jpg" /></Link>
                 </li>
                 <li>
                     <h1>Get in shape for summer!</h1>
-                    <Link to='products/60' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/maxiClimber.jpg" /></Link>
+                    <Link to='products/55' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/maxiClimber.jpg" /></Link>
                 </li>
                 <li>
                     <h1>Venture into the metaverse!</h1>
-                    <Link to='products/42' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/oculus.jpg" /></Link>
+                    <Link to='products/39' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/oculus.jpg" /></Link>
                 </li>
                 <li>
                     <h1>Keep your laundry smelling fresh</h1>

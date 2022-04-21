@@ -1,4 +1,4 @@
-import { connect } from "react-redux"
+import { connect, } from "react-redux"
 import { fetchProduct } from "../../actions/product_actions"
 import CartItemIndexItem from "./cart_item_index_item"
 import { removeCartItem, updateCartItem } from "../../actions/cart_item_actions"

@@ -31,11 +31,16 @@
     margin: 10px;
     width: 23vw;
     height: 400px;
+    /* height: 50vh; */
+    max-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
 
+.homepage-list li h1 {
+    font-size: 2.5vw;
 }
 
 .homepage-list img {

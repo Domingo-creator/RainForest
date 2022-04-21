@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
     let cart = sessionStorage.getItem('cart')
 
+    // debugger
     if(cart && userId) {
         JSON.parse(cart).forEach( cartItem => {
             cartItem.userId = userId
@@ -18,12 +19,12 @@ import { Link } from 'react-router-dom'
         if(userId) fetchCartItems(userId) 
     },[])
 
-    useEffect( () => {
-        // if( sessionStorage.getItem('cart') ) {
-        //     JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => count += cartItem.quantity )
-        // }
-        // debugger
-    },[sessionStorageUpdate])
+    // useEffect( () => {
+    //     // if( sessionStorage.getItem('cart') ) {
+    //     //     JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => count += cartItem.quantity )
+    //     // }
+    //    debugger
+    // },[sessionStorageUpdate])
 
     const cartItemCount = () => {
         let count = 0;

@@ -10,12 +10,12 @@ const ProductIndex = ({products, fetchProducts, createCartItem, userId}) => {
         } else{
             fetchProducts().then( () => setLoading(false))
         }
-        
+        window.scrollTo(0, 0)
     },[])
 
 
     if(!products.length && !loading) {
-        debugger
+        // debugger
         return <h1>No products found matching your search...</h1>
     }
 

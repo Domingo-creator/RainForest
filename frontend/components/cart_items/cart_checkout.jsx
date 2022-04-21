@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const CartCheckout = ({userId, cartItems, fetchCartItems, updateCartItem}) => {
 
     useEffect = ( () => {
-        debugger
         if(!cartItems.length) {
             fetchCartItems(userId)
         }

@@ -26,7 +26,6 @@ class Api::ReviewsController < ApplicationController
         if @review.save
             render json: @review
         else
-            debugger
             render json: {message: "Review could not be created"}
         end
     end

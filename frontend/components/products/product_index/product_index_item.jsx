@@ -16,7 +16,7 @@ const ProductIndexItem = ({product}) => {
         )
     }
 
-    const formatDeliveryDate = (deliveryDelay = Math.floor(Math.random() * 6) + 2) => {
+    const formatDeliveryDate = (deliveryDelay = product.id * 5 % 3 + 1) => {
         let deliveryDate = new Date
         deliveryDate.setDate(deliveryDate.getDate() + deliveryDelay)
         deliveryDate = deliveryDate.toDateString().split(' ')
@@ -42,6 +42,7 @@ const ProductIndexItem = ({product}) => {
                 </div>
                 <Link to={`/products/${product.id}`} className='product-index-price'>{formatPrice()}</Link>
                 <div className="product-index-delivery-date">Get it <span>{formatDeliveryDate()}</span></div>
+                <p className="product-index-delivery-date">FREE Shipping by RainForest</p>
             </div>
         </li>
     )

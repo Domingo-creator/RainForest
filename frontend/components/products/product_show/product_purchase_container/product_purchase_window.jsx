@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems, setSessionStorageUpdate, createNoUserCartItem}) => {
+const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems, setSessionStorageUpdate}) => {
 
     const [quantity, setQuantity] = useState('1')
 
@@ -9,11 +9,22 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
     }
 
     const getNextDeliveryTime = () => {
-
+        let deliveryTime = new Date
+        deliveryTime.getMinutes()
+        return `${deliveryTime.getHours() % 12} hours, ${60 - deliveryTime.getMinutes()} minutes`
     }
 
     const getDeliveryDate = () => {
 
+    }
+
+    const formatDeliveryDate = (deliveryDelay = product.id * 5 % 3 + 1) => {
+        let deliveryDate = new Date
+        deliveryDate.setDate(deliveryDate.getDate() + deliveryDelay)
+        deliveryDate = deliveryDate.toDateString().split(' ')
+        deliveryDelay === 1 ? deliveryDate[0] = 'Tomorrow' : deliveryDelay === 0 ? deliveryDate[0] = 'Today' : null;
+        deliveryDate[0] += ','
+        return deliveryDate.slice(0, 3).join(' ') 
     }
 
     const findMatchingCartItem = (currentCart) => {
@@ -36,7 +47,6 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
                 createCartItem(userId, cartItem);
             }
         } else {
-            // debugger
             let prevCart;
             if(sessionStorage.getItem('cart') === '') {
                 prevCart = []
@@ -53,10 +63,8 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
                 prevCart.push(cartItem)
                 // createNoUserCartItem(cartItem)
             }
-            
-            debugger
             sessionStorage.setItem('cart', JSON.stringify(prevCart))
-            // setSessionStorageUpdate(Math.random() * 1000)
+            setSessionStorageUpdate(Math.random() * 1000)
         }
     }
 
@@ -71,8 +79,8 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
                 <p className="product-purchase-window-returns">& <span className='fake-link'>Free Returns</span></p>
             </div>
             <div className="product-purchase-window-delivery-info">
-                <p>FREE delivery {getDeliveryDate()}</p>
-                <p>Order within {getNextDeliveryTime()}</p>
+                <p >FREE delivery <strong>{formatDeliveryDate()}</strong></p>
+                <p>Order within <span className="product-purchase-window-delivery-cutoff">{getNextDeliveryTime()}</span></p>
             </div>
             <h2 className="product-purchase-window-stock-status">In Stock.</h2>
             

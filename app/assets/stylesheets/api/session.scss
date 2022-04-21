@@ -6,30 +6,44 @@
 
 
 .login-signup {
+    margin-right: 20vw;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: beige;
+    background-color: white;
+    width: 100%;
+    // background-color: red;
     color: black;
+    
 }
 
 .session-button {
     text-align: center;
-    min-height: 30px;
-    min-width: 100px;
-    background-color: rgb(224, 195, 101);
+    // min-height: 30px;
+    min-width: 197px;
+    background-color: #f3cf72;
     padding: 8px 20px;
     text-decoration:none;
-    font-weight:bold;
+    font-weight:300;
     border-radius:5px;
     cursor:pointer;
     box-shadow: 1px 2px 2px black;
+    //@at-root
+    display: block;
+    height: 15px;
+    margin: 0 10px 0 11px;
+    cursor: pointer;
+    outline: 0;
+    border: 1px solid;
+    border-color: #c89411 #b0820f #99710d;
+    color: black;
+    font-size: black
 }
 
 .continue-button {
-    margin-top: 20px;
+    // margin-top: 20px;
     // margin-bottom: 30px;
     text-align: center;
     max-height: 30px;
@@ -40,8 +54,18 @@
     text-decoration:none;
     border-radius:5px;
     cursor:pointer;
-    border-color: rgba(255, 123, 0, 0.226);
+    // border-color: rgba(255, 123, 0, 0.226);
     box-shadow: .1px .1px .1px rgba(235, 144, 92, 0.089);
+    //@at-root
+    display: block;
+    // height: 15px;
+    margin: 20px 0px 20px 0px;
+    cursor: pointer;
+    outline: 0;
+    border: 1px solid;
+    border-color: #c89411 #b0820f #99710d;
+    color: black;
+    font-size: black
 }
 
 .grey-button {
@@ -85,6 +109,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    background-color: white;
+    border-bottom: solid lightgray;
+    padding-bottom: 20px;
 }
 
 .session-form-container label {
@@ -97,6 +125,31 @@
 
 .session-form-container input {
     width: 350px;
+}
+
+.session-form-container .logo {
+
+
+}
+
+.session-form-container .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 22px 10px -5px 20px;
+    padding-bottom: 0;
+    font-size: 20px;
+}
+
+.session-form-container a.logo {
+    color: black;
+}
+
+.session-form-container .logo img {
+    width: 120px;
+    height: auto;
+    margin-top: -31px;
+    margin-left: -5px;
 }
 
 .session-form {
@@ -152,3 +205,14 @@ input:focus {
     outline: orange 2px solid !important;
 }
 
+.session-form-footer {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+}
+
+.session-form-page {
+    height: 100vh;
+    width: 100vw;
+    background-color: whitesmoke;
+}

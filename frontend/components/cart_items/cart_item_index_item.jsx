@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsSelected, setCartItemsSelected}) => {
+const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsSelected, setCartItemsSelected, setSessionStorageUpdate}) => {
     const handleDelete = () => {
         if(cartItem.userId) {
             removeCartItem(cartItem.userId, cartItem.id)
         } else {
-            let cart = sessionStorage.getItem('cart')
-            // sessionStorage.setItem('cart', cart.slice(0, index).concat(cart.slice(index1)))
+            let cart = JSON.parse(sessionStorage.getItem('cart'))
+            for(let i = 0; i < cart.length; i++) {
+                if (cart[i].productId === cartItem.productId) {
+                    sessionStorage.setItem('cart', JSON.stringify(cart.slice(0, i).concat(cart.slice(i + 1))))
+                    setSessionStorageUpdate(Math.random() * 1000)
+                    break;
+                }
+
+            }
         }
        
     }
@@ -25,19 +32,38 @@ const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsS
 
     const updateQuantity = (e) => {
         // cartItem.quantity = e.target.value;
-        let updatedCartItem = Object.assign({}, cartItem)
-        updatedCartItem.quantity = parseInt(e.target.value)
-        
-        updateCartItem(updatedCartItem);
+        if(cartItem.id) {
+            let updatedCartItem = Object.assign({}, cartItem)
+            updatedCartItem.quantity = parseInt(e.target.value)
+            updateCartItem(updatedCartItem);
+        } else {
+            let cart = JSON.parse(sessionStorage.getItem('cart'))
+            for(let i = 0; i < cart.length; i++) {
+                if (cart[i].productId === cartItem.productId) {
+                    cart[i].quantity = parseInt(e.target.value)
+                    sessionStorage.setItem('cart', JSON.stringify(cart))
+                    setSessionStorageUpdate(Math.random() * 1000)
+                    break;
+                }
+            }
+        }
     }
 
     const updateSelected = () => {
         let newSelected = Object.assign({}, cartItemsSelected)
-        if(cartItemsSelected[cartItem.id]) {
-            newSelected[cartItem.id] = false
-        }  else {
-            newSelected[cartItem.id] = true
-        } 
+        if(cartItem.id) {
+            if(cartItemsSelected[cartItem.id]) {
+                newSelected[cartItem.id] = false
+            }  else {
+                newSelected[cartItem.id] = true
+            } 
+        } else {
+            if(cartItemsSelected[cartItem.productId]) {
+                newSelected[cartItem.productId] = false
+            }  else {
+                newSelected[cartItem.productId] = true
+            } 
+        }
         setCartItemsSelected(newSelected)
     }
 
@@ -46,7 +72,7 @@ const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsS
         <li>
             <input 
                 type='checkbox' 
-                checked={cartItemsSelected[cartItem.id] ? true : false}
+                checked={cartItem.id ? cartItemsSelected[cartItem.id] ? true : false : cartItemsSelected[cartItem.productId] ? true : false}
                 onChange={updateSelected}
                 className='cart-item-checkbox'
                 />

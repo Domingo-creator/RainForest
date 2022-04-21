@@ -1,6 +1,7 @@
-import { connect } from "react-redux"
+import { connect} from "react-redux"
 import { fetchCartItems, removeCartItem, updateCartItem } from "../../actions/cart_item_actions"
 // import { fetchProducts } from "../../actions/product_actions"
+import {withRouter} from "react-router"
 import CartItemIndex from "./cart_item_index"
 
 const mapStateToProps = state => {
@@ -20,4 +21,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartItemIndex)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartItemIndex))

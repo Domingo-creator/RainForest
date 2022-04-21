@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReviewIndexContainer from '../../reviews/review_index_container'
 import ProductPurchaseWindow from './product_purchase_container/product_purchase_window'
 import ProductPurchaseWindowContainer from './product_purchase_container/product_purcase_window_container'
@@ -6,8 +6,12 @@ import { Link } from 'react-router-dom'
 import StarRating from '../../reviews/star_rating'
 
 const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem, setSessionStorageUpdate, sessionStorageUpdate}) => {
+    
+  
+
     useEffect( () => {
         fetchProduct(match.params.productId)
+        window.scrollTo(0, 0)
     },[])
 
     useEffect( () => {

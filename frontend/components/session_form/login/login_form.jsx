@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import Logo from '../../logo'
 
 const LogInForm = ({errors, login}) => {
     const [email, setEmail] = useState('')
@@ -63,30 +64,33 @@ const LogInForm = ({errors, login}) => {
     })
 
     return (
-        <div className="session-form-container">
-            <h1 className="logo">RainForest</h1>
-            <form onSubmit={(e) =>handleSubmit(e)} className="session-form">
-                <h1>Sign-In</h1>
-                {errors.map(error=> {
-                    return <p>{error}</p>
-                })}
-                <label>{currentField === 'email' ?'Email or mobile number' : 'Password' }
-                    <input
-                        type={currentField === 'email' ? 'text' : 'password'}
-                        value={currentField === 'email' ? email : password}
-                        onChange={update}
-                        autoFocus
-                    />
-                </label>
-                <button className='continue-button'>Continue</button>
-            </form>
-            <div className="login-footer">
-                <button onClick={demoUserLogin} className='grey-button'>Log in as Demo User</button>
-                <div className='create-account-button-container'>
-                    <p>New to RainForest?</p>
-                    <Link to='/signup' className='grey-button'>Create your RainForest account</Link>
+        <div className="session-form-page">
+            <div className="session-form-container">
+                {/* <h1 className="logo">RainForest</h1> */}
+                <Logo />
+                <form onSubmit={(e) =>handleSubmit(e)} className="session-form">
+                    <h1>Sign-In</h1>
+                    {errors.map(error=> {
+                        return <p>{error}</p>
+                    })}
+                    <label>{currentField === 'email' ?'Email or mobile number' : 'Password' }
+                        <input
+                            type={currentField === 'email' ? 'text' : 'password'}
+                            value={currentField === 'email' ? email : password}
+                            onChange={update}
+                            autoFocus
+                        />
+                    </label>
+                    <button className='continue-button'>Continue</button>
+                </form>
+                <div className="login-footer">
+                    <button onClick={demoUserLogin} className='grey-button'>Log in as Demo User</button>
+                    <div className='create-account-button-container'>
+                        <p>New to RainForest?</p>
+                        <Link to='/signup' className='grey-button'>Create your RainForest account</Link>
+                    </div>
+                    {/* <Button component={Link} to='/signup'>Create your Rainforest account</Button> */}
                 </div>
-                {/* <Button component={Link} to='/signup'>Create your Rainforest account</Button> */}
             </div>
         </div>
     )

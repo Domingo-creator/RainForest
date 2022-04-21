@@ -2,7 +2,7 @@ import { withRouter } from "react-router-dom"
 import { fetchReview, updateReview, deleteReview } from "../../actions/review_actions"
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
+    // debugger
     return {
         review: state.reviews[ownProps.match.params.reviewId]
     }

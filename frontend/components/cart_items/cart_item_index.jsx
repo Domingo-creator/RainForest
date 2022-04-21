@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react"
 import CartItemIndexItem from "./cart_item_index_item"
-import { Link } from 'react-router-dom';
 
 
-const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId}) => {
+const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId, sessionStorageUpdate, setSessionStorageUpdate, history}) => {
     const [cartItemsSelected, setCartItemsSelected] =  useState({})
     const [checkedOut, setCheckout] = useState(false);
 
@@ -15,7 +14,13 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
     useEffect( () => {
         // debugger
         let newSelected = {}
-        cartItems.forEach( cartItem => newSelected[cartItem.id] = true) 
+        if(userId){
+            cartItems.forEach( cartItem => newSelected[cartItem.id] = true) 
+        }
+        else {
+            
+            if(sessionStorage.getItem('cart')) JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => newSelected[cartItem.productId] = true)
+        }
         setCartItemsSelected(newSelected)
 
     },[cartItems])
@@ -27,7 +32,7 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
             })
         } else if(sessionStorage.getItem('cart')) {
             return JSON.parse(sessionStorage.getItem('cart')).map( (cartItem, index) => {
-                return <CartItemIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
+                return <CartItemIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem} setSessionStorageUpdate={setSessionStorageUpdate}/>
             })
         } else {
             return (
@@ -39,13 +44,21 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
     }
 
     const checkAllSelected = () => {
-        return Object.keys(cartItemsSelected).length === cartItems.length && Object.values(cartItemsSelected).every( value => value === true)
+        if(userId) {
+            return Object.keys(cartItemsSelected).length === cartItems.length && Object.values(cartItemsSelected).every( value => value === true)
+        } else {
+            return sessionStorage.getItem('cart') && Object.keys(cartItemsSelected).length === JSON.parse(sessionStorage.getItem('cart')).length && Object.values(cartItemsSelected).every( value => value === true)
+        }
     }
 
     const toggleSelectAll = () => {
         let newSelected = {}
         if(!checkAllSelected()) {
-            cartItems.forEach( cartItem => newSelected[cartItem.id] = true )
+            if(userId) {
+                cartItems.forEach( cartItem => newSelected[cartItem.id] = true )
+            } else {
+                JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => newSelected[cartItem.productId] = true)
+            }
         }
         setCartItemsSelected(newSelected)
     }
@@ -53,28 +66,44 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
 
     const getCount = () => {
         let count = 0;
-        cartItems.forEach( cartItem => count += cartItem.quantity)
+        if (userId) {
+            cartItems.forEach( cartItem => count += cartItemsSelected[cartItem.id] ?  cartItem.quantity : 0)
+        } else {
+            
+            if(sessionStorage.getItem('cart')) JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => count += cartItemsSelected[cartItem.productId] ?  cartItem.quantity : 0)
+        }
         return `${count} item${count > 1 ? 's' : ''}`
     }
 
     const getSubtotal = () => {
         let subtotal = 0.00;
-        cartItems.forEach( cartItem => subtotal += cartItemsSelected[cartItem.id] ? (cartItem.price * cartItem.quantity) : 0)
+        if (userId) {
+            cartItems.forEach( cartItem => subtotal += cartItemsSelected[cartItem.id] ? (cartItem.price * cartItem.quantity) : 0)
+        } else {
+            if(sessionStorage.getItem('cart')) {
+                JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => {
+                 subtotal += cartItemsSelected[cartItem.productId] ? (cartItem.price * cartItem.quantity) : 0
+                })
+            }
+        }
         let subtotalArray = subtotal.toString().split('.')
         if(subtotalArray.length === 1) subtotalArray.push('00');
         return (
             <div className="cart-price">
                 <p className="cart-item-dollar-symbol">$</p>
                 <p className="cart-item-dollars">{subtotalArray[0]}.</p>
-                <p className="cart-item-cents">{subtotalArray[1]}</p>
+                <p className="cart-item-cents">{subtotalArray[1].slice(0,2)}</p>
             </div>
         )
     }
 
     const handleCheckout = () => {
-        setCheckout(true)
-        cartItems.forEach( cartItem => cartItemsSelected[cartItem.id] ? removeCartItem(cartItem.userId, cartItem.id) : null)
-        // debugger
+        if(userId) {
+            setCheckout(true)
+            cartItems.forEach( cartItem => cartItemsSelected[cartItem.id] ? removeCartItem(cartItem.userId, cartItem.id) : null)
+        } else {
+            history.push('/login')
+        }
         
     }
 
@@ -91,7 +120,7 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
             <ul className='cart-list'>
                 <div>
                     <h1>Shopping Cart</h1>
-                    { cartItems.length ? 
+                    { cartItems.length || (!!sessionStorage.getItem('cart') && JSON.parse(sessionStorage.getItem('cart'))).length ? 
                         <p onClick={toggleSelectAll} className="cart-select-all">
                             {checkAllSelected() ? 'Deselect all items' : 'Select All'}
                         </p>

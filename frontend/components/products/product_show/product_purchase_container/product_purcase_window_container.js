@@ -4,7 +4,6 @@ import { createCartItem, updateCartItem } from "../../../../actions/cart_item_ac
 import ProductPurchaseWindow from "./product_purchase_window"
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         userId: state.session.id,
         product: state.entities.product[ownProps.match.params.productId],

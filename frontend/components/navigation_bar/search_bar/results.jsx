@@ -26,7 +26,8 @@ const Results = ({results}) => {
 }
 
 const ResultsModal = ({modal, results, closeModal}) => {
-    if(!modal) return null;
+    
+    if(modal !== 'results') return null;
 
     return (
         <div className="modal-background" onClick={() => closeModal()}>

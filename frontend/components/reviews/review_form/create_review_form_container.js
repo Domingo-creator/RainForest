@@ -8,7 +8,7 @@ import ReviewForm from "./review_form"
 const mapStateToProps = (state, ownProps) => {
     return {
         product: state.entities.products[ownProps.match.params.productId],
-        userId: state.entities.users[1].id
+        userId: state.entities.users[state.session.id].id
     }
 }
 

@@ -5,7 +5,7 @@ import ProductPurchaseWindowContainer from './product_purchase_container/product
 import { Link } from 'react-router-dom'
 import StarRating from '../../reviews/star_rating'
 
-const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem, setSessionStorageUpdate, sessionStorageUpdate}) => {
+const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem, setSessionStorageUpdate, sessionStorageUpdate, openModal, history}) => {
     
   
 
@@ -92,7 +92,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                         
                     </div>
                 </div>
-                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice} cartItems={cartItems} updateCartItem={updateCartItem} history={history} setSessionStorageUpdate={setSessionStorageUpdate}/>
+                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice} cartItems={cartItems} updateCartItem={updateCartItem} history={history} setSessionStorageUpdate={setSessionStorageUpdate} openModal={openModal}/>
             </section>
             <div className="product-description main-product-subsection">
                 <h1>Description</h1>
@@ -162,7 +162,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                     <div className="review-product-section">
                         <h2>Review this product</h2>
                         <p>Share your thoughts with other customers</p>
-                        <Link to={`/products/${product.id}/reviews/new`} className="grey-button">Write a customer review</Link>
+                        <Link to={userId ? `/products/${product.id}/reviews/new` : '/login'} className="grey-button">Write a customer review</Link>
                     </div>
                 </div>
                 <div className="product-reviews-right">

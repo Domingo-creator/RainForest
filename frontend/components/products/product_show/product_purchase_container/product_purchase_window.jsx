@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+import {Link} from 'react-router-dom'
 
-const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems, setSessionStorageUpdate}) => {
+const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems, setSessionStorageUpdate, history}) => {
 
     const [quantity, setQuantity] = useState('1')
 
@@ -14,9 +15,6 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
         return `${deliveryTime.getHours() % 12} hours, ${60 - deliveryTime.getMinutes()} minutes`
     }
 
-    const getDeliveryDate = () => {
-
-    }
 
     const formatDeliveryDate = (deliveryDelay = product.id * 5 % 3 + 1) => {
         let deliveryDate = new Date
@@ -69,7 +67,8 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
     }
 
     const handleBuyNow = () => {
-
+        
+        // openModal('buy_now');
     }
 
     return (
@@ -102,7 +101,8 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
             </select>
 
             <button onClick={handleAddToCart} className="add-to-cart-button">Add to Cart</button>
-            <button onClick={handleBuyNow} className="buy-now-button">Buy Now</button>
+            <button onClick={() => history.push(`/cart/checkout/${product.id}`)} className="buy-now-button">Buy Now</button>
+            {/* <Link to={`/cart/checkout/${product.id}`} className="buy-now-button">Buy Now</Link> */}
         </div>
     )
 }

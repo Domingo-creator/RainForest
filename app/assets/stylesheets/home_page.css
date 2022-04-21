@@ -6,13 +6,39 @@
 .homepage-banner {
     /* position: absolute; */
     margin-bottom: -280px;
+    display: flex;
 }
 
 .homepage-banner img {
     height: auto;
     width: 100%;
+    min-width:100%;
+    min-height: 30vh;
     background-color: skyblue;
     -webkit-mask-image: linear-gradient(#000 40%, transparent);
+}
+
+.carousel-button {
+    position: absolute;
+    width: 5vw;
+    max-width: 400px;
+    height:40vh;
+    background-color: rgba(237, 16, 16, 0.006);
+    z-index: 2;
+    box-shadow: none;
+    border:none
+    /* float: right; */
+}
+
+.carousel-button:focus {
+    border: solid teal;
+}
+
+.left {
+    left: 0;
+}
+.right {
+    right: 0;
 }
 
 .homepage-list {
@@ -48,4 +74,15 @@
     height: 13vw;
     width: auto;
 
+}
+
+.hover {
+    cursor: pointer;
+}
+
+.banner-arrows {
+    height: 30%;
+    width: auto;
+    color: grey;
+    /* border: white solid; */
 }

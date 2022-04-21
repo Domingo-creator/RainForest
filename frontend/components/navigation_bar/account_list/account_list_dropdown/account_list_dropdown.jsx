@@ -2,14 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignInButtonWindow from './sign_in_button_window/sign_in_button_window';
 
-const AccountListDropDown = ({currentUser, logout}) => {
+const AccountListDropDown = ({currentUser, logout, history}) => {
         // debugger
+        const handleLogOut = () => {
+            logout();
+            history.push('/')
+        }
+
         return (
             <ul className='dropdown-menu'>
                 <li>
                     { currentUser ? <></> : <SignInButtonWindow /> }
                 </li>
-                { currentUser ? <li onClick={logout}>Sign Out</li> : <></>}
+                { currentUser ? <li onClick={handleLogOut}>Sign Out</li> : <></>}
             </ul>       
         )
 }

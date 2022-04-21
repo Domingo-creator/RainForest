@@ -39,10 +39,14 @@ import { Link } from 'react-router-dom'
 
     return (
         <div>
-            <Link to='/cart' >
-                <p className="cart-count">{cartItemCount()}</p>
-                <img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/cartIcon.png" className="carticon"/>
+            <Link to='/cart' className="cart-count-container" >
+                <div>
+                    <p className="cart-count">{cartItemCount()}</p>
+                    <img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/cartIcon.png" className="carticon"/>
+                </div>
+                    <p>cart</p>
             </Link>
+            
         </div>
     )
 

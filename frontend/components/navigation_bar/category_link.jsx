@@ -8,12 +8,12 @@ const CategoryLink = ({category, fetchProducts, history, department, setDepartme
         if(category !== 'All Products') {
             sessionStorage.setItem('prevFilter', `category = '${category}'` )
             fetchProducts(`category = '${category}'`)
-                .then(history.push('../products'))
+                .then(history.push('/products'))
         }
         else {
             sessionStorage.removeItem('prevFilter')
             fetchProducts()
-                .then(history.push('../products'))
+                .then(history.push('/products'))
         }
     }
 

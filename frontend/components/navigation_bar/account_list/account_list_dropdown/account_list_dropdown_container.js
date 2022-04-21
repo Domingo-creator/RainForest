@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
 import { logout } from "../../../../actions/session_actions"
 import AccountListDropDown from "./account_list_dropdown"
+import {withRouter} from 'react-router'
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -14,4 +15,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AccountListDropDown)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AccountListDropDown))

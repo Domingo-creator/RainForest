@@ -1,20 +1,55 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-const homepage = () => {
+import React, { useEffect, useRef, useState } from 'react'
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+import { fetchProducts } from '../../actions/product_actions';
+import {BsChevronCompactRight, BsChevronCompactLeft} from 'react-icons/bs'
+
+const HomePage = ({fetchProducts, history}) => {
     const [currentBannerIndex, setBannerIndex] = useState(0)
-    const [carouselInterval, setCarouselInterval] = useState();
-    const bannerSrcUrls = [ <img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_1.jpg"/>,
-                            <Link to="products/34"><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_4.jpg"/></Link>
+    const bannerIndex = useRef(0)
+    const carouselInterval = useRef(null)
+    const bannerSrcUrls = [ 
+                            <img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_1.jpg"/>,
+                            <img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/homePageBanner6.jpg" className="hover" onClick={() => fetchProducts(`category = 'Fashion'`).then(history.push('/products'))}/>,
+                            <img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_4.jpg" className="hover" onClick={() => history.push('products/31')}/>,
                           ]
 
-    if (!carouselInterval) {
-        setCarouselInterval(setInterval( () => setBannerIndex( (currentBannerIndex + 1) % bannerSrcUrls.length ), 15000))
+  
+   
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        if (!carouselInterval.current) {
+            startCarouselTimer();
+        }
+        return () => carouselInterval.current ? clearInterval(carouselInterval.current) : null
+    },[])
+
+    const startCarouselTimer = () => {
+        if(carouselInterval.current) clearInterval(carouselInterval.current)
+        carouselInterval.current = setInterval( () => {
+            bannerIndex.current = (bannerIndex.current + 1) % bannerSrcUrls.length
+            setBannerIndex(bannerIndex.current)
+        }, 10000)
+    }
+
+    const carouselForward = () => {
+        bannerIndex.current = (bannerIndex.current + 1) % bannerSrcUrls.length
+        setBannerIndex(bannerIndex.current)
+        startCarouselTimer();
+    }
+
+    const carouselBack = () => {
+        bannerIndex.current = (bannerIndex.current + 1) % bannerSrcUrls.length
+        setBannerIndex(bannerIndex.current)
+        startCarouselTimer();
     }
 
     return (
         <div className="homepage">
             <div className='homepage-banner'>
                 {bannerSrcUrls[currentBannerIndex]}
+                <button className="carousel-button left" onClick={carouselBack}><BsChevronCompactLeft className="banner-arrows"/></button>
+                <button className="carousel-button right" onClick={carouselForward}><BsChevronCompactRight className="banner-arrows"/></button>
             </div>
             <div className="homepage-list">
                 <li>
@@ -50,4 +85,18 @@ const homepage = () => {
     )
 }
 
-export default homepage;
+const mapStateToProps = state => {
+    return {
+
+    }
+}
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchProducts: (filter) => dispatch(fetchProducts(filter))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage));
+

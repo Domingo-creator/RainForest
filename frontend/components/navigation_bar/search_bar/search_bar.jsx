@@ -10,12 +10,12 @@ const SearchBar = ({department, setDepartment, fetchProducts, fetchSearchResults
     const[results, setResults] = useState()
 
     useEffect( () => {
-        sessionStorage.getItem('searchText') && setSearchText(JSON.parse(sessionStorage.getItem('searchText')))
+        sessionStorage.getItem('searchText') && setSearchText(sessionStorage.getItem('searchText'))
         sessionStorage.getItem('department') && setDepartment(sessionStorage.getItem('department'))
     }, [])
 
     useEffect(() => {
-        if(searchText) sessionStorage.setItem('searchText', searchText)
+        sessionStorage.setItem('searchText', searchText)
         sessionStorage.setItem('department', department)
         fetchSearchResults(createFilter())
     }, [searchText, department])

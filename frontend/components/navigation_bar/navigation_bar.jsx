@@ -9,7 +9,7 @@ const NavBelt = ({fetchProducts, history, userId, sessionStorageUpdate}) => {
     if(sessionStorage.getItem('department') === 'undefined') sessionStorage.setItem('department', 'All Departments')
     if(!userId && !sessionStorage.getItem('cart')) sessionStorage.setItem('cart', '')
     const [department, setDepartment] = useState(sessionStorage.getItem('department'))
-    const[searchText, setSearchText] = useState(sessionStorage.getItem('searchText'))
+    const[searchText, setSearchText] = useState(sessionStorage.getItem('searchText') || undefined)
     // const [cart, setCart] = useState(sessionStorage.getItem('cart'))
 
 

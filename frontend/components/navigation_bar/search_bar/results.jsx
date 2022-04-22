@@ -1,20 +1,57 @@
 import { connect } from "react-redux"
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react'
+import { Link, withRouter } from 'react-router-dom';
 import { closeModal } from "../../../actions/modal_actions";
 
-const Results = ({results}) => {
+
+const Results = ({results, closeModal, history}) => {
+
+    const [resultSelected, _setResultSelected] = useState()
+    const resultSelectedRef = useRef(resultSelected);
+    const setResultSelected = (index) =>  {
+        resultSelectedRef.current = index
+        _setResultSelected(index)
+    }
+  
 
     const formatName = (name) => {
         return name.length > 50 ? name.slice(0, 50).concat('...') : name
     }
+
+    const handleKeyDown = (e) => {
+        
+        switch(e.key) {
+            case 'ArrowUp':
+                resultSelectedRef.current !== undefined ? setResultSelected((resultSelectedRef.current - 1) % results.length) : setResultSelected(results.length - 1)
+                break;
+            case 'ArrowDown':
+                resultSelectedRef.current !== undefined ? setResultSelected((resultSelectedRef.current + 1) % results.length) : setResultSelected(0)
+                break;
+            case 'Enter':
+                // debugger
+                history.push(`/products/${results[resultSelectedRef.current].id}`)
+                closeModal()
+                break;
+            default:
+                break;
+        }
+    }
+   
+
+    useEffect( () => {
+            window.addEventListener('keyup',handleKeyDown);
+        return () => {
+            window.removeEventListener('keyup',handleKeyDown);
+        }
+    },[])
+
 
     return(
         <ul className="results-list">
             {results.map( (result, index) => 
                 index < 10 ?
                     <Link to={`/products/${result.id}`} className='results-link'>
-                        <li>
+                        <li className={index == resultSelectedRef.current ? 'result-selected' : ''}>
                             <p>{formatName(result.name)} <span>from {result.category}</span></p>
                         </li>
                     </Link>
@@ -25,14 +62,14 @@ const Results = ({results}) => {
     )
 }
 
-const ResultsModal = ({modal, results, closeModal}) => {
+const ResultsModal = ({modal, results, closeModal, history}) => {
     
     if(modal !== 'results') return null;
 
     return (
         <div className="modal-background" onClick={() => closeModal()}>
             <div className="modal-child" >
-                <Results results={results} />
+                <Results results={results} closeModal={closeModal} history={history}/>
             </div>
         </div>
     )
@@ -53,4 +90,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResultsModal)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ResultsModal))

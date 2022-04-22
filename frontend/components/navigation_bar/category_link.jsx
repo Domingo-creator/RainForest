@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CategoryLink = ({category, fetchProducts, history, department, setDepartment}) => {
+const CategoryLink = ({category, fetchProducts, history, department, setDepartment, setSearchText}) => {
 
     const performCategorySearch = (e) => {
         sessionStorage.setItem('department', e.target.textContent)
@@ -15,6 +15,8 @@ const CategoryLink = ({category, fetchProducts, history, department, setDepartme
             fetchProducts()
                 .then(history.push('/products'))
         }
+        sessionStorage.removeItem('searchText')
+        setSearchText('');
     }
 
     return (

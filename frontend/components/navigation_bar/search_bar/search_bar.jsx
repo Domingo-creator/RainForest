@@ -5,9 +5,8 @@ import { openModal } from "../../../actions/modal_actions"
 import { fetchProducts, fetchSearchResults } from "../../../actions/product_actions"
 
 
-const SearchBar = ({department, setDepartment, fetchProducts, fetchSearchResults, searchResults, openModal, history})=> {
+const SearchBar = ({department, setDepartment, fetchProducts, fetchSearchResults, searchResults, searchText, setSearchText, openModal, history})=> {
     
-    const[searchText, setSearchText] = useState(sessionStorage.getItem('searchText') || '')
     const[results, setResults] = useState()
 
     useEffect( () => {
@@ -16,7 +15,7 @@ const SearchBar = ({department, setDepartment, fetchProducts, fetchSearchResults
     }, [])
 
     useEffect(() => {
-        sessionStorage.setItem('searchText', JSON.stringify(searchText))
+        if(searchText) sessionStorage.setItem('searchText', searchText)
         sessionStorage.setItem('department', department)
         fetchSearchResults(createFilter())
     }, [searchText, department])

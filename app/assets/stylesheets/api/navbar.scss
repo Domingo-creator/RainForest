@@ -4,6 +4,7 @@
     font-size: 30px;
     text-decoration: none;
     margin: 10px 10px 10px 20px;
+    max-width: 158px;
 } 
 
 .logo img {
@@ -136,6 +137,7 @@
 
 .search-bar input {
     width: 100%;
+    min-width: 200px;
     height: 45px;
     box-sizing: border-box;
     // margin-bottom: 40px;
@@ -176,8 +178,8 @@
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: -47px;
-    padding-top: 12px;
-    margin-left: -15px;
+    // padding-top: 12px;
+    margin-left: -16px;
     font-weight: bold;
 }
 
@@ -203,14 +205,16 @@
     position: absolute;
     background-color: rgba(213, 208, 208, 0.5);
     z-index: 3;
+    margin-top: -43px
 }
 
 .modal-child {
     background-color: white;
     position: absolute;
-    top: -41px;
-    left: 26vw;
-    right: 19.5vw;
+    top: -10px;
+    left: 330px;
+    width: calc( 100vw - 610px);
+    // right: 19.5vw;
     z-index: 5;
 }
 

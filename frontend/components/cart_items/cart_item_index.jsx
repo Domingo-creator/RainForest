@@ -44,6 +44,7 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
     }
 
 
+
     const checkAllSelected = () => {
         if(userId) {
             return Object.keys(cartItemsSelected).length === cartItems.length && Object.values(cartItemsSelected).every( value => value === true)

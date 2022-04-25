@@ -92,8 +92,10 @@
     position:relative;
     display: inline-block;
     min-width: 150px;
+    padding-left:10px;
     margin-left: 10px;
-    margin-right: 30px;
+    margin-right: 41px;
+    margin-top: 3px;
     margin-bottom: 0px;
     cursor: pointer;
 }
@@ -168,16 +170,21 @@
 .carticon {
     margin-right: 15px;
     margin-left: -15px;
-    padding-top: 23px;
     padding-right: 25px;
-    
+    padding-bottom: 13px;
+    padding-top: 8px;
+    margin-top: -8px;
+}
+
+.cart-icon-words {
+    padding-top: 14px;
 }
 
 .cart-count {
     color: orange;
     font-size: 20px;
     margin-top: 10px;
-    margin-bottom: -47px;
+    margin-bottom: -22px;
     // padding-top: 12px;
     margin-left: -16px;
     font-weight: bold;
@@ -193,8 +200,8 @@
     margin-left: -40px;
     margin-right:10px;
     // margin-bottom: 10px;
-    margin-bottom: -15px;
-    padding-top: 23px;
+    // margin-bottom: -15px;
+    // padding-top: 23px;
 
     // margin: 0px 0px 0px 0px;
 }
@@ -213,7 +220,7 @@
     position: absolute;
     top: -10px;
     left: 330px;
-    width: calc( 100vw - 610px);
+    width: calc( 100vw - 630px);
     // right: 19.5vw;
     z-index: 5;
 }

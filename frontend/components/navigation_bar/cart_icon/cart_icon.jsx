@@ -44,7 +44,7 @@ import { Link } from 'react-router-dom'
                     <p className="cart-count">{cartItemCount()}</p>
                     <img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/cartIcon.png" className="carticon"/>
                 </div>
-                    <p>cart</p>
+                    <p className="cart-icon-words">cart</p>
             </Link>
             
         </div>

@@ -15,7 +15,12 @@ const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsS
 
             }
         }
-       
+    }
+
+    const saveForLater = () => {
+        let savedCartItem = Object.assign({}, cartItem)
+        savedCartItem.saveForLater = true
+        updateCartItem(savedCartItem)
     }
 
     const formatPrice = () => {

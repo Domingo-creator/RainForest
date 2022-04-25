@@ -1,4 +1,4 @@
-json.extract! cart_item, :id, :userId, :productId, :quantity
+json.extract! cart_item, :id, :userId, :productId, :quantity, :saved_for_later
 json.extract! cart_item.product, :name, :price
 
 if cart_item.product.image.attachment == nil 

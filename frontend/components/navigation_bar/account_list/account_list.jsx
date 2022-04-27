@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AccountListDropDownContainer from './account_list_dropdown/account_list_dropdown_container';
+import AccountListDropDown from './account_list_dropdown/account_list_dropdown';
+
+import { connect } from "react-redux"
+import { logout } from "../../../actions/session_actions"
 
 const Greeting = ({currentUser, logout}) => {
 
@@ -12,7 +15,7 @@ const Greeting = ({currentUser, logout}) => {
                     <p className='nav-line-2'>Accounts & Lists</p>
                 </div>
                 <div className="account-list-dropdown-content">
-                    <AccountListDropDownContainer />
+                    <AccountListDropDown />
                 </div>
             </div>
         )
@@ -22,4 +25,19 @@ const Greeting = ({currentUser, logout}) => {
     
 }
 
-export default Greeting;
+
+////// Container  //////
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        currentUser: state.entities.users[state.session.id]
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        logout: () => dispatch(logout())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Greeting)

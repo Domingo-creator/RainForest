@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react"
-import CartItemIndexItem from "./cart_item_index_item"
+import CartIndexItem from "./cart_index_item"
+
+import { connect} from "react-redux"
+import { fetchCartItems, removeCartItem, updateCartItem } from "../../actions/cart_item_actions"
+import {withRouter} from "react-router"
+// import CartItemIndex from "./cart_item_index"
 
 
-const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId, sessionStorageUpdate, setSessionStorageUpdate, history}) => {
-    const [cartItemsSelected, setCartItemsSelected] =  useState({})
+const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId, sessionStorageUpdate, setSessionStorageUpdate, cartItemsSelected, setCartItemsSelected, history}) => {
+    // const [cartItemsSelected, setCartItemsSelected] =  useState({})
     const [checkedOut, setCheckout] = useState(false);
 
     useEffect( () => {
@@ -25,14 +30,15 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
 
     },[cartItems])
 
+
     const cartItemList = () => {
         if(userId && cartItems.length) {
             return cartItems.map( (cartItem,index) => {
-                return <CartItemIndexItem key={cartItem.id} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
+                return <CartIndexItem key={cartItem.id} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
             })
         } else if(sessionStorage.getItem('cart')) {
             return JSON.parse(sessionStorage.getItem('cart')).map( (cartItem, index) => {
-                return <CartItemIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem} setSessionStorageUpdate={setSessionStorageUpdate}/>
+                return <CartIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem} setSessionStorageUpdate={setSessionStorageUpdate}/>
             })
         } else {
             return (
@@ -47,8 +53,10 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
 
     const checkAllSelected = () => {
         if(userId) {
+            debugger
             return Object.keys(cartItemsSelected).length === cartItems.length && Object.values(cartItemsSelected).every( value => value === true)
         } else {
+            debugger
             return sessionStorage.getItem('cart') && Object.keys(cartItemsSelected).length === JSON.parse(sessionStorage.getItem('cart')).length && Object.values(cartItemsSelected).every( value => value === true)
         }
     }
@@ -101,12 +109,12 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
 
     const handleCheckout = () => {
         if(userId) {
-            setCheckout(true)
-            cartItems.forEach( cartItem => cartItemsSelected[cartItem.id] ? removeCartItem(cartItem.userId, cartItem.id) : null)
+            // setCheckout(true)
+            // cartItems.forEach( cartItem => cartItemsSelected[cartItem.id] ? removeCartItem(cartItem.userId, cartItem.id) : null)
+            history.push('/cart/checkout')
         } else {
             history.push('/login')
         }
-        
     }
 
     if (checkedOut) {
@@ -149,4 +157,23 @@ const CartItemIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartIte
     )
 }
 
-export default CartItemIndex
+// export default CartItemIndex
+
+
+const mapStateToProps = state => {
+    return {
+        userId: state.session.id,
+        cartItems: state.entities.cart_items ? Object.values(state.entities.cart_items) : [],
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
+        removeCartItem: (userId, cartItemId) => dispatch(removeCartItem(userId, cartItemId)), 
+        updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem))
+        // fetchProducts: (filter) => dispatch(fetchProducts(filter)),
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartIndex))

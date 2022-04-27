@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom';
-import NavBeltContainer from './navigation_bar/navigation_bar_container';
+import NavBelt from './navigation_bar/navigation_bar';
 import ProductIndexContainer from "./products/product_index/product_index_container"
 import ProductShowContainer from './products/product_show/product_show_container';
-import CartItemIndexContainer from './cart_items/cart_item_index_container'
+// import CartItemIndexContainer from './cart/cart_item_index_container'
 import CreateReviewFormContainer from './reviews/review_form/create_review_form_container';
 import HomePage from './home_page/homepage';
 import Results from './navigation_bar/search_bar/results';
-import BuyNow from './products/product_show/product_purchase_container/buy_now';
-import CartCheckout from './cart_items/cart_checkout';
+// import BuyNow from './products/product_show/product_purchase_container/buy_now';
+// import CartCheckout from './cart_items/cart_checkout';
 import Logo from './logo';
-import CartBuyNow from './cart_items/car_buy_now';
+// import CartBuyNow from './cart_items/car_buy_now';
+import Cart from './cart/cart'
 
 const MainPage = () => {
 
@@ -22,7 +23,7 @@ const MainPage = () => {
         <div className="main-page">
             <header>
                 
-                <NavBeltContainer sessionStorageUpdate={sessionStorageUpdate}/>
+                <NavBelt sessionStorageUpdate={sessionStorageUpdate}/>
                 <Results />
                 {/* <BuyNow />  */}
             </header>
@@ -31,11 +32,8 @@ const MainPage = () => {
                     <Route path="/products/:productId/reviews/new" component={CreateReviewFormContainer} />
                     <Route path="/products/:productId/reviews/:reviewId/edit" component={CreateReviewFormContainer} />
                     <Route path="/products/:productId" render = { (props) => (<ProductShowContainer sessionStorageUpdate={sessionStorageUpdate} setSessionStorageUpdate={setSessionStorageUpdate}/>)} />
-                    {/* <Route path="/products" component={ProductIndexContainer} /> */}
                     <Route path="/products" component={ProductIndexContainer}/>
-                    <Route path="/cart/checkout/:product_id" component={CartBuyNow} />
-                    <Route path="/cart/checkout" component={CartCheckout} />
-                    <Route path="/cart" render = { (props) => (<CartItemIndexContainer sessionStorageUpdate={sessionStorageUpdate} setSessionStorageUpdate={setSessionStorageUpdate}/>) } />
+                    <Route path="/cart" render = { (props) => (<Cart sessionStorageUpdate={sessionStorageUpdate} setSessionStorageUpdate={setSessionStorageUpdate}/>) } />
                     <Route path="/" component={HomePage} /> 
                 </Switch>
             </main>

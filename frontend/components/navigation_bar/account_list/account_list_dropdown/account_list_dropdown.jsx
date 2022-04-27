@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import SignInButtonWindow from './sign_in_button_window/sign_in_button_window';
+import { connect } from "react-redux"
+import { logout } from "../../../../actions/session_actions"
+import {withRouter} from 'react-router'
 
 const AccountListDropDown = ({currentUser, logout, history}) => {
         // debugger
@@ -19,4 +21,18 @@ const AccountListDropDown = ({currentUser, logout, history}) => {
         )
 }
 
-export default AccountListDropDown
+
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        currentUser: state.entities.users[state.session.id]
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        logout: () => dispatch(logout())
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AccountListDropDown))

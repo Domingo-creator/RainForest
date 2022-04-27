@@ -3,23 +3,24 @@ import { connect } from "react-redux"
 import { fetchCartItems, updateCartItem } from "../../actions/cart_item_actions"
 import { Link } from 'react-router-dom';
 
-const CartCheckout = ({userId, cartItems, fetchCartItems, updateCartItem}) => {
+const CartCheckout = ({userId, setSelectedCartItems,selectedCartItems, fetchCartItems, updateCartItem}) => {
 
-    useEffect = ( () => {
-        if(!cartItems.length) {
-            fetchCartItems(userId)
-        }
-    })
+    // useEffect = ( () => {
+    //     if(!selectedItems.length) {
+    //         fetchCartItems(userId)
+    //     }
+    // })
 
-    const updateQuantity = (e) => {
-        cartItem.quantity = e.target.value;
-        let updatedCartItem = Object.assign({}, cartItem)
-        updatedCartItem.quantity = parseInt(e.target.value)
-        updateCartItem(updatedCartItem);
+    const updateQuantity = (selectedCartItemId, e) => {
+        // selectedCartItem.quantity = e.target.value;
+        let updatedSelectedCart = Object.assign({}, selectedCartItems)
+        // let updatedCartItem = Object.assign({}, selectedCartItem)
+        // updatedCartItem.quantity = parseInt(e.target.value)
+        updatedSelectedCart[selectedCartItemId].quantity = parseInt(e.target.value)
+        updateCartItem(updatedSelectedCart[selectedCartItemId]);
+        setSelectedCartItems(updatedSelectedCart);
     }
 
-    // if(!cartItems) return <></>
-    // debugger
     return (
         <div>
             <div>
@@ -32,19 +33,19 @@ const CartCheckout = ({userId, cartItems, fetchCartItems, updateCartItem}) => {
                 <h1>Review items and shipping</h1>
                 <div>
                     <ul>
-                        {cartItems.map( cartItem => {
+                        {selectedCartItems.map( selectedCartItem => {
                             <li>
                                  <Link to={`/products/${cartItem.productId}`} >
-                                    <img src={cartItem.image_url} className="product-index-image"/>
+                                    <img src={selectedCartItem.image_url} className="product-index-image"/>
                                 </Link> 
                                 <div className="cart-item-main">
-                                    <Link to={`/products/${cartItem.productId}`} className='product-index-name' >{cartItem.name}</Link> 
+                                    <Link to={`/products/${selectedCartItem.productId}`} className='product-index-name' >{selectedCartItem.name}</Link> 
                                     <div className='cart-item-options'></div>
                                     <select 
                                         name="quantity" 
                                         id="product-quantity"
-                                        value={cartItem.quantity}
-                                        onChange={(e) => updateQuantity(e)}>
+                                        value={selectedCartItem.quantity}
+                                        onChange={(e) => updateQuantity(selectedCartItem.id, e)}>
                                             <option value={1}>Qty: 1</option>     
                                             <option value={2}>Qty: 2</option>     
                                             <option value={3}>Qty: 3</option>     
@@ -78,7 +79,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
+        // fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
         updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem))
     }
 }

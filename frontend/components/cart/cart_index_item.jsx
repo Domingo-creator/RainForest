@@ -1,6 +1,13 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsSelected, setCartItemsSelected, setSessionStorageUpdate}) => {
+
+
+import { connect, } from "react-redux"
+import { fetchProduct } from "../../actions/product_actions"
+// import CartItemIndexItem from "./cart_item_index_item"
+import { removeCartItem, updateCartItem } from "../../actions/cart_item_actions"
+
+const CartIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsSelected, setCartItemsSelected, setSessionStorageUpdate}) => {
     const handleDelete = () => {
         if(cartItem.userId) {
             removeCartItem(cartItem.userId, cartItem.id)
@@ -72,7 +79,6 @@ const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsS
         setCartItemsSelected(newSelected)
     }
 
-    
     return (
         <li>
             <input 
@@ -114,4 +120,21 @@ const CartItemIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsS
     )
 }
 
-export default CartItemIndexItem
+// export default CartItemIndexItem
+
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        // cartItem: state.entities.cartItems,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        // fetchProduct: (productId) => dispatch(fetchProduct(productId)),
+        // removeProduct: (productId) => dispatch(removeCartItem(productId)),
+        // updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartIndexItem)

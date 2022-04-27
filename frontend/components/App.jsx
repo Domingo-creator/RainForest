@@ -5,7 +5,7 @@ import LoginFormContainer from './session_form/login/login_form_container'
 import SignupFormContainer from './session_form/signup/signup_form_container'
 import { Switch } from 'react-router-dom';
 import MainPage from './main_page';
-import CartItemIndexContainer from './cart_items/cart_item_index_container'
+
 
 const App = () => {
     return (

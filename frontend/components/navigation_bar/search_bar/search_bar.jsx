@@ -83,7 +83,7 @@ const SearchBar = ({department, setDepartment, fetchProducts, fetchSearchResults
         )
 }
 
-
+/////// Container  ///////////
 
 const mapStateToProps = state => {
     return {

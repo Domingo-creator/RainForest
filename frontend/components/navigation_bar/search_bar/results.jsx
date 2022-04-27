@@ -75,7 +75,7 @@ const ResultsModal = ({modal, results, closeModal, history}) => {
     )
 }
 
-
+///////// Container ///////////
 
 const mapStateToProps = state => {
     return {

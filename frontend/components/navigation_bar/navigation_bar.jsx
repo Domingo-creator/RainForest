@@ -1,9 +1,16 @@
 import React, { useState } from 'react'
-import AccountListContainer from './account_list/account_list_container'
+// import AccountListContainer from './account_list/account_list_container'
+import AccountList from './account_list/account_list'
 import Logo from '../logo'
 import SearchBar from './search_bar/search_bar'
 import CategoryLink from './category_link'
-import CartIconContainer from './cart_icon/cart_icon_container'
+import CartIcon from './cart_icon/cart_icon'
+
+
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
+import { fetchProducts } from "../../actions/product_actions"
+// import NavBelt from "./navigation_bar"
 
 const NavBelt = ({fetchProducts, history, userId, sessionStorageUpdate}) => {
     if(sessionStorage.getItem('department') === 'undefined') sessionStorage.setItem('department', 'All Departments')
@@ -20,8 +27,8 @@ const NavBelt = ({fetchProducts, history, userId, sessionStorageUpdate}) => {
                 <Logo setSearchText={setSearchText}/>
                 {/* <DeliverToContainer /> */}
                 <SearchBar setDepartment={setDepartment} department={department} searchText={searchText} setSearchText={setSearchText}/>
-                <AccountListContainer />
-                <CartIconContainer sessionStorageUpdate={sessionStorageUpdate}/>
+                <AccountList />
+                <CartIcon sessionStorageUpdate={sessionStorageUpdate}/>
                 
             </div>
 
@@ -33,15 +40,24 @@ const NavBelt = ({fetchProducts, history, userId, sessionStorageUpdate}) => {
                 <CategoryLink category={'Electronics'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
                 <CategoryLink category={'Pet Supplies'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
                 <CategoryLink category={'Sporting Goods'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
-
-                {/* <p className='nav-link'>Toys & Games</p> 
-                <p className='nav-link'>Fashion</p>
-                <p className='nav-link'>Smart Home</p>
-                <p className='nav-link'>Pet Supplies</p>
-                <p className='nav-link'>Sporting Goods</p>  */}
             </div>
         </nav>
     )
 }
 
-export default NavBelt
+
+////// Container ////////
+
+const mapStateToProps = state => {
+    return {
+        userId: state.session.id
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchProducts: (filter) => dispatch(fetchProducts(filter)),
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBelt))

@@ -63,27 +63,28 @@ const CartIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsSelec
 
     const updateSelected = () => {
         let newSelected = Object.assign({}, cartItemsSelected)
-        if(cartItem.id) {
-            if(cartItemsSelected[cartItem.id]) {
-                newSelected[cartItem.id] = false
-            }  else {
-                newSelected[cartItem.id] = true
-            } 
-        } else {
+        // if(cartItem.id) {
+        //     if(cartItemsSelected[cartItem.id]) {
+        //         newSelected[cartItem.id] = false
+        //     }  else {
+        //         newSelected[cartItem.id] = true
+        //     } 
+        // } else {
             if(cartItemsSelected[cartItem.productId]) {
                 newSelected[cartItem.productId] = false
             }  else {
                 newSelected[cartItem.productId] = true
             } 
+            setCartItemsSelected(newSelected)
         }
-        setCartItemsSelected(newSelected)
-    }
+    // }
 
     return (
         <li>
             <input 
                 type='checkbox' 
-                checked={cartItem.id ? cartItemsSelected[cartItem.id] ? true : false : cartItemsSelected[cartItem.productId] ? true : false}
+                // checked={cartItem.id ? cartItemsSelected[cartItem.id] ? true : false : cartItemsSelected[cartItem.productId] ? true : false}
+                checked={cartItemsSelected[cartItem.productId] ? true : false}
                 onChange={updateSelected}
                 className='cart-item-checkbox'
                 />

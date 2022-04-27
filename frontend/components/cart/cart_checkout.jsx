@@ -3,13 +3,13 @@ import { connect } from "react-redux"
 import { fetchCartItems, updateCartItem } from "../../actions/cart_item_actions"
 import { Link } from 'react-router-dom';
 
-const CartCheckout = ({userId, setSelectedCartItems,selectedCartItems, fetchCartItems, updateCartItem}) => {
+const CartCheckout = ({userId, setSelectedCartItems,selectedCartItems, cartItems, fetchCartItems, updateCartItem}) => {
 
-    // useEffect = ( () => {
-    //     if(!selectedItems.length) {
-    //         fetchCartItems(userId)
-    //     }
-    // })
+    useEffect = ( () => {
+        if(!selectedItems.length) {
+            fetchCartItems(userId)
+        }
+    },[])
 
     const updateQuantity = (selectedCartItemId, e) => {
         // selectedCartItem.quantity = e.target.value;

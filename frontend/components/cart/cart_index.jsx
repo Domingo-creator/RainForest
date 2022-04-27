@@ -20,7 +20,7 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
         // debugger
         let newSelected = {}
         if(userId){
-            cartItems.forEach( cartItem => newSelected[cartItem.id] = true) 
+            cartItems.forEach( cartItem => newSelected[cartItem.productId] = true) 
         }
         else {
             
@@ -65,7 +65,7 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
         let newSelected = {}
         if(!checkAllSelected()) {
             if(userId) {
-                cartItems.forEach( cartItem => newSelected[cartItem.id] = true )
+                cartItems.forEach( cartItem => newSelected[cartItem.productId] = true )
             } else {
                 JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => newSelected[cartItem.productId] = true)
             }
@@ -77,7 +77,7 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
     const getCount = () => {
         let count = 0;
         if (userId) {
-            cartItems.forEach( cartItem => count += cartItemsSelected[cartItem.id] ?  cartItem.quantity : 0)
+            cartItems.forEach( cartItem => count += cartItemsSelected[cartItem.productId] ?  cartItem.quantity : 0)
         } else {
             
             if(sessionStorage.getItem('cart')) JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => count += cartItemsSelected[cartItem.productId] ?  cartItem.quantity : 0)
@@ -88,7 +88,7 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
     const getSubtotal = () => {
         let subtotal = 0.00;
         if (userId) {
-            cartItems.forEach( cartItem => subtotal += cartItemsSelected[cartItem.id] ? (cartItem.price * cartItem.quantity) : 0)
+            cartItems.forEach( cartItem => subtotal += cartItemsSelected[cartItem.productId] ? (cartItem.price * cartItem.quantity) : 0)
         } else {
             if(sessionStorage.getItem('cart')) {
                 JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => {
@@ -157,7 +157,6 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
     )
 }
 
-// export default CartItemIndex
 
 
 const mapStateToProps = state => {

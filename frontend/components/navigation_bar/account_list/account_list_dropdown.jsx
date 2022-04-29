@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { logout } from "../../../actions/session_actions"
 import {withRouter} from 'react-router'
 import { Link } from 'react-router-dom';
+import { closeModal } from '../../../actions/modal_actions';
 
 
 const AccountListDropDown = ({currentUser, logout, history}) => {
@@ -39,7 +40,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        closeModal: () => dispatch(closeModal())
     }
 }
 

@@ -6,22 +6,26 @@ import { fetchProducts } from "../../../actions/product_actions"
 
 const ProductIndex = ({products, fetchProducts, createCartItem, userId, updateTempCart, filter}) => {
 
-    const loading = useRef(true)
+    const [loading,setLoading] = useState(true)
+
 
     useEffect( () => {
-        fetchProducts(filter).then( () => loading.current = false)
+        fetchProducts(filter).then(() => setLoading(false))
         window.scrollTo(0, 0)
     },[filter])
 
-
+   
     if(!products.length && !loading) return <h1>No products found matching your search...</h1>
-    return(
+    
+    return loading ? 
+        <></>
+        :
         <ul className="product-list">
             {products.map( product => {
                 return <ProductIndexItem key={product.id} product={product} createCartItem={createCartItem} />
             })}
         </ul>
-    )
+    
 }
 
 ////// Container ////////

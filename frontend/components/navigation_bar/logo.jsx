@@ -1,10 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { closeModal } from '../../actions/modal_actions';
 
-const Logo = ({setSearchText}) => {
+const Logo = ({setSearchText,closeModal}) => {
     
     const clearSearchText = () => {
         sessionStorage.removeItem('searchText')
+        closeModal();
         setSearchText('')
     }
 
@@ -16,4 +19,11 @@ const Logo = ({setSearchText}) => {
     )
 }
 
-export default Logo;
+
+const mapDispatchToProps = dispatch => {
+    return {
+        closeModal: () => dispatch(closeModal())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Logo);

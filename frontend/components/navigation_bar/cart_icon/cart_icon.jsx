@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
 import { createCartItem, createNoUserCartItem, fetchCartItems } from "../../../actions/cart_item_actions"
+import { closeModal } from '../../../actions/modal_actions'
 
- const CartIcon = ({userId, cartItems, createCartItem, fetchCartItems, tempCart, updateTempCart, sessionStorageUpdate}) => {
-    const [rerender, setRerender] = useState('')
+ const CartIcon = ({userId, cartItems, createCartItem, fetchCartItems, tempCart, updateTempCart, sessionStorageUpdate, closeModal}) => {
     const [storageUpdate, setStoragetUpdate] = useState(sessionStorageUpdate)
 
    
@@ -22,12 +22,6 @@ import { createCartItem, createNoUserCartItem, fetchCartItems } from "../../../a
         updateTempCart([])
     }
 
-    // useEffect( () => {
-    //     // if( sessionStorage.getItem('cart') ) {
-    //     //     JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => count += cartItem.quantity )
-    //     // }
-    //    debugger
-    // },[sessionStorageUpdate])
 
     const cartItemCount = () => {
         let count = 0;
@@ -40,7 +34,7 @@ import { createCartItem, createNoUserCartItem, fetchCartItems } from "../../../a
     }
 
     return (
-        <div>
+        <div onClick={closeModal}>
             <Link to='/cart' className="cart-count-container" >
                 <div>
                     <p className="cart-count">{cartItemCount()}</p>
@@ -58,10 +52,8 @@ import { createCartItem, createNoUserCartItem, fetchCartItems } from "../../../a
 
 
 const mapStateToProps = state => {
-    // debugger
     return {
         userId: state.session.id,
-        // cartItems: state.session.id ? state.entities.cart_items ? Object.values(state.entities.cart_items) : [] : JSON.parse(sessionStorage.getItem('cart')),
         cartItems: state.entities.cart_items ? Object.values(state.entities.cart_items) : [] 
 
     }
@@ -71,6 +63,7 @@ const mapDispatchToProps = dispatch => {
     return {
         createCartItem: (userId, product) => dispatch(createCartItem(userId, product)),
         fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
+        closeModal: () => dispatch(closeModal())
     }
 }
 

@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
-import { closeModal, openModal } from "../../../actions/modal_actions"
+import { openModal } from "../../../actions/modal_actions"
 import { fetchProducts, fetchSearchResults } from "../../../actions/product_actions"
 
 
-const SearchBar = ({fetchProducts, fetchSearchResults, searchResults, searchText, setSearchText, filter, updateFilter,openModal, closeModal, history})=> {
+const SearchBar = ({fetchProducts, fetchSearchResults, searchResults, searchText, setSearchText, filter, updateFilter,openModal,  history})=> {
     
     const [results, setResults] = useState()
     const [department, setDepartment] = useState(filter.department)
     
-
-
+    
     useEffect( () => {
         // debugger
         sessionStorage.getItem('searchText') && setSearchText(sessionStorage.getItem('searchText'))
@@ -40,8 +39,6 @@ const SearchBar = ({fetchProducts, fetchSearchResults, searchResults, searchText
     const handleSubmit = (e) => {
         e.preventDefault()
         updateFilter({department: department, searchText: searchText})
-        debugger
-        closeModal();
         history.push('/products')
     }
 
@@ -94,7 +91,6 @@ const mapDispatchToProps = dispatch => {
         fetchProducts: (filter) => dispatch(fetchProducts(filter)),
         fetchSearchResults: (filter) => dispatch(fetchSearchResults(filter)),
         openModal: (modal) => dispatch(openModal(modal)),
-        closeModal: () => dispatch(closeModal())
     }
 }
 

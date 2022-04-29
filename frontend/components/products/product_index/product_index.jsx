@@ -2,15 +2,17 @@ import React, { useEffect, useRef, useState } from "react"
 import ProductIndexItem from "./product_index_item"
 import { connect } from "react-redux"
 import { fetchProducts } from "../../../actions/product_actions"
+import { closeModal } from "../../../actions/modal_actions"
 
 
-const ProductIndex = ({products, fetchProducts, createCartItem, userId, updateTempCart, filter}) => {
+const ProductIndex = ({products, fetchProducts, createCartItem, userId, updateTempCart, filter, closeModal}) => {
 
     const [loading,setLoading] = useState(true)
 
 
     useEffect( () => {
         fetchProducts(filter).then(() => setLoading(false))
+        // closeModal();
         window.scrollTo(0, 0)
     },[filter])
 
@@ -40,7 +42,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchProducts: (filter) => dispatch(fetchProducts(filter))
+        fetchProducts: (filter) => dispatch(fetchProducts(filter)),
+        closeModal: () => dispatch(closeModal())
+
     }
 }
 

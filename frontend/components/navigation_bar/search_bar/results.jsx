@@ -28,9 +28,8 @@ const Results = ({results, closeModal, history}) => {
                 resultSelectedRef.current !== undefined ? setResultSelected((resultSelectedRef.current + 1) % results.length) : setResultSelected(0)
                 break;
             case 'Enter':
-                // debugger
-                history.push(`/products/${results[resultSelectedRef.current].id}`)
                 closeModal()
+                history.push(`/products/${results[resultSelectedRef.current].id}`)
                 break;
             default:
                 break;

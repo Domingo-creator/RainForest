@@ -14,6 +14,7 @@ const AddPayment = ({currentUser, closeModal, history, paymentMethod, setPayment
     const [CCV, setCCV] = useState(paymentMethod?.ccv || '')
     const [cardType, setCardType] = useState(paymentMethod?.cardType || 'Visa')
 
+    
 
     const [country, setCountry] = useState(address?.country || 'United States')
     const [fullName, setFullName] = useState(address?.fullName || '')

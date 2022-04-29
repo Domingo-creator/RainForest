@@ -1,40 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import ReviewIndexContainer from '../../reviews/review_index_container'
-import ProductPurchaseWindow from './product_purchase_container/product_purchase_window'
-import ProductPurchaseWindowContainer from './product_purchase_container/product_purcase_window_container'
+import ReviewIndex from '../../reviews/review_index'
+import ProductPurchaseWindow from './product_purchase_window'
 import { Link } from 'react-router-dom'
 import StarRating from '../../reviews/star_rating'
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min"
+import { createCartItem, updateCartItem } from "../../../actions/cart_item_actions"
+import { openModal } from "../../../actions/modal_actions"
+import { fetchProduct } from "../../../actions/product_actions"
+import { formatPrice } from '../../../util/formatting_util'
 
-const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem, setSessionStorageUpdate, sessionStorageUpdate, openModal, history}) => {
+const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem, tempCart, updateTempCart, openModal, history}) => {
     
-  
-
     useEffect( () => {
         fetchProduct(match.params.productId)
         window.scrollTo(0, 0)
     },[])
 
-    useEffect( () => {
-        if(!product ){
-            fetchProduct(match.params.productId)
-        } 
-    },[product])
+    // useEffect( () => {
+    //     if(!product ){
+    //         fetchProduct(match.params.productId)
+    //     } 
+    //     window.scrollTo(0, 0)
+    // },[product])
 
 
     const parseString = (fieldString = "") => {
         return fieldString.split('\n')
-    }
-
-    const formatPrice = () => {
-        let priceArray = product.price.toString().split('.')
-        if(priceArray.length === 1) priceArray.push('00');
-        return (
-            <div className="product-price">
-                <p className="product-price-money-symbol">$</p>
-                <p className="product-price-dollars">{priceArray[0]}</p>
-                <p className="product-price-cents">{priceArray[1]}</p>
-            </div>
-        )
     }
 
     
@@ -61,12 +53,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
     }
 
 
-
-    if (!product) {
-        return <></>
-    }
-   
-    // debugger
+    if (!product) return <></>
     return (
         <div>
             <div className="category-bar">
@@ -82,7 +69,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                         <StarRating reviews={product.reviews} />
                     </div>
                     <div className="main-product-subsection">
-                        {formatPrice()}
+                        {formatPrice(product.price)}
                         <p className='bold'> About this item:</p>
                         <ul>
                             {parseString(product.body).map( (bodyElement, index) =>
@@ -92,7 +79,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                         
                     </div>
                 </div>
-                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice} cartItems={cartItems} updateCartItem={updateCartItem} history={history} setSessionStorageUpdate={setSessionStorageUpdate} openModal={openModal}/>
+                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice} cartItems={cartItems} updateCartItem={updateCartItem} history={history} tempCart={tempCart} updateTempCart={updateTempCart} openModal={openModal}/>
             </section>
             <div className="product-description main-product-subsection">
                 <h1>Description</h1>
@@ -166,11 +153,31 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                     </div>
                 </div>
                 <div className="product-reviews-right">
-                    <ReviewIndexContainer />
+                    <ReviewIndex />
                 </div>
             </div>
         </div>
     )
 }
 
-export default ProductShow;
+
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        product: state.entities.products[ownProps.match.params.productId],
+        userId: state.session.id,
+        cartItems: Object.values(state.entities.cart_items)
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchProduct: (productId) => dispatch(fetchProduct(productId)),
+        createCartItem: (userId, product) => dispatch(createCartItem(userId, product)),
+        updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem)),
+        openModal: (modal) => dispatch(openModal(modal))
+
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductShow))

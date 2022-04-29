@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AccountListDropDown from './account_list_dropdown/account_list_dropdown';
+import AccountListDropDown from './account_list_dropdown';
 
 import { connect } from "react-redux"
 import { logout } from "../../../actions/session_actions"

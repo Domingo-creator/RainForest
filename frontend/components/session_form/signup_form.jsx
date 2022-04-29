@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../../logo'
+import Logo from '../navigation_bar/logo'
+import { connect } from "react-redux"
+import { login, signup } from "../../actions/session_actions"
+
 
 const SignUpForm = ({errors, signup, login}) => {
     const [email, setEmail] = useState('')
@@ -212,5 +215,19 @@ const SignUpForm = ({errors, signup, login}) => {
 
 }
 
+//////// Container //////////
 
-export default SignUpForm
+const mapStateToProps = state => {
+    return {
+        errors: Object.values(state.errors.session),
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        signup: (user) =>  dispatch(signup(user)),
+        login: (user) => dispatch(login(user))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm)

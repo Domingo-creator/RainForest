@@ -2,7 +2,11 @@ import React, {useState} from 'react'
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
-import Logo from '../../logo'
+import Logo from '../navigation_bar/logo'
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min"
+import { login } from "../../actions/session_actions"
+
 
 const LogInForm = ({errors, login}) => {
     const [email, setEmail] = useState('')
@@ -89,10 +93,24 @@ const LogInForm = ({errors, login}) => {
                         <p>New to RainForest?</p>
                         <Link to='/signup' className='grey-button'>Create your RainForest account</Link>
                     </div>
-                    {/* <Button component={Link} to='/signup'>Create your Rainforest account</Button> */}
                 </div>
             </div>
         </div>
     )
 }
-export default LogInForm;
+
+//////  CONTAINER //////////
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        errors: Object.values(state.errors.session),
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        login: (user) =>  dispatch(login(user))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LogInForm))

@@ -1,8 +1,9 @@
 import React from 'react';
-import SignInButtonWindow from './sign_in_button_window/sign_in_button_window';
 import { connect } from "react-redux"
-import { logout } from "../../../../actions/session_actions"
+import { logout } from "../../../actions/session_actions"
 import {withRouter} from 'react-router'
+import { Link } from 'react-router-dom';
+
 
 const AccountListDropDown = ({currentUser, logout, history}) => {
         // debugger
@@ -14,7 +15,14 @@ const AccountListDropDown = ({currentUser, logout, history}) => {
         return (
             <ul className='dropdown-menu'>
                 <li>
-                    { currentUser ? <></> : <SignInButtonWindow /> }
+                    { currentUser ? 
+                        <></> 
+                    : 
+                    <div className="login-signup">
+                        <Link to='/login' className='session-button'>Sign In</Link>
+                        <p>New Customer? <Link to='/signup' className='link'>Start here</Link></p>
+                    </div>
+                    }
                 </li>
                 { currentUser ? <li onClick={handleLogOut}>Sign Out</li> : <></>}
             </ul>       

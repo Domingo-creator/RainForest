@@ -1,28 +1,13 @@
 import React, { useState } from "react"
 import {Link} from 'react-router-dom'
+import { formatDeliveryDateShort, getNextDeliveryTime } from "../../../util/formatting_util"
 
-const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems, setSessionStorageUpdate, history}) => {
+const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems, tempCart, updateTempCart, history}) => {
 
     const [quantity, setQuantity] = useState('1')
 
     const update = (e) => {
         setQuantity(e.target.value)
-    }
-
-    const getNextDeliveryTime = () => {
-        let deliveryTime = new Date
-        deliveryTime.getMinutes()
-        return `${deliveryTime.getHours() % 12} hours, ${60 - deliveryTime.getMinutes()} minutes`
-    }
-
-
-    const formatDeliveryDate = (deliveryDelay = product.id * 5 % 3 + 1) => {
-        let deliveryDate = new Date
-        deliveryDate.setDate(deliveryDate.getDate() + deliveryDelay)
-        deliveryDate = deliveryDate.toDateString().split(' ')
-        deliveryDelay === 1 ? deliveryDate[0] = 'Tomorrow' : deliveryDelay === 0 ? deliveryDate[0] = 'Today' : null;
-        deliveryDate[0] += ','
-        return deliveryDate.slice(0, 3).join(' ') 
     }
 
     const findMatchingCartItem = (currentCart) => {
@@ -45,40 +30,32 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
                 createCartItem(userId, cartItem);
             }
         } else {
-            let prevCart;
-            if(sessionStorage.getItem('cart') === '') {
-                prevCart = []
-            } else {
-                prevCart = JSON.parse(sessionStorage.getItem('cart'))
-            }
-            let matchingCartItem = findMatchingCartItem(prevCart)
+            let updatedTempCart = tempCart.slice()
+            let matchingCartItem = findMatchingCartItem(updatedTempCart)
             if(matchingCartItem) {
                 matchingCartItem.quantity += parseInt(quantity)
             } else {
                 cartItem.name = product.name
                 cartItem.price = product.price
                 cartItem.image_url = product.image_url
-                prevCart.push(cartItem)
+                updatedTempCart.push(cartItem)
                 // createNoUserCartItem(cartItem)
             }
-            sessionStorage.setItem('cart', JSON.stringify(prevCart))
-            setSessionStorageUpdate(Math.random() * 1000)
+           updateTempCart(updatedTempCart)
         }
     }
 
     const handleBuyNow = () => {
-        
-        // openModal('buy_now');
     }
 
     return (
         <div className="product-purchase-window">
             <div className="product-purchase-window-price">
-                {formatPrice()}
+                {formatPrice(product.price)}
                 <p className="product-purchase-window-returns">& <span className='fake-link'>Free Returns</span></p>
             </div>
             <div className="product-purchase-window-delivery-info">
-                <p >FREE delivery <strong>{formatDeliveryDate()}</strong></p>
+                <p >FREE delivery <strong>{formatDeliveryDateShort(product)}</strong></p>
                 <p>Order within <span className="product-purchase-window-delivery-cutoff">{getNextDeliveryTime()}</span></p>
             </div>
             <h2 className="product-purchase-window-stock-status">In Stock.</h2>
@@ -108,3 +85,30 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
 }
 
 export default ProductPurchaseWindow
+
+// import { connect } from "react-redux"
+// import { withRouter } from "react-router-dom"
+// import { createCartItem, updateCartItem } from "../../../../actions/cart_item_actions"
+// import { openModal } from "../../../../actions/modal_actions"
+// import ProductPurchaseWindow from "./product_purchase_window"
+
+// const mapStateToProps = (state, ownProps) => {
+//     return {
+//         userId: state.session.id,
+//         product: state.entities.product[ownProps.match.params.productId],
+//         cartItems: state.entitites.cartItems
+//     }
+// }
+
+// const mapDispatchToProps = dispatch => {
+//     debugger
+//     return {
+//         createCartItem: (userId, cartItem) => dispatch(createCartItem(userId, cartItem)),
+//         updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem)), 
+//         createNoUserCartItem: product => dispatch(createNoUserCartItem(product)),
+//         openModal: (modal) => dispatch(openModal(modal))
+
+//     }
+// }
+
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductPurchaseWindow))

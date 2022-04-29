@@ -27,12 +27,12 @@ const receiveSearchResults = results => {
 }
 
 export const fetchProducts = filter => dispatch => {
-    return ProductApiUtil.fetchProducts(filter)
+    return ProductApiUtil.fetchProducts(buildFilter(filter))
         .then( products => dispatch(receiveProducts(products)))
 }
 
 export const fetchSearchResults = filter => dispatch => {
-    return ProductApiUtil.fetchProducts(filter)
+    return ProductApiUtil.fetchProducts(buildFilter(filter))
         .then( results => dispatch(receiveSearchResults(results)))
 }
 
@@ -41,3 +41,14 @@ export const fetchProduct = productId => dispatch => {
         .then( product => dispatch(receiveProduct(product)))
 }
 
+const buildFilter = (filter) => {
+    // debugger
+    let filterArray = [];
+    if(filter.searchText !== "") {
+        filterArray.push(`LOWER(name) LIKE LOWER('%${filter.searchText}%')`)
+    }
+    if(filter.department !== 'All Departments' && filter.department !== 'All Products') {
+        filterArray.push(`category = '${filter.department}'`)
+    }
+    return filterArray.join("AND ")
+}

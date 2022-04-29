@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
 import { createCartItem, createNoUserCartItem, fetchCartItems } from "../../../actions/cart_item_actions"
 
- const CartIcon = ({userId, cartItems, createCartItem, fetchCartItems, sessionStorageUpdate}) => {
+ const CartIcon = ({userId, cartItems, createCartItem, fetchCartItems, tempCart, updateTempCart, sessionStorageUpdate}) => {
     const [rerender, setRerender] = useState('')
     const [storageUpdate, setStoragetUpdate] = useState(sessionStorageUpdate)
 
-    let cart = sessionStorage.getItem('cart')
-
-    // debugger
-    if(cart && userId) {
-        JSON.parse(cart).forEach( cartItem => {
-            cartItem.userId = userId
-            createCartItem(userId, cartItem)
-        })
-        sessionStorage.removeItem('cart')
-    }
-
+   
     useEffect( () => {
         if(userId) fetchCartItems(userId) 
     },[])
+
+    //Merge Temp Cart on Log In
+    if(tempCart.length && userId) {
+        debugger
+        tempCart.forEach( cartItem => {
+            cartItem.userId = userId
+            createCartItem(userId, cartItem)
+        })
+        updateTempCart([])
+    }
 
     // useEffect( () => {
     //     // if( sessionStorage.getItem('cart') ) {
@@ -33,9 +33,8 @@ import { createCartItem, createNoUserCartItem, fetchCartItems } from "../../../a
         let count = 0;
         if(userId) {
             cartItems.forEach( cartItem => count += cartItem.quantity)
-        } else if( sessionStorage.getItem('cart') ) {
-            JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => { 
-                count += cartItem.quantity} )
+        } else {
+            tempCart.forEach( cartItem => count += cartItem.quantity )
         }
         return count;
     }

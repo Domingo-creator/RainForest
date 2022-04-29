@@ -1,45 +1,38 @@
 import React, { useState } from 'react'
-// import AccountListContainer from './account_list/account_list_container'
 import AccountList from './account_list/account_list'
-import Logo from '../logo'
+import Logo from './logo'
 import SearchBar from './search_bar/search_bar'
 import CategoryLink from './category_link'
 import CartIcon from './cart_icon/cart_icon'
-
-
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import { fetchProducts } from "../../actions/product_actions"
-// import NavBelt from "./navigation_bar"
 
-const NavBelt = ({fetchProducts, history, userId, sessionStorageUpdate}) => {
+const NavBelt = ({fetchProducts, history, userId, filter, updateFilter, tempCart, updateTempCart}) => {
     if(sessionStorage.getItem('department') === 'undefined') sessionStorage.setItem('department', 'All Departments')
     if(!userId && !sessionStorage.getItem('cart')) sessionStorage.setItem('cart', '')
-    const [department, setDepartment] = useState(sessionStorage.getItem('department'))
-    const[searchText, setSearchText] = useState(sessionStorage.getItem('searchText') || '')
-    // const [cart, setCart] = useState(sessionStorage.getItem('cart'))
 
-
-    // debugger
+    const [searchText, setSearchText] = useState(sessionStorage.getItem('searchText' || ''))
+ 
     return (
         <nav className="nav-belt">
             <div className="nav-belt-bar-1">
                 <Logo setSearchText={setSearchText}/>
                 {/* <DeliverToContainer /> */}
-                <SearchBar setDepartment={setDepartment} department={department} searchText={searchText} setSearchText={setSearchText}/>
+                <SearchBar searchText={searchText} setSearchText={setSearchText} filter={filter} updateFilter={updateFilter}/>
                 <AccountList />
-                <CartIcon sessionStorageUpdate={sessionStorageUpdate}/>
+                <CartIcon updateTempCart={updateTempCart} tempCart={tempCart}/>
                 
             </div>
 
             <div className="nav-belt-bar-2">
-                <CategoryLink category={'All Products'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
-                <CategoryLink category={'Toys & Games'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
-                <CategoryLink category={'Health & Household'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
-                <CategoryLink category={'Fashion'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
-                <CategoryLink category={'Electronics'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
-                <CategoryLink category={'Pet Supplies'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
-                <CategoryLink category={'Sporting Goods'} fetchProducts={fetchProducts} history={history} department={department} setDepartment={setDepartment} setSearchText={setSearchText}/>
+                <CategoryLink category={'All Products'} fetchProducts={fetchProducts} history={history} setSearchText={setSearchText} updateFilter={updateFilter}/>
+                <CategoryLink category={'Toys & Games'} fetchProducts={fetchProducts} history={history} setSearchText={setSearchText} updateFilter={updateFilter}/>
+                <CategoryLink category={'Health & Household'} fetchProducts={fetchProducts} history={history} setSearchText={setSearchText} updateFilter={updateFilter}/>
+                <CategoryLink category={'Fashion'} fetchProducts={fetchProducts} history={history} setSearchText={setSearchText} updateFilter={updateFilter}/>
+                <CategoryLink category={'Electronics'} fetchProducts={fetchProducts} history={history} setSearchText={setSearchText} updateFilter={updateFilter}/>
+                <CategoryLink category={'Pet Supplies'} fetchProducts={fetchProducts} history={history} setSearchText={setSearchText} updateFilter={updateFilter}/>
+                <CategoryLink category={'Sporting Goods'} fetchProducts={fetchProducts} history={history} setSearchText={setSearchText} updateFilter={updateFilter}/>
             </div>
         </nav>
     )

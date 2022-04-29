@@ -7,8 +7,7 @@ import {withRouter} from "react-router"
 // import CartItemIndex from "./cart_item_index"
 
 
-const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId, sessionStorageUpdate, setSessionStorageUpdate, cartItemsSelected, setCartItemsSelected, history}) => {
-    // const [cartItemsSelected, setCartItemsSelected] =  useState({})
+const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId, tempCart, setTempCart, cartItemsSelected, setCartItemsSelected, history}) => {
     const [checkedOut, setCheckout] = useState(false);
 
     useEffect( () => {
@@ -17,14 +16,12 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
     },[])
     
     useEffect( () => {
-        // debugger
         let newSelected = {}
         if(userId){
             cartItems.forEach( cartItem => newSelected[cartItem.productId] = true) 
         }
         else {
-            
-            if(sessionStorage.getItem('cart')) JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => newSelected[cartItem.productId] = true)
+            tempCart.forEach( cartItem => newSelected[cartItem.productId] = true)
         }
         setCartItemsSelected(newSelected)
 
@@ -33,13 +30,14 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
 
     const cartItemList = () => {
         if(userId && cartItems.length) {
-            return cartItems.map( (cartItem,index) => {
-                return <CartIndexItem key={cartItem.id} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
-            })
-        } else if(sessionStorage.getItem('cart')) {
-            return JSON.parse(sessionStorage.getItem('cart')).map( (cartItem, index) => {
-                return <CartIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem} setSessionStorageUpdate={setSessionStorageUpdate}/>
-            })
+            return cartItems.map( (cartItem,index) => 
+                <CartIndexItem key={cartItem.id} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
+            )
+        } else if(tempCart) {
+            return tempCart.map( (cartItem, index) => 
+                <CartIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
+            )
+
         } else {
             return (
                 <div>
@@ -52,14 +50,10 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
 
 
     const checkAllSelected = () => {
-        if(userId) {
-            debugger
-            return Object.keys(cartItemsSelected).length === cartItems.length && Object.values(cartItemsSelected).every( value => value === true)
-        } else {
-            debugger
-            return sessionStorage.getItem('cart') && Object.keys(cartItemsSelected).length === JSON.parse(sessionStorage.getItem('cart')).length && Object.values(cartItemsSelected).every( value => value === true)
-        }
+            return (Object.keys(cartItemsSelected).length === cartItems.length || (tempCart.length && Object.keys(cartItemsSelected).length === tempCart.length)) 
+            && Object.values(cartItemsSelected).every( value => value === true)
     }
+    
 
     const toggleSelectAll = () => {
         let newSelected = {}
@@ -67,7 +61,7 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
             if(userId) {
                 cartItems.forEach( cartItem => newSelected[cartItem.productId] = true )
             } else {
-                JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => newSelected[cartItem.productId] = true)
+                tempCart.forEach( cartItem => newSelected[cartItem.productId] = true)
             }
         }
         setCartItemsSelected(newSelected)
@@ -79,22 +73,18 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
         if (userId) {
             cartItems.forEach( cartItem => count += cartItemsSelected[cartItem.productId] ?  cartItem.quantity : 0)
         } else {
-            
-            if(sessionStorage.getItem('cart')) JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => count += cartItemsSelected[cartItem.productId] ?  cartItem.quantity : 0)
+            tempCart.forEach( cartItem => count += cartItemsSelected[cartItem.productId] ?  cartItem.quantity : 0)
         }
         return `${count} item${count > 1 ? 's' : ''}`
     }
+
 
     const getSubtotal = () => {
         let subtotal = 0.00;
         if (userId) {
             cartItems.forEach( cartItem => subtotal += cartItemsSelected[cartItem.productId] ? (cartItem.price * cartItem.quantity) : 0)
         } else {
-            if(sessionStorage.getItem('cart')) {
-                JSON.parse(sessionStorage.getItem('cart')).forEach( cartItem => {
-                 subtotal += cartItemsSelected[cartItem.productId] ? (cartItem.price * cartItem.quantity) : 0
-                })
-            }
+            tempCart.forEach( cartItem => subtotal += cartItemsSelected[cartItem.productId] ? (cartItem.price * cartItem.quantity) : 0)
         }
         let subtotalArray = subtotal.toString().split('.')
         if(subtotalArray.length === 1) subtotalArray.push('00');
@@ -107,10 +97,10 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
         )
     }
 
+
     const handleCheckout = () => {
         if(userId) {
-            // setCheckout(true)
-            // cartItems.forEach( cartItem => cartItemsSelected[cartItem.id] ? removeCartItem(cartItem.userId, cartItem.id) : null)
+            sessionStorage.setItem('cartItemsSelected', JSON.stringify(cartItemsSelected))
             history.push('/cart/checkout')
         } else {
             history.push('/login')
@@ -130,7 +120,7 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
             <ul className='cart-list'>
                 <div>
                     <h1>Shopping Cart</h1>
-                    { cartItems.length || (!!sessionStorage.getItem('cart') && JSON.parse(sessionStorage.getItem('cart'))).length ? 
+                    { cartItems.length || tempCart.length ? 
                         <p onClick={toggleSelectAll} className="cart-select-all">
                             {checkAllSelected() ? 'Deselect all items' : 'Select All'}
                         </p>

@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import ProductIndexItem from "./product_index_item"
-const ProductIndex = ({products, fetchProducts, createCartItem, userId}) => {
+import { connect } from "react-redux"
+import { fetchProducts } from "../../../actions/product_actions"
 
-    const [loading, setLoading] = useState(true)
+
+const ProductIndex = ({products, fetchProducts, createCartItem, userId, updateTempCart, filter}) => {
+
+    const loading = useRef(true)
 
     useEffect( () => {
-        if(sessionStorage.getItem('prevFilter')) {
-            fetchProducts(sessionStorage.getItem('prevFilter')).then(() => setLoading(false))
-        } else{
-            fetchProducts().then( () => setLoading(false))
-        }
+        fetchProducts(filter).then( () => loading.current = false)
         window.scrollTo(0, 0)
-    },[])
+    },[filter])
 
 
-    if(!products.length && !loading) {
-        // debugger
-        return <h1>No products found matching your search...</h1>
-    }
-
+    if(!products.length && !loading) return <h1>No products found matching your search...</h1>
     return(
         <ul className="product-list">
             {products.map( product => {
@@ -28,4 +24,20 @@ const ProductIndex = ({products, fetchProducts, createCartItem, userId}) => {
     )
 }
 
-export default ProductIndex
+////// Container ////////
+
+
+const mapStateToProps = state => {
+    return {
+        products: Object.values(state.entities.products),
+        userId: state.session.id
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchProducts: (filter) => dispatch(fetchProducts(filter))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductIndex)

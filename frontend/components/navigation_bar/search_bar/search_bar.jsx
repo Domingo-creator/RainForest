@@ -5,11 +5,15 @@ import { openModal } from "../../../actions/modal_actions"
 import { fetchProducts, fetchSearchResults } from "../../../actions/product_actions"
 
 
-const SearchBar = ({department, setDepartment, fetchProducts, fetchSearchResults, searchResults, searchText, setSearchText, openModal, history})=> {
+const SearchBar = ({fetchProducts, fetchSearchResults, searchResults, searchText, setSearchText, filter, updateFilter,openModal, history})=> {
     
-    const[results, setResults] = useState()
+    const [results, setResults] = useState()
+    const [department, setDepartment] = useState(filter.department)
+    
+
 
     useEffect( () => {
+        // debugger
         sessionStorage.getItem('searchText') && setSearchText(sessionStorage.getItem('searchText'))
         sessionStorage.getItem('department') && setDepartment(sessionStorage.getItem('department'))
     }, [])
@@ -17,9 +21,14 @@ const SearchBar = ({department, setDepartment, fetchProducts, fetchSearchResults
     useEffect(() => {
         sessionStorage.setItem('searchText', searchText)
         sessionStorage.setItem('department', department)
-        fetchSearchResults(createFilter())
+        fetchSearchResults({searchText: searchText, department:department})
     }, [searchText, department])
     
+    useEffect( () => {
+        if( department !== filter.department) setDepartment(filter.department)
+    },[filter])
+
+
     const updateSearchText = (e) => {
         setSearchText(e.target.value)
     }
@@ -30,21 +39,8 @@ const SearchBar = ({department, setDepartment, fetchProducts, fetchSearchResults
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        let filter = createFilter()
-        sessionStorage.setItem('prevFilter', filter)
-        fetchProducts(filter)
-            .then(history.push('/products'))
-    }
-
-    const createFilter = () => {
-        let filterArray = [];
-        if(searchText !== "") {
-            filterArray.push(`LOWER(name) LIKE LOWER('%${searchText}%')`)
-        }
-        if(department !== 'All Departments' && department !== 'All Products') {
-            filterArray.push(`category = '${department}'`)
-        }
-        return filterArray.join(" AND ")
+        updateFilter({department: department, searchText: searchText})
+        history.push('/products')
     }
 
         return(

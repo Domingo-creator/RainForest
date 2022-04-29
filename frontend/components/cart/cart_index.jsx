@@ -11,6 +11,7 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
     const [checkedOut, setCheckout] = useState(false);
 
     useEffect( () => {
+        // debugger
         if(userId) fetchCartItems(userId)
         // cartItems.forEach( cartItem => newSelected[cartItem.id] = true )
     },[])

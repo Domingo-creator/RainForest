@@ -65,16 +65,28 @@
     text-align: center;
 }
 
-.homepage-list li h1 {
-    font-size: 2.5vw;
+.homepage-list-quarters {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.homepage-list img {
+.homepage-box-quarters img {
+    width:30%;
+    height: auto;
+    max-height: 40%;
+    margin:3%;
+}
+
+.homepage-box-single img {
     margin: auto;
     height: 13vw;
     width: auto;
 
 }
+.homepage-list li h1 {
+    font-size: 2.0vw;
+}
+
 
 .hover {
     cursor: pointer;
@@ -85,4 +97,13 @@
     width: auto;
     color: grey;
     /* border: white solid; */
+}
+
+.homepage-box-quarters {
+   /* object-fit: contain; */
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
 }

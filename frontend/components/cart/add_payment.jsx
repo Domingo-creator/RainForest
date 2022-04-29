@@ -14,8 +14,6 @@ const AddPayment = ({currentUser, closeModal, history, paymentMethod, setPayment
     const [CCV, setCCV] = useState(paymentMethod?.ccv || '')
     const [cardType, setCardType] = useState(paymentMethod?.cardType || 'Visa')
 
-    
-
     const [country, setCountry] = useState(address?.country || 'United States')
     const [fullName, setFullName] = useState(address?.fullName || '')
     const [phoneNumber, setPhoneNumber] = useState(address?.phoneNumber || '')
@@ -43,37 +41,46 @@ const AddPayment = ({currentUser, closeModal, history, paymentMethod, setPayment
     }
 
     return(
-        <form className="add-address-form" onSubmit={(e) => handleSubmit(e)}>
+        <form className="add-payment-form" onSubmit={(e) => handleSubmit(e)}>
             <header>Add a credit or debit card</header>
-            <body>
-            <label className="add-address-form-section">Card number
-                <input value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}/>
-            </label>
-            <label className="add-address-form-section">Name on card
-                <input value={nameOnCard} onChange={(e) => setNameOnCard(e.target.value)}/>
-            </label>
-            <label className="add-address-form-section">Expiration date
-                <select value={expirationMonth} onChange={(e) => setExpirationMonth(e.target.value)}>
-                    <option value={'01'}>01</option>
-                    <option value={'02'}>02</option>
-                    <option value={'03'}>03</option>
-                    <option value={'04'}>04</option>
-                    <option value={'05'}>05</option>
-                    <option value={'06'}>06</option>
-                    <option value={'07'}>07</option>
-                    <option value={'08'}>08</option>
-                    <option value={'09'}>09</option>
-                    <option value={'10'}>10</option>
-                    <option value={'11'}>11</option>
-                    <option value={'12'}>12</option>
-                </select>
-                <select value={expirationYear} onChange={(e) => setExpirationYear(e.target.value)}>
-                    {getYearOptions()}
-                </select>
-            </label>
-            </body>
-            <button type='button' onClick={() => closeModal()}>Cancel</button>
-            <button type='submit'>Add your card</button>
+            <div className='add-payment-form-body'>
+                <div className='add-payment-form-card'>
+                    <p className="add-payment-form-section">Card number</p>
+                    <input value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}/>
+                    
+                </div>
+                <div className='add-payment-form-name'>
+                    <p className="add-payment-form-section">Name on card</p>
+                    <input value={nameOnCard} onChange={(e) => setNameOnCard(e.target.value)}/>
+                </div>
+                <div className='add-payment-form-expiration'>
+                    <p className="add-payment-form-section">Expiration date</p>
+                    <div>
+                        <select value={expirationMonth} onChange={(e) => setExpirationMonth(e.target.value)} className='add-payment-expiration-month'>
+                            <option value={'01'}>01</option>
+                            <option value={'02'}>02</option>
+                            <option value={'03'}>03</option>
+                            <option value={'04'}>04</option>
+                            <option value={'05'}>05</option>
+                            <option value={'06'}>06</option>
+                            <option value={'07'}>07</option>
+                            <option value={'08'}>08</option>
+                            <option value={'09'}>09</option>
+                            <option value={'10'}>10</option>
+                            <option value={'11'}>11</option>
+                            <option value={'12'}>12</option>
+                        </select>
+                        <select value={expirationYear} onChange={(e) => setExpirationYear(e.target.value)} className='add-payment-expiration-month'>
+                            {getYearOptions()}
+                        </select>
+                    </div>
+                </div>
+                <br/>   
+            </div>
+            <header>
+                <button type='button' onClick={() => closeModal()}>Cancel</button>
+                <button type='submit'>Add your card</button>
+            </header>
         </form>
     )
 }
@@ -84,7 +91,7 @@ const AddPaymentModal = ({modal, closeModal, paymentMethod, setPaymentMethod, ad
 
     return (
         <div className="address-modal-background" onClick={() => closeModal()}>
-            <div className="address-modal-child" onClick={e => e.stopPropagation()}>
+            <div className="payment-modal-child" onClick={e => e.stopPropagation()}>
                 <AddPayment closeModal={closeModal} history={history} paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod}/>
             </div>
         </div>

@@ -52,33 +52,43 @@ const HomePage = ({fetchProducts, history}) => {
                 <button className="carousel-button right" onClick={carouselForward}><BsChevronCompactRight className="banner-arrows"/></button>
             </div>
             <div className="homepage-list">
-                <li>
+                <li className='homepage-box-single'>
                     <h1>Control Your Home With Your Voice!</h1>
                     <Link to='products/31'  className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/echoDot.jpg" /></Link>
                 </li>
-                <li>
+                <li className='homepage-box-quarters'>
+                    <h1>Keep your laundry smelling fresh</h1>
+                    <div>
+                        <Link to='products/2' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/snuggleDetergent.jpg" /></Link>
+                        <Link to='products/1' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/tidePods.jpg" /></Link>
+                        <Link to='products/6' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/downyCalm.jpg" /></Link>
+                        <Link to='products/3' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/dryerBalls.jpg" /></Link>
+                    </div>
+                </li>
+                <li className='homepage-box-single'>
                     <h1>Play the hottest games</h1>
                     <Link to='products/18' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/eldenRing.jpg" /></Link>
                 </li>
-                <li>
+                <li >
                     <h1>Stock up on pet supplies</h1>
-                    <Link to='products/50' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/catLitter.jpg" /></Link>
+                    <div className='homepage-box-quarters'>
+                        <Link to='products/50' ><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/catLitter.jpg" /></Link>
+                        <Link to='products/41' ><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/frontlinePlus.jpg" /></Link>
+                        <Link to='products/45' ><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/dogHarness.jpg" /></Link>
+                        <Link to='products/52' ><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/purinaOne.jpg" /></Link>
+                    </div>
                 </li>
-                <li>
+                <li className='homepage-box-single'>
                     <h1>Get the latest TVs</h1>
                     <Link to='products/32' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/lgTv.jpg" /></Link>
                 </li>
-                <li>
+                <li className='homepage-box-single'>
                     <h1>Get in shape for summer!</h1>
                     <Link to='products/55' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/maxiClimber.jpg" /></Link>
                 </li>
-                <li>
+                <li className='homepage-box-single'>
                     <h1>Venture into the metaverse!</h1>
                     <Link to='products/39' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/oculus.jpg" /></Link>
-                </li>
-                <li>
-                    <h1>Keep your laundry smelling fresh</h1>
-                    <Link to='products/2' className='homepage-product-image'><img src="https://rainforest-dev.s3.us-west-1.amazonaws.com/snuggleDetergent.jpg" /></Link>
                 </li>
             </div>
         </div>

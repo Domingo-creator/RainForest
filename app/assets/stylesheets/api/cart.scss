@@ -6,14 +6,16 @@
 .cart-page {
     display: flex;
     flex-direction: row;
+    background-color: whitesmoke;
 }
 
 .cart-list {
-    background-color: whitesmoke;
+    background-color: white;
     list-style: none;
     display: flex;
     flex-direction: column;
     padding: 20px;
+    width: calc(85vw - 278px);
 }
 
 .cart-list h1 {
@@ -32,17 +34,20 @@
 
 .cart-list > :nth-child(1n) {
     border-bottom: solid lightgrey;
+    margin-bottom: 15px;
 }
 
 .cart-list li {
-    border-bottom: thick lightgrey;
+    // border-bottom: thick lightgrey;
     margin-bottom: 2px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding-bottom: 20px;    
+    padding: 20px;    
     margin-left: 20px;
-    padding-top: 20px
+    // padding-top: 20px;
+    border: solid lightgray thin;
+    margin: 10px;
     // margin-right: 20px;
 
 }
@@ -125,7 +130,7 @@
     width: 300px;
     height: 122.5px;
     margin: 20px;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .cart-checkout button {
@@ -338,11 +343,10 @@
     // width:29%
 }
 
-.add-address-form header {
+.add-address-form header, .add-payment-form header {
     border-bottom: 1px solid #D5D9D9;
     background-color: #F0F2F2;
     border-radius: 8px 8px 0 0;
-    width: 92.5%;
     position: relative;
     text-align: left;
     background: #f2f2f2;
@@ -356,9 +360,20 @@
     margin: 0;
     padding: 20px;
     z-index: 10;
-    font-size: 18px;
     font-weight: bold;
 }
+
+.add-address-form header {
+    font-size: 18px;
+    width: 92.25%;
+
+}
+
+.add-payment-form header {
+    font-size: 13px;
+    width: 94.5%;
+}
+
 
 .cart-checkout-shipping-address, .cart-checkout-payment-method  {
     display: flex;
@@ -385,3 +400,67 @@
     text-decoration: underline;
 
 }
+
+
+.payment-modal-child {
+    width: 706px;
+    height: 289px;
+    background-color: white;
+    position: absolute;
+    left: calc(50vw - 358px);
+    // height:90%;
+    top: 5vh;
+    // left: 30vw;
+    // width: 40vw;
+    z-index: 5;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: #D5D9D9;
+    box-shadow: 0 0 14px 0 rgba(15, 16, 16, 0.5);
+}
+
+.add-payment-form-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    border-right: solid lightgray;
+}
+
+.add-payment-form-name, .add-payment-form-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 301px;
+}
+
+.add-payment-form-expiration {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 301px;
+}
+
+.add-payment-form-body > div > p {
+    font-weight: bold;
+}
+.add-payment-form-body input {
+    height: 31px;
+    width: 157px;
+    margin-left: 30px;
+}
+
+
+
+.add-payment-expiration-month {
+    height:29px;
+    width: 52px;
+    margin-left: 20px;
+}
+
+.add-payment-expiration-year {
+    height: 29px;
+    width: 68px
+}
+
+

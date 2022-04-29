@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
-import { fetchCartItems, updateCartItem } from "../../actions/cart_item_actions"
+import {withRouter} from 'react-router-dom'
+import { fetchCartItems, removeCartItem, updateCartItem } from "../../actions/cart_item_actions"
 import { openModal } from "../../actions/modal_actions"
 import { formatCheckoutPrice } from "../../util/formatting_util"
 import AddAddress from "./add_address"
 import AddPayment from "./add_payment"
 import CartCheckoutItem from "./cart_checkout_item"
+import {AiOutlinePlus} from 'react-icons/ai'
+import regeneratorRuntime from "regenerator-runtime";
 
-const CartCheckout = ({currentUserId, setCartItemsSelected, cartItemsSelected, cartItems, fetchCartItems, openModal}) => {
+const CartCheckout = ({currentUserId, setCartItemsSelected, cartItemsSelected, cartItems, fetchCartItems, openModal, removeCartItem, history}) => {
 
     const [address, setAddress] = useState(sessionStorage.getItem('address') ? JSON.parse(sessionStorage.getItem('address')) : undefined);
     const [paymentMethod, setPaymentMethod] = useState(sessionStorage.getItem('paymentMethod') ? JSON.parse(sessionStorage.getItem('paymentMethod')) : undefined);
@@ -36,6 +39,16 @@ const CartCheckout = ({currentUserId, setCartItemsSelected, cartItemsSelected, c
     const calcTotal = () => {
         return (parseFloat(calcSubtotal())+ parseFloat(calcTax())).toFixed(2)
     }
+
+    const handleCheckout = async _ => {
+        for(let i = 0; i < cartItems.length; i++) {
+            // Each( async cartItem => {
+            if(cartItemsSelected[cartItems[i].productId]) {
+                await removeCartItem(cartItems[i].userId, cartItems[i].id); 
+            }
+        }
+        history.push('/cart')
+    }
     
     const itemCount = calcItemCount()
     const checkoutItems = cartItems.filter( cartItem => cartItemsSelected[cartItem.productId])
@@ -59,7 +72,7 @@ const CartCheckout = ({currentUserId, setCartItemsSelected, cartItemsSelected, c
                         }
                     </div>
                     <div className="checkout-add-address">
-                        <p  onClick={() => openModal('addAddress')}>{address ? 'Change' : 'Add Address'}</p>
+                        <p  onClick={() => openModal('addAddress')}>{address ? 'Change' : <div className="flex-center"><AiOutlinePlus/>Add Address</div>}</p>
                     </div>  
                 </div>
 
@@ -72,7 +85,7 @@ const CartCheckout = ({currentUserId, setCartItemsSelected, cartItemsSelected, c
                         }
                     </div>
                     <div className="checkout-add-address">
-                        <p  onClick={() => openModal('addPayment')}>{paymentMethod ? 'Change' : 'Add credit or debit card'}</p>
+                        <p  onClick={() => openModal('addPayment')}>{paymentMethod ? 'Change' : <div className="flex-center"><AiOutlinePlus/>Add credit or debit card</div>}</p>
                     </div>  
 
                 </div>
@@ -90,7 +103,7 @@ const CartCheckout = ({currentUserId, setCartItemsSelected, cartItemsSelected, c
                 </div>
             </div>
             <div className="cart-checkout-container-side-2">
-                <button className='cart-checkout-button'>Place your order</button>
+                <button className='cart-checkout-button' onClick={handleCheckout}>Place your order</button>
                 <div className='cart-checkout-order-summary'>
                     <h3>Order Summary</h3>
                     <div>
@@ -132,8 +145,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
+        removeCartItem: (userId, cartItemId) => dispatch(removeCartItem(userId, cartItemId)),
         openModal: (modal) => dispatch(openModal(modal))
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(CartCheckout)
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(CartCheckout))

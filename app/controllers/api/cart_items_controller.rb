@@ -7,6 +7,8 @@ class Api::CartItemsController < ApplicationController
     
     def create 
         @cart_item = CartItem.new(cart_params)
+        @cart_item.saved_for_later = false;
+        debugger
         if @cart_item.save
             #render json: {message: 'Item successfully added'}
             render :show

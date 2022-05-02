@@ -1,24 +1,18 @@
 # Welcome to RainForest
 RainForest is an amazon clone, where you can shop and search for all your needs.
 
-LIVE-LINK: https://rainforest-amazon-clone.herokuapp.com/#/
+LIVE-LINK:(https://rainforest-amazon-clone.herokuapp.com/#/)
 
 ![alt text](https://github.com/Domingo-creator/RainForest/blob/master/app/assets/images/main_page_screenshot.png) 
 
 
 # Technologies Used
-+ Ruby on Rails
-+ React / Redux
-+ JavaScript / AJAX / JBuilder
-+ PostgreSQL
-+ HTML5 and CSS
-+ AWS S3 and AWS IAM
-+ Heroku
+RainForest was constructed utilizing a combination of Ruby on Rails, Postgres, React, Redux, JavaScript, HTML, and CSS. Ruby on Rails was used to create a Model-View-Controller Architecture with Postgres used as the database. React and Redux were then incorporated to dynamically connect the backend to the frontend. AWS S3 was used to store media assets which are fetched as needed. The frontend was structured with HTML and styled with CSS.
 
 
 # Features
 ### Products Search and Sort-by category
-Users can select a department from the drop down menu, or click one of the department links to add a category filter to the product search.  Users can also type a search term into the search bar to filter for products that contain the search term in their name within the selected department.
+Users can find by products through the use of either the search bar or category links. A dropdown menu next to the search bar allows users to filter results to the selected department. Products are fetched based on the combination of filters provided. Matching results to the current department/search-term combination will be displayed as links and updated in real time.  Selected filters will be saved on reload through the use of sessionStorage.  
 ![rainforest_search](https://user-images.githubusercontent.com/59151493/166298514-37f8a4fb-4f52-4fe7-8722-4bba67765f78.gif)
 
 ```
@@ -42,7 +36,7 @@ Users can select a department from the drop down menu, or click one of the depar
 
 ![rainforest_cart](https://user-images.githubusercontent.com/59151493/166296492-e360ccc0-8ba5-498e-bb46-9b91b0da614f.gif)
 
-Users can add, update quantities, and delete products from their cart.  If not logged in, cart items will be stored in sessionStorage until the user logs in, at which time the cart will be merged with the users cart.  Users can checkout their cart when they are finished shopping, or select the **_buy now_** option to instantly checkout an item.
+Users can add, update quantities, and delete products from their cart.  If not logged in, cart items will be stored in a temporary cart until the user logs in, at which time the cart will be merged with the users cart.  Users can checkout their cart when they are finished shopping, or select the **_buy now_** option to instantly checkout an item.  When the user is on their cart page, they may choose which items they would like to checkout.  Total costs will be determined based on selected items at the checkout page, and cart items will be deleted from the cart after payment is complete.
 
 ```
  let matchingCartItem = findMatchingCartItem(cartItems);
@@ -75,7 +69,7 @@ updateTempCart([])
 ```
 
 ### Leave Reviews
-Users can leave reviews for products.  Reviews for any given product are averaged to give the star rating for the product.
+If logged in, users can leave reviews for products, which includes a mandatory star rating, and an option headline and body.  Star ratings for all reviews of a product are averaged and displayed as an overall rating on the product pages.
 
 ![rainforest_reviews](https://user-images.githubusercontent.com/59151493/166301291-4ba76ff8-c7c3-46fb-988d-b97fd63b54bc.gif)
 

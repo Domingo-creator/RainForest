@@ -86,9 +86,11 @@ const LogInForm = ({errors, login}) => {
                         />
                     </label>
                     <button className='continue-button'>Continue</button>
-                    <button onClick={demoUserLogin} className='continue-button'>Log in as Demo User</button>
+                    <button type="button" onClick={demoUserLogin} className='continue-button'>Log in as Demo User</button>
                 </form>
+                
                 <div className="login-footer">
+
                     <div className='create-account-button-container'>
                         <p>New to RainForest?</p>
                         <Link to='/signup' className='create-account-button'>Create your RainForest account</Link>

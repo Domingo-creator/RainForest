@@ -38,6 +38,9 @@ Users can select a department from the drop down menu, or click one of the depar
 ```
 
 ### Update Cart
+
+![rainforest_cart](https://user-images.githubusercontent.com/59151493/166296492-e360ccc0-8ba5-498e-bb46-9b91b0da614f.gif)
+
 Users can add, update quantities, and delete products from their cart.  If not logged in, cart items will be stored in sessionStorage until the user logs in, at which time the cart will be merged with the users cart.  Users can checkout their cart when they are finished shopping, or select the **_buy now_** option to instantly checkout an item.
 
 ```

@@ -73,7 +73,7 @@ const LogInForm = ({errors, login}) => {
                 {/* <h1 className="logo">RainForest</h1> */}
                 <Logo />
                 <form onSubmit={(e) =>handleSubmit(e)} className="session-form">
-                    <h1>Sign-In</h1>
+                    <h1 className="session-form-header">Sign-In</h1>
                     {errors.map(error=> {
                         return <p>{error}</p>
                     })}
@@ -86,12 +86,12 @@ const LogInForm = ({errors, login}) => {
                         />
                     </label>
                     <button className='continue-button'>Continue</button>
+                    <button onClick={demoUserLogin} className='continue-button'>Log in as Demo User</button>
                 </form>
                 <div className="login-footer">
-                    <button onClick={demoUserLogin} className='grey-button'>Log in as Demo User</button>
                     <div className='create-account-button-container'>
                         <p>New to RainForest?</p>
-                        <Link to='/signup' className='grey-button'>Create your RainForest account</Link>
+                        <Link to='/signup' className='create-account-button'>Create your RainForest account</Link>
                     </div>
                 </div>
             </div>

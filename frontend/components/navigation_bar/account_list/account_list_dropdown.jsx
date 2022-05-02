@@ -25,7 +25,7 @@ const AccountListDropDown = ({currentUser, logout, history}) => {
                     </div>
                     }
                 </li>
-                { currentUser ? <li onClick={handleLogOut}>Sign Out</li> : <></>}
+                { currentUser ? <li className="session-button" onClick={handleLogOut}>Sign Out</li> : <></>}
             </ul>       
         )
 }

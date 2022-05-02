@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Logo from '../navigation_bar/logo'
 import { connect } from "react-redux"
 import { login, signup } from "../../actions/session_actions"
-
+import {GoTriangleRight} from "react-icons/go"
 
 const SignUpForm = ({errors, signup, login}) => {
     const [email, setEmail] = useState('')
@@ -153,7 +153,7 @@ const SignUpForm = ({errors, signup, login}) => {
                 {/* <h1 className="logo">RainForest</h1> */}
                 <Logo/>
                 <form onSubmit={(e) =>handleSubmit(e)} className="session-form">
-                    <h1>Create Account</h1>
+                    <h1 className="session-form-header">Create Account</h1>
                     {errors.map(error=> {
                         return <p>{error}</p>
                     })}
@@ -200,15 +200,13 @@ const SignUpForm = ({errors, signup, login}) => {
                     </label>
                     <button className="continue-button">Continue</button>
 
-                    <button type="button" onClick={demoUserLogin} className='account-button'>Sign up as Demo User</button>
-                    <div>
+                    <button type="button" onClick={demoUserLogin} className='continue-button'>Sign up as Demo User</button>
+                    <div className="signup-form-footer">
                         <p className="text-small">By creating an account, you agree to RainForest's</p>
                         <p className="text-small">Conditions of Use and Privacy Notice.</p>
                     </div>
-                    <p className="text-medium">Already a have an account? <Link to='/login' className='link'>Sign In</Link></p>
+                    <p className="text-medium">Already a have an account? <Link to='/login' className='link'>Sign In<GoTriangleRight/></Link></p>
                 </form>
-
-            
             </div>
         </div>
     )

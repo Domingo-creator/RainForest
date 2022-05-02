@@ -21,51 +21,52 @@
 
 .session-button {
     text-align: center;
-    // min-height: 30px;
     min-width: 197px;
-    background-color: #f3cf72;
     padding: 8px 20px;
     text-decoration:none;
     font-weight:300;
-    border-radius:5px;
     cursor:pointer;
     box-shadow: 1px 2px 2px black;
-    //@at-root
     display: block;
     height: 15px;
-    margin: 0 10px 0 11px;
     cursor: pointer;
     outline: 0;
     border: 1px solid;
     border-color: #c89411 #b0820f #99710d;
     color: black;
-    font-size: black
+    font-size: black;
+    background: #f0c14d;
+    background: linear-gradient(0deg, #f0c14d 0%, #faebc8 100%);
+    border: 1px solid #846a29;
+    border-radius: 4px;
+    margin-top: 3px;
+    margin-bottom: 10px;
 }
 
 .continue-button {
-    // margin-top: 20px;
-    // margin-bottom: 30px;
     text-align: center;
-    max-height: 30px;
-    min-width: 350px;
-    max-width: 350px;
-    background-color: rgba(224, 191, 101, 0.938);
+    height: 31px;
+    width: 100%;
+    background: #f0c14d;
     padding: 8px 20px;
     text-decoration:none;
-    border-radius:5px;
+    border-radius:4px;
     cursor:pointer;
-    // border-color: rgba(255, 123, 0, 0.226);
     box-shadow: .1px .1px .1px rgba(235, 144, 92, 0.089);
-    //@at-root
     display: block;
-    // height: 15px;
-    margin: 20px 0px 20px 0px;
+    margin: 0px 0px 20px 0px;
     cursor: pointer;
     outline: 0;
     border: 1px solid;
     border-color: #c89411 #b0820f #99710d;
     color: black;
-    font-size: black
+    font-size: black;
+
+    background: linear-gradient(0deg, #f0c14d 0%, #faebc8 100%);
+    // border: 1px solid #846a29;
+    // border-radius: 4px;
+    // margin-top: 3px;
+    // margin-bottom: 10px;
 }
 
 .grey-button {
@@ -96,7 +97,7 @@
 
 
 .link, .link:visited{
-    color: blue;
+    color: #0066c0;
     text-decoration: none;
 }
 
@@ -118,28 +119,40 @@
 
 .session-form-container label {
     font-weight: bold;
+    font-size: 13px;
+    width: 100%;
 }
 
 .session-form-container label, input{
     display: block;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 40px;
 }
 
 .session-form-container input {
-    width: 350px;
+    width: 97%;
 }
 
 .session-form-container .logo {
 
 
+}
+
+.session-form-header {
+    font-weight: 200;
+    margin-top: 0px;
+    font-size:28px;
 }
 
 .session-form-container .logo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 22px 10px -5px 20px;
+    margin: 7px 10px -20px 20px;
     padding-bottom: 0;
-    font-size: 20px;
+    font-size: 28px;
+    font-weight:bold
 }
 
 .session-form-container a.logo {
@@ -147,9 +160,9 @@
 }
 
 .session-form-container .logo img {
-    width: 120px;
+    width: 158px;
     height: auto;
-    margin-top: -31px;
+    margin-top: -42px;
     margin-left: -5px;
 }
 
@@ -157,10 +170,11 @@
     display: flex;
     box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);;
     flex-direction: column;
-    align-items: center;
-    width: 400px;
+    align-items: flex-start;
+    width: 294px;
     min-height: 300px;
     border: thin solid lightgrey;
+    padding: 20px 26px;
 }
 
 header {
@@ -216,4 +230,56 @@ input:focus {
     height: 100vh;
     width: 100vw;
     background-color: whitesmoke;
+}
+
+.create-account-button-container {
+    margin-top: 30px;
+    border-top: rgb(233, 230, 230) solid;
+}
+
+.create-account-button-container p{
+    margin-top: -11px;
+    background-color: white;
+    padding: 0px 10px;
+    color: gray;
+    font-size:13px;
+}
+
+.create-account-button {
+    text-align: center;
+    height: 21px;
+    border: 1px solid #8d9096;
+    // padding: 8px 20px;
+    text-decoration:none;
+    border-radius:4px;
+    cursor:pointer;
+    box-shadow: .1px .1px .1px rgba(235, 144, 92, 0.089);
+    display: block;
+    margin: 40px 0px;
+    cursor: pointer;
+    outline: 0;
+    color: black;
+    font-size: 13px;
+    width: 352px;
+    background: #e7e9ec;
+    background: linear-gradient(0deg, #e7e9ec 0%, #fcfcfd 100%);
+    padding-top: 8px;
+}
+
+.text-small {
+    font-size: 12px;
+    margin: 4px 0px;
+}
+
+.text-medium { 
+    font-size: 13px
+}
+
+.signup-form-footer {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: rgb(233, 230, 230) solid;
+}
+.text-medium svg {
+    height: 8px;
 }

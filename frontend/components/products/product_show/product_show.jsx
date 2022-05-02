@@ -13,16 +13,16 @@ import { formatPrice } from '../../../util/formatting_util'
 const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCartItem, updateCartItem, tempCart, updateTempCart, openModal, history}) => {
     
     useEffect( () => {
-        fetchProduct(match.params.productId)
+        if (!product) fetchProduct(match.params.productId)
         window.scrollTo(0, 0)
     },[])
 
-    // useEffect( () => {
-    //     if(!product ){
-    //         fetchProduct(match.params.productId)
-    //     } 
-    //     window.scrollTo(0, 0)
-    // },[product])
+    useEffect( () => {
+        if(!product ){
+            fetchProduct(match.params.productId)
+        } 
+        window.scrollTo(0, 0)
+    },[product])
 
 
     const parseString = (fieldString = "") => {

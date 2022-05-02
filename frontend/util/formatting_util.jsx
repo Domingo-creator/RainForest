@@ -59,7 +59,6 @@ export const formatDeliveryDateLong = (product, deliveryDelay = product.id * 5 %
     deliveryDate[0] = getVerboseDay(deliveryDate[0])
     deliveryDate[1] = getVerboseMonth(deliveryDate[1])
     deliveryDate[0] += ','
-    debugger
     return deliveryDate.slice(0, 3).join(' ') 
 }
 

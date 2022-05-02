@@ -18,7 +18,6 @@ const BuyNow = ({product}) => {
 }
 
 const BuyNowModal = ({modal, product, closeModal}) => {
-    debugger
     if(modal !== 'buy_now' ) return null;
 
     return (

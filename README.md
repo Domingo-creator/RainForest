@@ -1,7 +1,7 @@
 # Welcome to RainForest
 RainForest is an amazon clone, where you can shop and search for all your needs.
 
-LIVE-LINK: https://rainforest-amazon-clone.herokuapp.com/#/products
+LIVE-LINK: https://rainforest-amazon-clone.herokuapp.com/#/
 
 ![alt text](https://github.com/Domingo-creator/RainForest/blob/master/app/assets/images/main_page_screenshot.png) 
 

@@ -1,9 +1,9 @@
+![alt text](https://github.com/Domingo-creator/RainForest/blob/master/app/assets/images/main_page_screenshot.png) 
+
 # Welcome to RainForest
 RainForest is a full-stack web application that replicates the primary features of **_amazon.com_**.  Users can browse a vast collection of products through the use of various filtering options. Users can add products to their personal cart and checkout items in thier cart when they are finished.  
 
 LIVE-LINK: https://rainforest-amazon-clone.herokuapp.com/#/
-
-![alt text](https://github.com/Domingo-creator/RainForest/blob/master/app/assets/images/main_page_screenshot.png) 
 
 
 # Technologies Used

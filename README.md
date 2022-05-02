@@ -6,11 +6,11 @@ RainForest is a full-stack web application that replicates the primary features 
 LIVE-LINK: https://rainforest-amazon-clone.herokuapp.com/#/
 
 
-# Technologies Used
+## Technologies Used
 RainForest was constructed utilizing a combination of Ruby on Rails, Postgres, React, Redux, JavaScript, HTML, and CSS. Ruby on Rails was used to create a Model-View-Controller Architecture with Postgres used as the database. React and Redux were then incorporated to dynamically connect the backend to the frontend. AWS S3 was used to store media assets which are fetched as needed. The frontend was structured with HTML and styled with CSS.
 
 
-# Features
+## Features
 ### Products Search and Sort-by category
 Users can find by products through the use of either the search bar or category links. A dropdown menu next to the search bar allows users to filter results to the selected department. Products are fetched based on the combination of filters provided. Matching results to the current department/search-term combination will be displayed as links and updated in real time.  Selected filters will be saved on reload through the use of sessionStorage.  
 ![rainforest_search](https://user-images.githubusercontent.com/59151493/166298514-37f8a4fb-4f52-4fe7-8722-4bba67765f78.gif)

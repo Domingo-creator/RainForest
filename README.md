@@ -49,8 +49,40 @@ Users can add, update quantities, and delete products from their cart.  If not l
       createCartItem(userId, cartItem).then( () => openModal('addToCartConfirm'));
   }
   sessionStorage.setItem('newCartItem', JSON.stringify({image_url: product.image_url}))
-  .....
+```
+
+```
+const mergeTempCart = () => {
+for(let i = 0; i < tempCart.length; i++ ) {
+    let matchingCartItem = findMatchingCartItem(tempCart[i]);
+    if(matchingCartItem) {
+        matchingCartItem.quantity += tempCart[i].quantity
+        totalMergedToCart.current += tempCart[i].quantity
+        updateCartItem(matchingCartItem)
+    } else {
+        tempCart[i].userId = userId
+        totalMergedToCart.current += tempCart[i].quantity
+        createCartItem(userId, tempCart[i])
+    }
+}
+if(tempCart.length) openModal('cartMergedNotice')
+updateTempCart([])
+}
 ```
 
 ### Leave Reviews
 Users can leave reviews for products.  Reviews for any given product are averaged to give the star rating for the product.
+```
+<label>
+    {rating >= 1 ? fullStar() : emptyStar()}
+    {radioInput(1)}
+</label>
+<label>
+    {rating >= 2 ? fullStar() : emptyStar()}
+    {radioInput(2)}
+</label>
+```
+
+```
+
+```

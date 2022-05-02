@@ -19,6 +19,7 @@ LIVE-LINK: https://rainforest-amazon-clone.herokuapp.com/#/
 # Features
 ### Products Search and Sort-by category
 Users can select a department from the drop down menu, or click one of the department links to add a category filter to the product search.  Users can also type a search term into the search bar to filter for products that contain the search term in their name within the selected department.
+![rainforest_search](https://user-images.githubusercontent.com/59151493/166298514-37f8a4fb-4f52-4fe7-8722-4bba67765f78.gif)
 
 ```
   useEffect( () => {
@@ -75,6 +76,9 @@ updateTempCart([])
 
 ### Leave Reviews
 Users can leave reviews for products.  Reviews for any given product are averaged to give the star rating for the product.
+
+![rainforest_reviews](https://user-images.githubusercontent.com/59151493/166301291-4ba76ff8-c7c3-46fb-988d-b97fd63b54bc.gif)
+
 ```
 <div onChange={updateRating} className="review-form-rating">
   <label>

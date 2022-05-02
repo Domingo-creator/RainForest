@@ -79,7 +79,7 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                         
                     </div>
                 </div>
-                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} formatPrice={formatPrice} cartItems={cartItems} updateCartItem={updateCartItem} history={history} tempCart={tempCart} updateTempCart={updateTempCart} openModal={openModal}/>
+                <ProductPurchaseWindow userId={userId} product={product} createCartItem={createCartItem} cartItems={cartItems} updateCartItem={updateCartItem} history={history} tempCart={tempCart} updateTempCart={updateTempCart} openModal={openModal}/>
             </section>
             <div className="product-description main-product-subsection">
                 <h1>Description</h1>
@@ -94,12 +94,12 @@ const ProductShow = ({userId, match, product, cartItems, fetchProduct, createCar
                 <div>
                     <ul>
                         {Object.keys(formattedProductDetails).map( (detailKey, index ) => 
-                            <li key="index">{detailKey}</li>
+                            <li key={index}>{detailKey}</li>
                         )}
                     </ul>
                     <ul>
                         {Object.values(formattedProductDetails).map( (detailValue, index) => 
-                            <li key="index">{detailValue}</li>
+                            <li key={index}>{detailValue}</li>
                         )}
                     </ul>
                 </div>

@@ -36,8 +36,6 @@ export const formatCheckoutPrice = (price) => {
     )
 }
 
-
-
 export const getNextDeliveryTime = () => {
     let deliveryTime = new Date
     deliveryTime.getMinutes()
@@ -125,3 +123,4 @@ const getVerboseMonth = (month) => {
             return month
     }
 }
+

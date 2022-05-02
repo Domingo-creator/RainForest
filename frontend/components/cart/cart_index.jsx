@@ -7,7 +7,7 @@ import {withRouter} from "react-router"
 // import CartItemIndex from "./cart_item_index"
 
 
-const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId, tempCart, setTempCart, cartItemsSelected, setCartItemsSelected, history}) => {
+const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, userId, tempCart, updateTempCart, cartItemsSelected, setCartItemsSelected, history}) => {
     const [checkedOut, setCheckout] = useState(false);
 
     useEffect( () => {
@@ -32,11 +32,11 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
     const cartItemList = () => {
         if(userId && cartItems.length) {
             return cartItems.map( (cartItem,index) => 
-                <CartIndexItem key={cartItem.id} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
+                <CartIndexItem key={cartItem.id} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem} tempCart={tempCart} updateTempCart={updateTempCart}/>
             )
         } else if(tempCart) {
             return tempCart.map( (cartItem, index) => 
-                <CartIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem}/>
+                <CartIndexItem key={index} index={index} cartItem={cartItem} removeCartItem={removeCartItem} cartItemsSelected={cartItemsSelected} setCartItemsSelected={setCartItemsSelected} updateCartItem={updateCartItem} tempCart={tempCart} updateTempCart={updateTempCart}/>
             )
 
         } else {
@@ -51,7 +51,7 @@ const CartIndex = ({cartItems, fetchCartItems, removeCartItem, updateCartItem, u
 
 
     const checkAllSelected = () => {
-            return (Object.keys(cartItemsSelected).length === cartItems.length || (tempCart.length && Object.keys(cartItemsSelected).length === tempCart.length)) 
+            return ((cartItems.length && Object.keys(cartItemsSelected).length === cartItems.length) || (tempCart.length && Object.keys(cartItemsSelected).length === tempCart.length)) 
             && Object.values(cartItemsSelected).every( value => value === true)
     }
     

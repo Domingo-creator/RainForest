@@ -1,8 +1,12 @@
 import React, { useState } from "react"
 import {Link} from 'react-router-dom'
-import { formatDeliveryDateShort, getNextDeliveryTime } from "../../../util/formatting_util"
+import { formatDeliveryDateShort, getNextDeliveryTime, formatPrice } from "../../../util/formatting_util"
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
+import { createCartItem, updateCartItem } from "../../../actions/cart_item_actions"
+import { openModal } from "../../../actions/modal_actions"
 
-const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, formatPrice, cartItems, tempCart, updateTempCart, history}) => {
+const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem, cartItems, tempCart, updateTempCart, openModal, history}) => {
 
     const [quantity, setQuantity] = useState('1')
 
@@ -23,12 +27,13 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
         let cartItem = Object.assign( {}, {userId: userId, productId: product.id, quantity: parseInt(quantity)})
         if(userId) {
             let matchingCartItem = findMatchingCartItem(cartItems);
-            if(findMatchingCartItem(cartItems)) {
+            if(matchingCartItem) {
                 matchingCartItem.quantity = matchingCartItem.quantity + parseInt(quantity)
-                updateCartItem(matchingCartItem)
+                updateCartItem(matchingCartItem).then( () => openModal('addToCartConfirm'))
             } else {
-                createCartItem(userId, cartItem);
+                createCartItem(userId, cartItem).then( () => openModal('addToCartConfirm'));
             }
+            sessionStorage.setItem('newCartItem', JSON.stringify({image_url: product.image_url}))
         } else {
             let updatedTempCart = tempCart.slice()
             let matchingCartItem = findMatchingCartItem(updatedTempCart)
@@ -39,13 +44,27 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
                 cartItem.price = product.price
                 cartItem.image_url = product.image_url
                 updatedTempCart.push(cartItem)
-                // createNoUserCartItem(cartItem)
             }
            updateTempCart(updatedTempCart)
+           sessionStorage.setItem('newCartItem', JSON.stringify({image_url: product.image_url}))
+           openModal('addToCartConfirm')
         }
     }
 
-    const handleBuyNow = () => {
+    const handleBuyNow = () => { 
+        if(userId) {
+            let cartItem = Object.assign( {}, {userId: userId, productId: product.id, quantity: parseInt(quantity)})
+            sessionStorage.setItem('cartItemsSelected', JSON.stringify({[product.id]: true}))
+            let matchingCartItem = findMatchingCartItem(cartItems);
+            if(findMatchingCartItem(cartItems)) {
+                matchingCartItem.quantity = matchingCartItem.quantity + parseInt(quantity)
+                updateCartItem(matchingCartItem).then( () => history.push(`/cart/checkout/${product.id}`))
+            } else {
+                createCartItem(userId, cartItem).then( () => history.push(`/cart/checkout/${product.id}`));
+            }
+        } else {
+            history.push('../login')
+        }
     }
 
     return (
@@ -78,37 +97,31 @@ const ProductPurchaseWindow = ({userId, product, createCartItem, updateCartItem,
             </select>
 
             <button onClick={handleAddToCart} className="add-to-cart-button">Add to Cart</button>
-            <button onClick={() => history.push(`/cart/checkout/${product.id}`)} className="buy-now-button">Buy Now</button>
+            <button onClick={handleBuyNow} className="buy-now-button">Buy Now</button>
             {/* <Link to={`/cart/checkout/${product.id}`} className="buy-now-button">Buy Now</Link> */}
         </div>
     )
 }
 
-export default ProductPurchaseWindow
+// export default ProductPurchaseWindow
 
-// import { connect } from "react-redux"
-// import { withRouter } from "react-router-dom"
-// import { createCartItem, updateCartItem } from "../../../../actions/cart_item_actions"
-// import { openModal } from "../../../../actions/modal_actions"
+
 // import ProductPurchaseWindow from "./product_purchase_window"
 
-// const mapStateToProps = (state, ownProps) => {
-//     return {
-//         userId: state.session.id,
-//         product: state.entities.product[ownProps.match.params.productId],
-//         cartItems: state.entitites.cartItems
-//     }
-// }
+const mapStateToProps = (state, ownProps) => {
+    return {
+        userId: state.session.id,
+        product: state.entities.products[ownProps.match.params.productId],
+        cartItems: Object.values(state.entities.cart_items)
+    }
+}
 
-// const mapDispatchToProps = dispatch => {
-//     debugger
-//     return {
-//         createCartItem: (userId, cartItem) => dispatch(createCartItem(userId, cartItem)),
-//         updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem)), 
-//         createNoUserCartItem: product => dispatch(createNoUserCartItem(product)),
-//         openModal: (modal) => dispatch(openModal(modal))
+const mapDispatchToProps = dispatch => {
+    return {
+        createCartItem: (userId, cartItem) => dispatch(createCartItem(userId, cartItem)),
+        updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem)), 
+        openModal: (modal) => dispatch(openModal(modal))
+    }
+}
 
-//     }
-// }
-
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductPurchaseWindow))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductPurchaseWindow))

@@ -8,7 +8,7 @@ const Logo = ({setSearchText,closeModal}) => {
     const clearSearchText = () => {
         sessionStorage.removeItem('searchText')
         closeModal();
-        setSearchText('')
+        setSearchText ? setSearchText('') : null
     }
 
     return (

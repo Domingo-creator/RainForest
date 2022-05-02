@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom';
 import NavBelt from './navigation_bar/navigation_bar';
 import ProductIndex from "./products/product_index/product_index"
@@ -8,11 +8,17 @@ import HomePage from './home_page/homepage';
 import Results from './navigation_bar/search_bar/results';
 import Logo from './navigation_bar/logo';
 import Cart from './cart/cart'
+// import { fetchCartItems } from '../actions/cart_item_actions';
+import { connect } from 'react-redux';
 
-const MainPage = ({history}) => {
+const MainPage = ({}) => {
+// const MainPage = ({currentUserId, cartItems, fetchCartItems}) => {
 
     const [filter, setFilter] = useState(sessionStorage.getItem('filter') ? JSON.parse(sessionStorage.getItem('filter')) : {department:'All Departments', searchText:''});
     const [tempCart, setTempCart] = useState(sessionStorage.getItem('cart') ? JSON.parse(sessionStorage.getItem('cart')) : []);
+    // useEffect( () => {
+    //     fetchCartItems(currentUserId)
+    // }, [])
 
     const updateTempCart = (newTempCart) => {
         setTempCart(newTempCart)
@@ -66,4 +72,18 @@ const MainPage = ({history}) => {
     )
 }
 
-export default withRouter(MainPage);
+
+const mapStateToProps = state =>  {
+    return {
+        // currentUserId: state.session.id,
+        // cartItems: state.entities.cart_items ? Object.values(state.entities.cart_items) : [] 
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        // fetchCartItems: dispatch(fetchCartItems(currentUserId))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MainPage);

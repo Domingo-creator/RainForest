@@ -16,8 +16,8 @@ const CartCheckout = ({currentUserId, setCartItemsSelected, cartItemsSelected, c
     const [paymentMethod, setPaymentMethod] = useState(sessionStorage.getItem('paymentMethod') ? JSON.parse(sessionStorage.getItem('paymentMethod')) : undefined);
 
     useEffect( () => {
-        if(currentUserId) fetchCartItems(currentUserId)
-        if(!Object.keys(cartItemsSelected).length) setCartItemsSelected(JSON.parse(sessionStorage.getItem('cartItemsSelected'))) 
+        // if(currentUserId) fetchCartItems(currentUserId)
+        if(!Object.keys(cartItemsSelected).length) setCartItemsSelected(JSON.parse(sessionStorage.getItem('cartItemsSelected')))
     },[])
 
     const calcSubtotal = () => {
@@ -134,7 +134,7 @@ const CartCheckout = ({currentUserId, setCartItemsSelected, cartItemsSelected, c
 
 ////// CONTAINER ///////  
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 
     return {
         cartItems: state.entities.cart_items ? Object.values(state.entities.cart_items) : [],
@@ -144,7 +144,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
+        // fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
         removeCartItem: (userId, cartItemId) => dispatch(removeCartItem(userId, cartItemId)),
         openModal: (modal) => dispatch(openModal(modal))
     }

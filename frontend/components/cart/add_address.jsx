@@ -15,9 +15,17 @@ const AddAddress = ({currentUser, closeModal, history, address, setAddress}) => 
     const [state, setState] = useState(address?.state || '')
     const [zipcode, setZipcode] = useState(address?.zipcode || '')
 
+
+
     const handleSubmit = (e) => {
         sessionStorage.setItem('address', JSON.stringify({country: country, fullName:fullName, phoneNumber: phoneNumber, address1: address1, address2: address2, city: city, state: state, zipcode: zipcode}))
         setAddress({country, fullName, phoneNumber, address1, address2, city, state, zipcode})
+        closeModal()
+    }
+
+    const useDummyAddress = () => {
+        sessionStorage.setItem('address', JSON.stringify({country: 'United States', fullName: 'Sir Demo of Demoville', phoneNumber:'555-555-5555', address1: '1234 Testing', address2:'Apt 5', city: 'Demoville', state:'CA', zipcode:'12345'}))
+        setAddress({country: 'United States', fullName: 'Sir Demo of Demoville', phoneNumber:'555-555-5555', address1: '1234 Testing', address2:'Apt 5', city: 'Demoville', state:'CA', zipcode:'12345'})
         closeModal()
     }
 
@@ -58,6 +66,7 @@ const AddAddress = ({currentUser, closeModal, history, address, setAddress}) => 
                     </label>   
                 </div>
                 <button>Use this address</button>
+                <button type='button' onClick={useDummyAddress}>Use Demo Address</button>
             </body>
         </form>
     )

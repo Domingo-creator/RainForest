@@ -14,18 +14,17 @@ const AddPayment = ({currentUser, closeModal, history, paymentMethod, setPayment
     const [CCV, setCCV] = useState(paymentMethod?.ccv || '')
     const [cardType, setCardType] = useState(paymentMethod?.cardType || 'Visa')
 
-    const [country, setCountry] = useState(address?.country || 'United States')
-    const [fullName, setFullName] = useState(address?.fullName || '')
-    const [phoneNumber, setPhoneNumber] = useState(address?.phoneNumber || '')
-    const [address1, setAddress1] = useState(address?.paymentMethod1 || '')
-    const [address2, setAddress2] = useState(address?.paymentMethod2 || '')
-    const [city, setCity] = useState(address?.city || '')
-    const [state, setState] = useState(address?.state || '')
-    const [zipcode, setZipcode] = useState(address?.zipcode || '')
+   
 
     const handleSubmit = (e) => {
         sessionStorage.setItem('paymentMethod', JSON.stringify({cardNumber: cardNumber, nameOnCard:nameOnCard, expirationMonth: expirationMonth, expirationYear: expirationYear, cardType: cardType, CCV: CCV}))
         setPaymentMethod({cardNumber, nameOnCard, expirationMonth, expirationYear, cardType, CCV})
+        closeModal()
+    }
+
+    const useDummyPaymentMethod = () => {
+        sessionStorage.setItem('paymentMethod', JSON.stringify({cardNumber: '0123456789123456', nameOnCard: 'Sir Demo of Demoville', expirationMonth:'12', expirationYear: '2025', cardType:'VISA', CCV: '123'}))
+        setPaymentMethod({cardNumber: '0123456789123456', nameOnCard: 'Sir Demo of Demoville', expirationMonth:'12', expirationYear: '2025', cardType:'VISA', CCV: '123'})
         closeModal()
     }
 
@@ -80,6 +79,7 @@ const AddPayment = ({currentUser, closeModal, history, paymentMethod, setPayment
             <header>
                 <button type='button' onClick={() => closeModal()}>Cancel</button>
                 <button type='submit'>Add your card</button>
+                <button type='button' onClick={useDummyPaymentMethod}>Use Demo Credit Card</button>
             </header>
         </form>
     )

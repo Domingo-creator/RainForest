@@ -1,27 +1,46 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
-import { createCartItem, createNoUserCartItem, fetchCartItems } from "../../../actions/cart_item_actions"
-import { closeModal } from '../../../actions/modal_actions'
+import { createCartItem, fetchCartItems, updateCartItem } from "../../../actions/cart_item_actions"
+import { closeModal, openModal } from '../../../actions/modal_actions'
+import AddToCartConfirm from './add_to_cart_confirm'
+import CartMergedNotice from './cart_merged_notice'
 
- const CartIcon = ({userId, cartItems, createCartItem, fetchCartItems, tempCart, updateTempCart, sessionStorageUpdate, closeModal}) => {
-    const [storageUpdate, setStoragetUpdate] = useState(sessionStorageUpdate)
+ const CartIcon = ({userId, cartItems, createCartItem, updateCartItem, fetchCartItems, tempCart, updateTempCart, openModal, closeModal}) => {
 
+   const totalMergedToCart = useRef(0)
    
     useEffect( () => {
-        if(userId) fetchCartItems(userId) 
+        if(userId) {
+            fetchCartItems(userId).then(() => mergeTempCart())
+        } 
     },[])
 
-    //Merge Temp Cart on Log In
-    if(tempCart.length && userId) {
-        debugger
-        tempCart.forEach( cartItem => {
-            cartItem.userId = userId
-            createCartItem(userId, cartItem)
-        })
+    const mergeTempCart = () => {
+        for(let i = 0; i < tempCart.length; i++ ) {
+            let matchingCartItem = findMatchingCartItem(tempCart[i]);
+            if(matchingCartItem) {
+                matchingCartItem.quantity += tempCart[i].quantity
+                totalMergedToCart.current += tempCart[i].quantity
+                updateCartItem(matchingCartItem)
+            } else {
+                tempCart[i].userId = userId
+                totalMergedToCart.current += tempCart[i].quantity
+                createCartItem(userId, tempCart[i])
+            }
+        }
+        if(tempCart.length) openModal('cartMergedNotice')
         updateTempCart([])
     }
 
+    const findMatchingCartItem = (tempCartItem) => {
+        for(let i = 0; i < cartItems.length; i++) {
+            if(cartItems[i].productId === tempCartItem.productId) {
+                return cartItems[i]
+            }
+        }
+        return null
+    }
 
     const cartItemCount = () => {
         let count = 0;
@@ -42,7 +61,8 @@ import { closeModal } from '../../../actions/modal_actions'
                 </div>
                     <p className="cart-icon-words">cart</p>
             </Link>
-            
+            <AddToCartConfirm tempCart={tempCart} />
+            <CartMergedNotice totalMergedToCart={totalMergedToCart}/>
         </div>
     )
 
@@ -62,8 +82,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         createCartItem: (userId, product) => dispatch(createCartItem(userId, product)),
+        updateCartItem: (userId, cartItem) => dispatch(updateCartItem(userId, cartItem)),
         fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        openModal: (modal) => dispatch(openModal(modal))
     }
 }
 

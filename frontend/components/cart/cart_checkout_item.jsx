@@ -55,7 +55,7 @@ const CartCheckoutItem = ({checkoutItem, updateCartItem, removeCartItem}) => {
 
 ////// CONTAINER ///////
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
     }
 }

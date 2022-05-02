@@ -8,12 +8,13 @@ import { formatCartPrice } from '../../util/formatting_util'
 const CartIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsSelected, setCartItemsSelected, tempCart, updateTempCart}) => {
     
     const handleDelete = () => {
+        // debugger
         if(cartItem.userId) {
             removeCartItem(cartItem.userId, cartItem.id)
         } else {
-            let updatedTempCart = Object.assign({}, tempCart)
+            let updatedTempCart = Object.values(Object.assign({}, tempCart))
             for(let i = 0; i < updatedTempCart.length; i++) {
-                if (updateTempCart[i].productId === cartItem.productId) {
+                if (updatedTempCart[i].productId === cartItem.productId) {
                     updateTempCart(updatedTempCart.slice(0, i).concat(updatedTempCart.slice(i + 1)))
                     break;
                 }
@@ -35,7 +36,7 @@ const CartIndexItem = ({cartItem, removeCartItem, updateCartItem, cartItemsSelec
             updatedCartItem.quantity = parseInt(e.target.value)
             updateCartItem(updatedCartItem);
         } else {
-            let updatedTempCart = Object.assign({}, tempCart)
+            let updatedTempCart = Object.values(Object.assign({}, tempCart))
 
             for(let i = 0; i < updatedTempCart.length; i++) {
                 if (updatedTempCart[i].productId === cartItem.productId) {

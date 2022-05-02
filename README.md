@@ -73,16 +73,15 @@ updateTempCart([])
 ### Leave Reviews
 Users can leave reviews for products.  Reviews for any given product are averaged to give the star rating for the product.
 ```
-<label>
-    {rating >= 1 ? fullStar() : emptyStar()}
-    {radioInput(1)}
-</label>
-<label>
-    {rating >= 2 ? fullStar() : emptyStar()}
-    {radioInput(2)}
-</label>
+<div onChange={updateRating} className="review-form-rating">
+  <label>
+      {rating >= 1 ? fullStar() : emptyStar()}
+      {radioInput(1)}
+  </label>
+  <label>
+      {rating >= 2 ? fullStar() : emptyStar()}
+      {radioInput(2)}
+  </label>
+  <label>.....
 ```
 
-```
-
-```
